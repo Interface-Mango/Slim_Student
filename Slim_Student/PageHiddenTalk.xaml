@@ -18,6 +18,6 @@
         <Canvas x:Name="HiddenTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF94EA8B" Margin="0,0,0,0">
             <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="127.5" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
-        <Canvas x:Name="MainGrid" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB"/>
+        <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB"/>
     </Grid>
 </Page>

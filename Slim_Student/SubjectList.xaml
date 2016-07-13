@@ -33,7 +33,7 @@
             </StackPanel>
         </Canvas>
         <Canvas Margin="220,40,0,0">
-            <Canvas x:Name="Title"
+            <Canvas x:Name="SubjectListTitle"
                 Width="972"
                 Height="40"
                 HorizontalAlignment="Left"

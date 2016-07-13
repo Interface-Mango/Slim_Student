@@ -57,6 +57,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialogNotice.xaml.cs">
+      <DependentUpon>DialogNotice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageHiddenTalk.xaml.cs">
       <DependentUpon>PageHiddenTalk.xaml</DependentUpon>
     </Compile>
@@ -74,9 +77,6 @@
     </Compile>
     <Compile Include="PageSignalLightMonitor.xaml.cs">
       <DependentUpon>PageSignalLightMonitor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ShowNotice.xaml.cs">
-      <DependentUpon>ShowNotice.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubjectList.xaml.cs">
       <DependentUpon>SubjectList.xaml</DependentUpon>
@@ -116,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="DialogNotice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageHiddenTalk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,10 +151,6 @@
     <Page Include="PageSignalLightMonitor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShowNotice.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="SubjectList.xaml">
       <Generator>MSBuild:Compile</Generator>

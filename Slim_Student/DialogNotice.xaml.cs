@@ -10,25 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Slim_Student
 {
     /// <summary>
-    /// PageNotice.xaml에 대한 상호 작용 논리
+    /// DialogNotice.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PageNotice : Page
+    public partial class DialogNotice : Window
     {
-        public PageNotice()
+        public DialogNotice()
         {
             InitializeComponent();
         }
 
-        private void NoticeTitleBtn_Click(object sender, RoutedEventArgs e)
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            DialogNotice sn = new DialogNotice();
-            sn.ShowDialog();
+            this.Close();
         }
     }
 }
