@@ -57,26 +57,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HiddenTalkPage.xaml.cs">
-      <DependentUpon>HiddenTalkPage.xaml</DependentUpon>
+    <Compile Include="PageHiddenTalk.xaml.cs">
+      <DependentUpon>PageHiddenTalk.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NoticePage.xaml.cs">
-      <DependentUpon>NoticePage.xaml</DependentUpon>
+    <Compile Include="PageMainSubject.xaml.cs">
+      <DependentUpon>PageMainSubject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QnAPage.xaml.cs">
-      <DependentUpon>QnAPage.xaml</DependentUpon>
+    <Compile Include="PageMyQuestion.xaml.cs">
+      <DependentUpon>PageMyQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageNotice.xaml.cs">
+      <DependentUpon>PageNotice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageQnA.xaml.cs">
+      <DependentUpon>PageQnA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageSignalLightMonitor.xaml.cs">
+      <DependentUpon>PageSignalLightMonitor.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowNotice.xaml.cs">
       <DependentUpon>ShowNotice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignalLightMonitorPage.xaml.cs">
-      <DependentUpon>SignalLightMonitorPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SubjectList.xaml.cs">
       <DependentUpon>SubjectList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyQuestionPage.xaml.cs">
-      <DependentUpon>MyQuestionPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -113,9 +116,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="HiddenTalkPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="PageHiddenTalk.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -125,27 +128,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NoticePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="PageMainSubject.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QnAPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="PageMyQuestion.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageNotice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageQnA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageSignalLightMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ShowNotice.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SignalLightMonitorPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="SubjectList.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MyQuestionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

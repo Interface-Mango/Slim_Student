@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,23 +17,19 @@ using System.Windows.Shapes;
 namespace Slim_Student
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// PageNotice.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageNotice : Page
     {
-        public MainWindow()
+        public PageNotice()
         {
             InitializeComponent();
         }
 
-		// 로그인 버튼 누를시에 호출되는 함수
-		// 기존의 로그인창을 '일단' 숨겨놓고 메인프레임 호출
-		// 메인프레임에서 로그인창을 닫아준다
-        private void loginBtnClick(object sender, System.Windows.RoutedEventArgs e)
+        private void NoticeTitleBtn_Click(object sender, RoutedEventArgs e)
         {
-        	MainFrame mf = new MainFrame();
-			Hide();
-			mf.ShowDialog();
+            ShowNotice sn = new ShowNotice();
+            sn.ShowDialog();
         }
     }
 }

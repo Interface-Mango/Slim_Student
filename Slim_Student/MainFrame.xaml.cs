@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 
-namespace Slim_professor
+namespace Slim_Student
 {
 	/// <summary>
 	/// MainFrame.xaml에 대한 상호 작용 논리

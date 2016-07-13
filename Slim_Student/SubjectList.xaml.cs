@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Slim_professor
+namespace Slim_Student
 {
 	public partial class SubjectList
 	{
@@ -18,14 +18,11 @@ namespace Slim_professor
 		public SubjectList()
 		{
 			this.InitializeComponent();
-            
 		}
 
-		private void StartBtnClick(object sender, System.Windows.RoutedEventArgs e)
-		{
-            NavigationService.Navigate(new Uri("NoticePage.xaml", UriKind.Relative));
-		}
-
-
+        private void SubStartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("PageMainSubject.xaml", UriKind.Relative));
+        }
 	}
 }
