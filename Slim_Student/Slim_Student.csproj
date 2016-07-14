@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -57,6 +58,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DBManager.cs" />
+    <Compile Include="DB_User.cs" />
     <Compile Include="DialogNotice.xaml.cs">
       <DependentUpon>DialogNotice.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,8 @@
     <Compile Include="SubjectList.xaml.cs">
       <DependentUpon>SubjectList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModelLoginWindow.cs" />
+    <Compile Include="ViewModelMainSubject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginWindow.xaml.cs">
@@ -165,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\smallmango.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMBase\MVVMBase.csproj">
+      <Project>{3118c2d5-c6e6-48a2-8b34-ecf80efa987b}</Project>
+      <Name>MVVMBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

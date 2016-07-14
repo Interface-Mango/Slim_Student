@@ -23,16 +23,11 @@ namespace Slim_Student
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModelLoginWindow(this);
         }
 
 		// 로그인 버튼 누를시에 호출되는 함수
 		// 기존의 로그인창을 '일단' 숨겨놓고 메인프레임 호출
 		// 메인프레임에서 로그인창을 닫아준다
-        private void loginBtnClick(object sender, System.Windows.RoutedEventArgs e)
-        {
-        	MainFrame mf = new MainFrame();
-			Hide();
-			mf.ShowDialog();
-        }
     }
 }

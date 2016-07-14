@@ -23,31 +23,32 @@ namespace Slim_Student
         public PageMainSubject()
         {
             InitializeComponent();
+            DataContext = new ViewModelMainSubject();
         }
 
         private void SignalLightMonitorBtn_Click(object sender, RoutedEventArgs e)
         {
-            FramePanel.Source = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
+            //FramePanel.Source = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
         }
 
         private void HiddenTalkBtn_Click(object sender, RoutedEventArgs e)
         {
-            FramePanel.Source = new Uri("PageHiddenTalk.xaml", UriKind.Relative);
+            //FramePanel.Source = new Uri("PageHiddenTalk.xaml", UriKind.Relative);
         }
 
         private void MyQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-            FramePanel.Source = new Uri("PageMyQuestion.xaml", UriKind.Relative);
+            //FramePanel.Source = new Uri("PageMyQuestion.xaml", UriKind.Relative);
         }
 
         private void QnABtn_Click(object sender, RoutedEventArgs e)
         {
-            FramePanel.Source = new Uri("PageQnA.xaml", UriKind.Relative);
+            //FramePanel.Source = new Uri("PageQnA.xaml", UriKind.Relative);
         }
 
         private void NoticeBtn_Click(object sender, RoutedEventArgs e)
         {
-            FramePanel.Source = new Uri("PageNotice.xaml", UriKind.Relative);
+            //FramePanel.Source = new Uri("PageNotice.xaml", UriKind.Relative);
         }
 
     }
