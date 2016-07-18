@@ -22,7 +22,7 @@ namespace Slim_Student
 
         private void SubStartBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("PageMainSubject.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("View/PageMainSubject.xaml", UriKind.Relative));
         }
 	}
 }

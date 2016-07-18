@@ -58,40 +58,41 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBManager.cs" />
-    <Compile Include="DB_User.cs" />
-    <Compile Include="DialogNotice.xaml.cs">
+    <Compile Include="Model\DBManager.cs" />
+    <Compile Include="Model\DB_User.cs" />
+    <Compile Include="ViewModel\ViewModelSubjectList.cs" />
+    <Compile Include="View\DialogNotice.xaml.cs">
       <DependentUpon>DialogNotice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageHiddenTalk.xaml.cs">
+    <Compile Include="View\PageHiddenTalk.xaml.cs">
       <DependentUpon>PageHiddenTalk.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageMainSubject.xaml.cs">
+    <Compile Include="View\PageMainSubject.xaml.cs">
       <DependentUpon>PageMainSubject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageMyQuestion.xaml.cs">
+    <Compile Include="View\PageMyQuestion.xaml.cs">
       <DependentUpon>PageMyQuestion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageNotice.xaml.cs">
+    <Compile Include="View\PageNotice.xaml.cs">
       <DependentUpon>PageNotice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageQnA.xaml.cs">
+    <Compile Include="View\PageQnA.xaml.cs">
       <DependentUpon>PageQnA.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageSignalLightMonitor.xaml.cs">
+    <Compile Include="View\PageSignalLightMonitor.xaml.cs">
       <DependentUpon>PageSignalLightMonitor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubjectList.xaml.cs">
+    <Compile Include="View\SubjectList.xaml.cs">
       <DependentUpon>SubjectList.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ViewModelLoginWindow.cs" />
     <Compile Include="ViewModel\ViewModelMainSubject.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginWindow.xaml.cs">
+    <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainFrame.xaml.cs">
+    <Compile Include="View\MainFrame.xaml.cs">
       <DependentUpon>MainFrame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -121,55 +122,55 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DialogNotice.xaml">
+    <Page Include="View\DialogNotice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageHiddenTalk.xaml">
+    <Page Include="View\PageHiddenTalk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="View\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainFrame.xaml">
+    <Page Include="View\MainFrame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PageMainSubject.xaml">
+    <Page Include="View\PageMainSubject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageMyQuestion.xaml">
+    <Page Include="View\PageMyQuestion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageNotice.xaml">
+    <Page Include="View\PageNotice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageQnA.xaml">
+    <Page Include="View\PageQnA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageSignalLightMonitor.xaml">
+    <Page Include="View\PageSignalLightMonitor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SubjectList.xaml">
+    <Page Include="View\SubjectList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\basicprofile.jpg" />
+    <Resource Include="View\Images\basicprofile.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\mangoLogo.jpg" />
+    <Resource Include="View\Images\mangoLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\smallmango.jpg" />
+    <Resource Include="View\Images\smallmango.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVVMBase\MVVMBase.csproj">
@@ -177,10 +178,7 @@
       <Name>MVVMBase</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
