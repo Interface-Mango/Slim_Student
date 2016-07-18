@@ -32,7 +32,7 @@ namespace Slim_Student
             if (result.Count == 0)
                 return null;
             else 
-                return SearchDatas(sql, args)[0];
+                return result[0];
         }
 
         public List<object[]> SearchDatas(string sql, List<object> args)

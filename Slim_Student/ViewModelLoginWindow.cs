@@ -62,6 +62,10 @@ namespace Slim_Student
             get { return _LoginCommand ?? (_LoginCommand = new AppCommand(LoginCommandFunc)); }
         }
         public static bool isLogin;
+
+        /* LoginCommandFunc
+         * 기능 : 로그인 버튼 눌렀을 때 회원검사하는 함수
+         */
         private void LoginCommandFunc(Object o)
         {
             object[] obj = dbUser.SelectUser(IDTextBox, PWBox);
@@ -72,6 +76,8 @@ namespace Slim_Student
             }                
             else
             {
+                // 기존의 로그인창을 '일단' 숨겨놓고 메인프레임 호출
+                // 메인프레임에서 로그인창을 닫아준다
                 isLogin = true;
                 MainFrame mf = new MainFrame();
                 parentWindow.Hide();

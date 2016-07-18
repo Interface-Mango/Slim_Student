@@ -16,6 +16,14 @@ namespace Slim_Student
         public Uri FrameSource
         {
             get { return _FrameSource; }
+            set
+            {
+                if (_FrameSource != value)
+                {
+                    _FrameSource = value;
+                    OnPropertyChanged("FrameSource");
+                }
+            }
         }
         #endregion
 
