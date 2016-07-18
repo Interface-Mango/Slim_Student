@@ -84,8 +84,8 @@
     <Compile Include="SubjectList.xaml.cs">
       <DependentUpon>SubjectList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModelLoginWindow.cs" />
-    <Compile Include="ViewModelMainSubject.cs" />
+    <Compile Include="ViewModel\ViewModelLoginWindow.cs" />
+    <Compile Include="ViewModel\ViewModelMainSubject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginWindow.xaml.cs">
@@ -176,6 +176,10 @@
       <Project>{3118c2d5-c6e6-48a2-8b34-ecf80efa987b}</Project>
       <Name>MVVMBase</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
