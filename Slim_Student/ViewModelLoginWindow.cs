@@ -39,21 +39,6 @@ namespace Slim_Student
         }
         #endregion
 
-        #region PWBox
-        private string _PWBox;
-        public string PWBox
-        {
-            get { return _PWBox; }
-            set
-            {
-                if (_PWBox != value)
-                {
-                    _PWBox = value;
-                    OnPropertyChanged("PWBox");
-                }
-            }
-        }
-        #endregion
 
         #region LoginCommand
         private ICommand _LoginCommand;
@@ -63,12 +48,16 @@ namespace Slim_Student
         }
         public static bool isLogin;
 
+
         /* LoginCommandFunc
          * 기능 : 로그인 버튼 눌렀을 때 회원검사하는 함수
          */
         private void LoginCommandFunc(Object o)
         {
-            object[] obj = dbUser.SelectUser(IDTextBox, PWBox);
+            object[] obj = dbUser.SelectUser(IDTextBox, MainWindow.pwText);
+
+            MainWindow.pwText = string.Empty;
+
             if (obj == null)
             {
                 isLogin = false;

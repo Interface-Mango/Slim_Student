@@ -20,10 +20,20 @@ namespace Slim_Student
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string pwText;
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new ViewModelLoginWindow(this);
+            this.PWBox.PasswordChanged += passwordBox_PasswordChanged;
         }
+
+        void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            pwText = PWBox.Password;
+        }
+
+       
     }
 }
