@@ -13,7 +13,7 @@ namespace Slim_Student
         DBManager db;
 
         public enum FIELD{
-            user_id, user_name, pw, auth, END
+            user_id, user_name, group, sub_ids, pw, auth, END
         }
 
         public DB_User(DBManager _dbm)
@@ -21,9 +21,24 @@ namespace Slim_Student
             db = _dbm;
         }
 
+
+        public object[] SelectUser(string id)
+        {
+            string sql = "SELECT * FROM user WHERE user_id=@arg1";
+            List<object> args = new List<object>();
+            args.Add(id);
+
+            List<object[]> result = SearchDatas(sql, args);
+            if (result.Count == 0)
+                return null;
+            else
+                return result[0];
+        }
+
+
         public object[] SelectUser(string id, string pw)
         {
-            string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=@arg2";
+            string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2)";
             List<object> args = new List<object>();
             args.Add(id);
             args.Add(pw);
@@ -34,6 +49,9 @@ namespace Slim_Student
             else 
                 return result[0];
         }
+
+
+
 
         public List<object[]> SearchDatas(string sql, List<object> args)
         {
@@ -65,10 +83,12 @@ namespace Slim_Student
                 }
 
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
             finally
             {
                 db.Connection.Close();

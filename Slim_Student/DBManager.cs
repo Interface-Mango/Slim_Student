@@ -16,12 +16,14 @@ namespace Slim_Student
             get { return _Connection; }
         }
 
+
         private bool _IsDBOpen;
         public bool IsDBOpen
         {
             get { return _IsDBOpen; }
 
         }
+
 
         public DBManager()
         {
@@ -38,6 +40,8 @@ namespace Slim_Student
                 _IsDBOpen = false;
                 Console.WriteLine(ex.Message);
             }
+
         }
+
     }
 }

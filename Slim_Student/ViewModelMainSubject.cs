@@ -27,6 +27,8 @@ namespace Slim_Student
         }
         #endregion
 
+
+
         #region GoSignalLight
         private ICommand _GoSignalLight;
         public ICommand GoSignalLight
@@ -40,6 +42,8 @@ namespace Slim_Student
             OnPropertyChanged("FrameSource");
         }
         #endregion
+
+
 
         #region GoHiddenTalkCommand
         private ICommand _GoHiddenTalk;
@@ -56,6 +60,8 @@ namespace Slim_Student
         }
         #endregion
 
+
+
         #region GoMyQuestion
         private ICommand _GoMyQuestion;
         public ICommand GoMyQuestion
@@ -70,6 +76,8 @@ namespace Slim_Student
         }
         #endregion
 
+
+
         #region GoQna
         private ICommand _GoQna;
         public ICommand GoQna
@@ -83,6 +91,7 @@ namespace Slim_Student
             OnPropertyChanged("FrameSource");
         }
         #endregion
+
 
         #region GoNotice
         private ICommand _GoNotice;

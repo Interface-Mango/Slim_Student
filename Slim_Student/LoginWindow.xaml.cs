@@ -34,6 +34,5 @@ namespace Slim_Student
             pwText = PWBox.Password;
         }
 
-       
     }
 }
