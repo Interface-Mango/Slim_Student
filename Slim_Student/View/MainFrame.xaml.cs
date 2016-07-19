@@ -18,11 +18,14 @@ namespace Slim_Student
 	/// </summary>
 	public partial class MainFrame : NavigationWindow
 	{
-		public MainFrame()
+        public static object[] UserInfo;
+
+		public MainFrame(object[] _userInfo)
 		{
 			this.InitializeComponent();
-		}
-		
+
+            UserInfo = _userInfo;
+		}		
 		
 		// 로그인 창과 호환되기 위한 함수
 		protected override void OnClosed(EventArgs e)

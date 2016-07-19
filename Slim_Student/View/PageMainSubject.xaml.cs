@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student
 {
@@ -20,13 +21,16 @@ namespace Slim_Student
     /// </summary>
     public partial class PageMainSubject : Page
     {
-        public PageMainSubject()
+        public PageMainSubject(object[] properties)
         {
             InitializeComponent();
 
             ViewModelMainSubject viewModelMainSubject = new ViewModelMainSubject();
             DataContext = viewModelMainSubject;
             viewModelMainSubject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
+
+            SubName.Text = properties[1].ToString();
         }
+
     }
 }

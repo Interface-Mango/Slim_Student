@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using Slim_Student.Model;
 
-namespace Slim_Student
+namespace Slim_Student.ViewModel
 {
     class ViewModelLoginWindow : ViewModelBase
     {
@@ -78,8 +79,9 @@ namespace Slim_Student
             {
                 // 기존의 로그인창을 '일단' 숨겨놓고 메인프레임 호출
                 // 메인프레임에서 로그인창을 닫아준다
+                //TODO: obj[(int)DB_User.FIELD.pw] = string.Empty;
                 isLogin = true;
-                MainFrame mf = new MainFrame();
+                MainFrame mf = new MainFrame(obj);
                 parentWindow.Hide();
                 mf.ShowDialog();
             }

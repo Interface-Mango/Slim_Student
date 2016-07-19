@@ -4,42 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using MySql.Data.Types;
 
 namespace Slim_Student.Model
 {
-    class DB_User
+    class DB_Subject
     {
         DBManager db;
 
         public enum FIELD{
-            user_id, user_name, group, sub_ids, pw, auth, END
+            sub_id, sub_name, lectureler_id, time, location, END
         }
 
-        public DB_User(DBManager _dbm)
+        public DB_Subject(DBManager _dbm)
         {
             db = _dbm;
         }
 
-        public object[] SelectUser(string id)
+        public object[] SelectSubjectListForStudent(int sub_id)
         {
-            string sql = "SELECT * FROM user WHERE user_id=@arg1";  
+            string sql = "SELECT * FROM subject WHERE sub_id=@arg1";   
             List<object> args = new List<object>();
-            args.Add(id);
-
-            List<object[]> result = SearchDatas(sql, args);
-            if (result.Count == 0)
-                return null;
-            else
-                return result[0];
-        }
-
-        public object[] SelectUser(string id, string pw)
-        {
-            string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2)";   // DB에 password로 암호화 돼서 저장됐기 때문에 복호화로 password함수 써야한다.
-            List<object> args = new List<object>();
-            args.Add(id);
-            args.Add(pw);
+            args.Add(sub_id);
 
             List<object[]> result = SearchDatas(sql, args);
             if (result.Count == 0)
@@ -89,6 +74,5 @@ namespace Slim_Student.Model
 
             return recordList;
         }
-        
     }
 }

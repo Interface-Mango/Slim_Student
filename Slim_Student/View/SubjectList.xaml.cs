@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student
 {
@@ -18,11 +19,10 @@ namespace Slim_Student
 		public SubjectList()
 		{
 			this.InitializeComponent();
-		}
 
-        private void SubStartBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("View/PageMainSubject.xaml", UriKind.Relative));
-        }
+            ViewModelSubjectList viewModelSubjectList = new ViewModelSubjectList(this);
+            viewModelSubjectList.makeList();
+            DataContext = viewModelSubjectList;
+		}
 	}
 }

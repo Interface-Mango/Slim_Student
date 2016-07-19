@@ -1,6 +1,8 @@
 ﻿<Page x:Class="Slim_Student.SubjectList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       x:Name="Page"
       Width="1192"
       Height="669"
@@ -11,88 +13,156 @@
       WindowWidth="1200">
     <Grid x:Name="MainPanel">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Canvas Grid.Row="0" Grid.ColumnSpan="2" x:Name="TitleCanvas" Height="40" Background="#FF71C563">
-            <Image Canvas.Left="18.96" Width="39.336" Height="39.336" Source="Images/smallmango.jpg" />
-            <TextBlock Canvas.Left="60.64" Canvas.Top="1.891" Width="112.093" Height="37.445" FontSize="24" Foreground="White" Text="Slim" TextWrapping="Wrap" />
-        </Canvas>
-        <Canvas Grid.Row="1" x:Name="SubPanel">
-            <Canvas x:Name="ProfileCanvas" Width="220" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE0E4B9">
-                <Image x:Name="ProfilePicture" Canvas.Left="10" Canvas.Top="11" Width="60" Height="60" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/basicprofile.jpg" />
-                <TextBlock x:Name="ProfileGroup" Canvas.Left="75" Canvas.Top="10" Width="131" Height="26" FontSize="20" Foreground="#FF741616" Text="세종대학교" TextAlignment="Center" TextWrapping="Wrap" />
-                <TextBlock x:Name="ProfileName" Canvas.Left="75" Canvas.Top="41" Width="131" Height="26" FontSize="20" FontWeight="Bold" Foreground="#FF741616" Text="장인혁" TextAlignment="Center" TextWrapping="Wrap" />
-            </Canvas>
-            <StackPanel x:Name="MainMenu" Canvas.Top="80" Width="220" Height="549" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFBBCB8F">
-                <Button x:Name="SubListBtn" Width="220" Height="60" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Background="#FFD9EEEE" BorderBrush="{x:Null}" Content="수업리스트" FontSize="20" FontWeight="Bold" Padding="10"/>
-            </StackPanel>
-        </Canvas>
         <Canvas Margin="220,40,0,0">
             <Canvas x:Name="SubjectListTitle"
-                Width="972"
-                Height="40"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="#FFEA8B8B">
+                    Width="972"
+                    Height="40"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#FFEA8B8B">
                 <TextBlock Canvas.Left="80"
-                       Canvas.Top="10"
-                       Width="93"
-                       Height="20"
-                       VerticalAlignment="Center"
-                       FontSize="14.667"
-                       FontWeight="Bold"
-                       Text="수업리스트"
-                       TextWrapping="Wrap" />
+                           Canvas.Top="10"
+                           Width="93"
+                           Height="20"
+                           VerticalAlignment="Center"
+                           FontSize="14.667"
+                           FontWeight="Bold"
+                           Text="수업리스트"
+                           TextWrapping="Wrap" />
             </Canvas>
             <Grid x:Name="SubMainGrid"
-              Width="972"
-              Height="589"
-              Margin="0,40,0,0"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Top"
-              Background="#FFF4F5E0">
+                  Width="972"
+                  Height="589"
+                  Margin="0,40,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Background="#FFF4F5E0">
                 <Grid x:Name="SubTableGrid"
-                  Margin="150,40,150,40"
-                  Background="#4CD69595">
-                    <Canvas x:Name="canvas"
-                        Width="652"
-                        Height="55"
-                        Margin="10,78.028,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Background="#FFEAEAB7">
-                        <TextBlock x:Name="SubjectName"
-                               Canvas.Left="103.506"
-                               Canvas.Top="13.408"
-                               Width="300"
-                               Height="30"
-                               FontSize="21.333"
-                               FontWeight="Bold"
-                               Text="컴퓨터 활용 능력 1급"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap" />
-                        <Border Canvas.Left="476.979"
-                            Canvas.Top="10"
-                            Width="110"
-                            Height="35"
-                            Background="#B2B1C751"
-                            BorderThickness="1"
-                            CornerRadius="20">
-                            <Button x:Name="SubStartBtn"
-                                Background="{x:Null}"
-                                BorderBrush="{x:Null}"
-                                Click="SubStartBtn_Click"
-                                Content="참여하기"
-                                FontSize="16" />
-                        </Border>
-                    </Canvas>
+                      Margin="150,40,150,40"
+                      Background="#4CD69595">
+                    <ListBox ItemsSource="{Binding SubjectItemList}" Style="{DynamicResource LBX_VERTICAL}" />
+                    <!--ListView Margin="10">
+                        <Canvas x:Name="canvas"
+                            Width="652"
+                            Height="55"
+                            Margin="10,78.028,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Background="#FFEAEAB7">
+                            <TextBlock x:Name="SubjectName"
+                                   Canvas.Left="103.506"
+                                   Canvas.Top="13.408"
+                                   Width="300"
+                                   Height="30"
+                                   FontSize="21.333"
+                                   FontWeight="Bold"
+                                   Text="컴퓨터 활용 능력 1급"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap" />
+                            <Border Canvas.Left="476.979"
+                                Canvas.Top="10"
+                                Width="110"
+                                Height="35"
+                                Background="#B2B1C751"
+                                BorderThickness="1"
+                                CornerRadius="20">
+                                <Button x:Name="SubStartBtn"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    Click="SubStartBtn_Click"
+                                    Content="참여하기"
+                                    FontSize="16" />
+                            </Border>
+                        </Canvas>
+                    </-->
                 </Grid>
             </Grid>
+        </Canvas>
+        <Canvas x:Name="TitleCanvas"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Height="40"
+                Background="#FF71C563">
+            <Image Canvas.Left="18.96"
+                   Width="39.336"
+                   Height="39.336"
+                   Source="Images/smallmango.jpg" />
+            <TextBlock Canvas.Left="60.64"
+                       Canvas.Top="1.891"
+                       Width="112.093"
+                       Height="37.445"
+                       FontSize="24"
+                       Foreground="White"
+                       Text="Slim"
+                       TextWrapping="Wrap" />
+        </Canvas>
+        <Canvas x:Name="SubPanel" Grid.Row="1">
+            <Canvas x:Name="ProfileCanvas"
+                    Width="220"
+                    Height="80"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#FFE0E4B9">
+                <Image x:Name="ProfilePicture"
+                       Canvas.Left="10"
+                       Canvas.Top="11"
+                       Width="60"
+                       Height="60"
+                       Margin="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Source="Images/basicprofile.jpg" />
+                <TextBlock x:Name="ProfileGroup"
+                           Canvas.Left="75"
+                           Canvas.Top="10"
+                           Width="131"
+                           Height="26"
+                           FontSize="20"
+                           Foreground="#FF741616"
+                           Text="{Binding UserGroup}"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+                <TextBlock x:Name="ProfileName"
+                           Canvas.Left="75"
+                           Canvas.Top="41"
+                           Width="131"
+                           Height="26"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="#FF741616"
+                           Text="{Binding UserName}"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+            </Canvas>
+            <StackPanel x:Name="MainMenu"
+                        Canvas.Top="80"
+                        Width="220"
+                        Height="549"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Background="#FFBBCB8F"
+                        Orientation="Vertical">
+                <Button x:Name="SubListBtn"
+                        Width="220"
+                        Height="60"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        HorizontalContentAlignment="Right"
+                        Background="#FFD9EEEE"
+                        BorderBrush="{x:Null}"
+                        Content="수업리스트"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Padding="10" />
+            </StackPanel>
         </Canvas>
     </Grid>
 </Page>
