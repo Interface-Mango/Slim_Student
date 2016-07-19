@@ -21,8 +21,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Canvas Margin="220,40,0,0">
-            <Canvas x:Name="SubjectListTitle"
-                    Width="972"
+            <Canvas Width="972"
                     Height="40"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
@@ -37,8 +36,7 @@
                            Text="수업리스트"
                            TextWrapping="Wrap" />
             </Canvas>
-            <Grid x:Name="SubMainGrid"
-                  Width="972"
+            <Grid Width="972"
                   Height="589"
                   Margin="0,40,0,0"
                   HorizontalAlignment="Left"
@@ -47,7 +45,22 @@
                 <Grid x:Name="SubTableGrid"
                       Margin="150,40,150,40"
                       Background="#4CD69595">
-                    <ListBox ItemsSource="{Binding SubjectItemList}" Style="{DynamicResource LBX_VERTICAL}" />
+                    <ListBox Name="SubjectListBox"
+                             ItemsSource="{Binding SubjectItemList}"
+                             Style="{DynamicResource LBX_VERTICAL}" />
+
+                    <Button Grid.Row="0"
+                            Width="100"
+                            Height="50"
+                            Margin="704,0,-132,459"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#f76a51"
+                            Command="{Binding EnterSubjectCommand}"
+                            Content="들어가기"
+                            FontSize="11"
+                            FontWeight="Bold"
+                            Foreground="#ffffff" />
                     <!--ListView Margin="10">
                         <Canvas x:Name="canvas"
                             Width="652"
@@ -149,8 +162,7 @@
                         VerticalAlignment="Top"
                         Background="#FFBBCB8F"
                         Orientation="Vertical">
-                <Button x:Name="SubListBtn"
-                        Width="220"
+                <Button Width="220"
                         Height="60"
                         Margin="0,10,0,0"
                         HorizontalAlignment="Left"

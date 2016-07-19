@@ -21,7 +21,7 @@ namespace Slim_Student
     /// </summary>
     public partial class PageMainSubject : Page
     {
-        public PageMainSubject(object[] properties)
+        public PageMainSubject(object[] param)
         {
             InitializeComponent();
 
@@ -29,8 +29,7 @@ namespace Slim_Student
             DataContext = viewModelMainSubject;
             viewModelMainSubject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
 
-            SubName.Text = properties[1].ToString();
+            SubName.Text = param.ElementAt(1).ToString();
         }
-
     }
 }

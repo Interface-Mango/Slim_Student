@@ -7,17 +7,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Border Background="{TemplateBinding Background}"
-                            BorderBrush="#e9e9e9"
-                            BorderThickness="0 0 0 1">
+                                 BorderBrush="#e9e9e9"
+                                 BorderThickness="0 0 0 1">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
+                            <!--Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
+                            </Grid.ColumnDefinitions"-->
 
                             <TextBlock Grid.Row="0"
                                        Grid.Column="0"
@@ -26,22 +26,24 @@
                                        FontWeight="Bold"
                                        Text="{Binding SubjectName}" />
 
-                            <Button Grid.Row="0"
-                                    Grid.RowSpan="2"
-                                    Grid.Column="1"
-                                    Width="100"
-                                    Height="50"
-                                    Margin="10 10 10 10"
-                                    Background="#f76a51"
-                                    Command="{Binding EnterSubjectCommand}">
-                                <TextBlock Grid.Column="1"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           FontSize="11"
-                                           FontWeight="Bold"
-                                           Foreground="#ffffff"
-                                           Text="들어가기" />
-                            </Button>
+                            <!--
+                                Button Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Width="100"
+                                Height="50"
+                                Margin="10 10 10 10"
+                                Background="#f76a51"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="11"
+                                FontWeight="Bold"
+                                Foreground="#ffffff"
+                                Content="들어가기"
+                                Command="{Binding EnterSubjectCommand}"
+                                /
+                            -->
+
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="0"

@@ -28,6 +28,7 @@ namespace Slim_Student.ViewModel
             dbManager = new DBManager();
             dbSubject = new DB_Subject(dbManager);
             parentWindow = pWindow;
+            _ItemList = new List<object[]>();
         }
 
         #region SubjectItemList
@@ -42,6 +43,32 @@ namespace Slim_Student.ViewModel
         }
         #endregion
 
+        #region ItemList
+        private List<object[]> _ItemList;
+        public List<object[]> ItemList
+        {
+            get { return _ItemList; }
+            set { _ItemList = value; }
+        }
+        #endregion
+
+        #region EnterSubjectCommand
+        private ICommand _EnterSubjectCommand;
+        public ICommand EnterSubjectCommand
+        {
+            get
+            {
+                return _EnterSubjectCommand ?? (_EnterSubjectCommand = new AppCommand(EnterSubjectCommandFunc));
+            }
+        }
+
+        private void EnterSubjectCommandFunc(Object o)
+        {
+            int idx = parentWindow.SubjectListBox.SelectedIndex;
+            parentWindow.NavigationService.Navigate(new PageMainSubject(ItemList[idx]));
+        }
+        #endregion
+
         /* makeList(void) 메소드
          * 기능: sub_ids.Length개 만큼의 과목 리스트를 만든다.         
          */
@@ -49,16 +76,15 @@ namespace Slim_Student.ViewModel
         {
             object[] items = MainFrame.UserInfo;    // 1. 유저(학생) 정보 가져오기
             string[] sub_ids = items[(int)DB_User.FIELD.sub_ids].ToString().Split('_');
-            List<object[]> subjectItems = new List<object[]>();
-            for (int k = 0; k < sub_ids.Length; k++)            
-                subjectItems.Add(dbSubject.SelectSubjectListForStudent(Convert.ToInt32(sub_ids[k]))); // 2. 해당 학생이 듣는 교과목 정보 가져오기 (sub_ids속성을 참고)
-            SubjectInfo sInfo = new SubjectInfo(parentWindow);
-            SubjectItemList = sInfo.Data(subjectItems);
+            for (int k = 0; k < sub_ids.Length; k++)
+                ItemList.Add(dbSubject.SelectSubjectListForStudent(Convert.ToInt32(sub_ids[k]))); // 2. 해당 학생이 듣는 교과목 정보 가져오기 (sub_ids속성을 참고)
+
+            SubjectItemList = SubjectInfo.Data(ItemList);
         }
 
         internal class SubjectInfo
         {
-            private SubjectList parentWindow;
+            private static List<SubjectInfo> data;
 
             public int SubjectId { get; private set; }
             public string SubjectName { get; private set; }
@@ -66,30 +92,17 @@ namespace Slim_Student.ViewModel
             public string LecturelerName { get; private set; }
             public string SubjectTime { get; private set; }
             public string SubjectLocation { get; private set; }
-
-            public ICommand EnterSubjectCommand { get; private set; }
-
-            private void EnterSubjectCommandFunc(Object o)
-            {
-                object[] properties = { SubjectId, SubjectName, LecTimeLocation, LecturelerName, SubjectTime, SubjectLocation };
-                parentWindow.NavigationService.Navigate(new PageMainSubject(properties));
-            }
-
-            public SubjectInfo(SubjectList pWindow)
-            {
-                parentWindow = pWindow;
-            }
-
-            public List<SubjectInfo> Data(List<object[]> items)
+            
+            public static List<SubjectInfo> Data(List<object[]> items)
             {
                 SubjectInfo subjectTemp;
-                var data = new List<SubjectInfo>();
+                data = new List<SubjectInfo>();
 
                 for(int i=0;i<items.Count;i++){
                     string lecturelerNameTemp = GetLecturelerName(Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.lectureler_id)));
                     string subjectTimeTemp = Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.time));
                     string subjectLocationTemp = Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.location));
-                    subjectTemp = new SubjectInfo(parentWindow)
+                    subjectTemp = new SubjectInfo
                     {
                         SubjectId = Convert.ToInt32(items[i].ElementAt((int)DB_Subject.FIELD.sub_id)),
                         SubjectName = Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.sub_name)),
@@ -98,15 +111,14 @@ namespace Slim_Student.ViewModel
                         SubjectLocation = subjectLocationTemp,
                         LecTimeLocation = "[" + lecturelerNameTemp + "] "
                                         + "[" + subjectTimeTemp + "] "
-                                        + "[" + subjectLocationTemp + "]",
-                        EnterSubjectCommand = new AppCommand(EnterSubjectCommandFunc)                        
+                                        + "[" + subjectLocationTemp + "]"                   
                     };
                     data.Add(subjectTemp);
                 }
                 return data;
             }
 
-            private string GetLecturelerName(string user_id) // 3. 교과목 정보마다 선생님의 lectureler_id를 이용하여 다시 user테이블을 참고하여 선생님 이름(user_name) 가져오기
+            private static string GetLecturelerName(string user_id) // 3. 교과목 정보마다 선생님의 lectureler_id를 이용하여 다시 user테이블을 참고하여 선생님 이름(user_name) 가져오기
             {
                 DBManager dbm = new DBManager();
                 DB_User dbUser = new DB_User(dbm);

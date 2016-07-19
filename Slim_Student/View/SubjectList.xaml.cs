@@ -24,5 +24,6 @@ namespace Slim_Student
             viewModelSubjectList.makeList();
             DataContext = viewModelSubjectList;
 		}
+
 	}
 }
