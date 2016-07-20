@@ -49,7 +49,8 @@
                              ItemsSource="{Binding SubjectItemList}"
                              Style="{DynamicResource LBX_VERTICAL}" />
 
-                    <Button Grid.Row="0"
+                    <Button Name="EnterButton"
+                            Grid.Row="0"
                             Width="100"
                             Height="50"
                             Margin="704,0,-132,459"

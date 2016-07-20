@@ -33,6 +33,9 @@ namespace Slim_Student.Model
                 return result[0];
         }
 
+
+
+
         public List<object[]> SearchDatas(string sql, List<object> args)
         {
             List<object[]> recordList = new List<object[]>();
@@ -54,7 +57,7 @@ namespace Slim_Student.Model
 
                 while (reader.Read())
                 {
-                    object[] items = new object[reader.FieldCount];
+                    object[] items = new object[reader.FieldCount]; // columns 개수
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         items[i] = reader[i];

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Slim_Student.Model;
 
 namespace Slim_Student.ViewModel
 {
@@ -26,6 +27,7 @@ namespace Slim_Student.ViewModel
             }
         }
         #endregion
+
 
         #region GoSignalLight
         private ICommand _GoSignalLight;
@@ -95,6 +97,19 @@ namespace Slim_Student.ViewModel
         {
             _FrameSource = new Uri("PageNotice.xaml", UriKind.Relative);
             OnPropertyChanged("FrameSource");
+        }
+        #endregion
+
+
+        #region Profile
+        public string UserGroup
+        {
+            get { return (string)MainFrame.UserInfo[(int)DB_User.FIELD.group]; }
+        }
+
+        public string UserName
+        {
+            get { return (string)MainFrame.UserInfo[(int)DB_User.FIELD.user_name]; }
         }
         #endregion
 

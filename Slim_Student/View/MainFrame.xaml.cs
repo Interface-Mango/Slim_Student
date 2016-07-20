@@ -22,7 +22,8 @@ namespace Slim_Student
 
 		public MainFrame(object[] _userInfo)
 		{
-			this.InitializeComponent();
+            this.InitializeComponent();
+            ResizeMode = ResizeMode.NoResize;
 
             UserInfo = _userInfo;
 		}		

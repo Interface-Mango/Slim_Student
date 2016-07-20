@@ -65,6 +65,8 @@ namespace Slim_Student.ViewModel
         private void EnterSubjectCommandFunc(Object o)
         {
             int idx = parentWindow.SubjectListBox.SelectedIndex;
+            if (idx < 0)
+                return;
             parentWindow.NavigationService.Navigate(new PageMainSubject(ItemList[idx]));
         }
         #endregion
@@ -139,9 +141,6 @@ namespace Slim_Student.ViewModel
         {
             get { return (string)MainFrame.UserInfo[(int)DB_User.FIELD.user_name]; }
         }
-        #endregion
-
-        #region 
         #endregion
     }
 }

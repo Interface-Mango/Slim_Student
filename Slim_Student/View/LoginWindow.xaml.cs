@@ -24,7 +24,10 @@ namespace Slim_Student
         public LoginWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModelLoginWindow(this);
+            ResizeMode = ResizeMode.NoResize;
+            IDTextBox.Focus();
+            DataContext = new ViewModelLoginWindow(this);            
         }
+
     }
 }

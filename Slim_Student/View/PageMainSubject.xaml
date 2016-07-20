@@ -75,7 +75,7 @@
                            Height="25.439"
                            FontSize="20"
                            Foreground="#FF741616"
-                           Text="세종대학교"
+                           Text="{Binding UserGroup}"
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
                 <TextBlock x:Name="ProfileName"
@@ -86,7 +86,7 @@
                            FontSize="20"
                            FontWeight="Bold"
                            Foreground="#FF741616"
-                           Text="장인혁"
+                           Text="{Binding UserName}"
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
             </Canvas>

@@ -12,17 +12,20 @@ using Slim_Student.Model;
 namespace Slim_Student.ViewModel
 {
     class ViewModelLoginWindow : ViewModelBase
+
     {
         private DBManager dbManager;
         private DB_User dbUser;
-        private Window parentWindow;
-        
-        public ViewModelLoginWindow(Window pWindow)
+        private LoginWindow parentWindow;
+
+        public ViewModelLoginWindow(LoginWindow pWindow)
         {
             dbManager = new DBManager();
             dbUser = new DB_User(dbManager);
             parentWindow = pWindow;
         }
+
+    
 
         #region IDTextBox
         private string _IDTextBox;
@@ -40,21 +43,7 @@ namespace Slim_Student.ViewModel
         }
         #endregion
 
-        #region PWBox
-        private string _PWBox;
-        public string PWBox
-        {
-            get { return _PWBox; }
-            set
-            {
-                if (_PWBox != value)
-                {
-                    _PWBox = value;
-                    OnPropertyChanged("PWBox");
-                }
-            }
-        }
-        #endregion
+
 
         #region LoginCommand
         private ICommand _LoginCommand;
@@ -62,30 +51,31 @@ namespace Slim_Student.ViewModel
         {
             get { return _LoginCommand ?? (_LoginCommand = new AppCommand(LoginCommandFunc)); }
         }
-        public static bool isLogin;
-
         /* LoginCommandFunc
          * 기능 : 로그인 버튼 눌렀을 때 회원검사하는 함수
          */
         private void LoginCommandFunc(Object o)
         {
-            object[] obj = dbUser.SelectUser(IDTextBox, PWBox);
+            if (IDTextBox == string.Empty || parentWindow.PWBox.Password == string.Empty)
+                return;
+            object[] obj = dbUser.SelectUser(IDTextBox, parentWindow.PWBox.Password);
+           
+            //string name = (string)obj[(int)DB_User.FIELD.user_name];
+            
             if (obj == null)
             {
-                isLogin = false;
                 MessageBox.Show("로그인 에러!");
             }                
             else
             {
                 // 기존의 로그인창을 '일단' 숨겨놓고 메인프레임 호출
                 // 메인프레임에서 로그인창을 닫아준다
-                //TODO: obj[(int)DB_User.FIELD.pw] = string.Empty;
-                isLogin = true;
+                obj[(int)DB_User.FIELD.pw] = string.Empty;
                 MainFrame mf = new MainFrame(obj);
+
                 parentWindow.Hide();
-                mf.ShowDialog();
+                mf.ShowDialog(); 
             }
-             
         }
         #endregion
     }

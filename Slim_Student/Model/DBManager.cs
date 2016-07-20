@@ -20,8 +20,8 @@ namespace Slim_Student.Model
         public bool IsDBOpen
         {
             get { return _IsDBOpen; }
-
         }
+
 
         public DBManager()
         {
@@ -38,6 +38,8 @@ namespace Slim_Student.Model
                 _IsDBOpen = false;
                 Console.WriteLine(ex.Message);
             }
+
         }
+
     }
 }

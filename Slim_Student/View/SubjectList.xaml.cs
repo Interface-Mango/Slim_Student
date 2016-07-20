@@ -25,5 +25,7 @@ namespace Slim_Student
             DataContext = viewModelSubjectList;
 		}
 
+
+
 	}
 }
