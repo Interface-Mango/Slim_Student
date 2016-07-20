@@ -28,7 +28,6 @@ namespace Slim_Student
         #endregion
 
 
-
         #region GoSignalLight
         private ICommand _GoSignalLight;
         public ICommand GoSignalLight
@@ -42,8 +41,6 @@ namespace Slim_Student
             OnPropertyChanged("FrameSource");
         }
         #endregion
-
-
 
         #region GoHiddenTalkCommand
         private ICommand _GoHiddenTalk;
@@ -60,8 +57,6 @@ namespace Slim_Student
         }
         #endregion
 
-
-
         #region GoMyQuestion
         private ICommand _GoMyQuestion;
         public ICommand GoMyQuestion
@@ -75,8 +70,6 @@ namespace Slim_Student
             OnPropertyChanged("FrameSource");
         }
         #endregion
-
-
 
         #region GoQna
         private ICommand _GoQna;
@@ -92,7 +85,6 @@ namespace Slim_Student
         }
         #endregion
 
-
         #region GoNotice
         private ICommand _GoNotice;
         public ICommand GoNotice
@@ -104,6 +96,23 @@ namespace Slim_Student
         {
             _FrameSource = new Uri("PageNotice.xaml", UriKind.Relative);
             OnPropertyChanged("FrameSource");
+        }
+        #endregion
+
+
+        #region ProfileName
+        private string _ProfileName;
+        public string ProfileName
+        {
+            get { return _ProfileName; }
+        }
+        #endregion
+
+        #region ProfileGroup
+        private string _ProfileGroup;
+        public string ProfileGroup
+        {
+            get { return _ProfileGroup; }
         }
         #endregion
 

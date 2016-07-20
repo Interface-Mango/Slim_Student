@@ -50,14 +50,15 @@ namespace Slim_Student
         {
             get { return _LoginCommand ?? (_LoginCommand = new AppCommand(LoginCommandFunc)); }
         }
-
         /* LoginCommandFunc
          * 기능 : 로그인 버튼 눌렀을 때 회원검사하는 함수
          */
         private void LoginCommandFunc(Object o)
         {
             object[] obj = dbUser.SelectUser(IDTextBox, MainWindow.pwText);
-
+           
+            //string name = (string)obj[(int)DB_User.FIELD.user_name];
+            
             MainWindow.pwText = string.Empty;
 
             if (obj == null)
@@ -70,9 +71,8 @@ namespace Slim_Student
                 // 메인프레임에서 로그인창을 닫아준다
                 MainFrame mf = new MainFrame();
                 parentWindow.Hide();
-                mf.ShowDialog();
+                mf.ShowDialog(); 
             }
-             
         }
         #endregion
     }

@@ -74,7 +74,7 @@ namespace Slim_Student
 
                 while (reader.Read())
                 {
-                    object[] items = new object[reader.FieldCount];
+                    object[] items = new object[reader.FieldCount]; // columns 개수
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         items[i] = reader[i];
