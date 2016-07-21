@@ -126,7 +126,7 @@
                     Background="#FFE0E4B9">
                 <Image x:Name="ProfilePicture"
                        Canvas.Left="10"
-                       Canvas.Top="11"
+                       Canvas.Top="10"
                        Width="60"
                        Height="60"
                        Margin="0"
@@ -145,7 +145,7 @@
                            TextWrapping="Wrap" />
                 <TextBlock x:Name="ProfileName"
                            Canvas.Left="75"
-                           Canvas.Top="41"
+                           Canvas.Top="40"
                            Width="131"
                            Height="26"
                            FontSize="20"
