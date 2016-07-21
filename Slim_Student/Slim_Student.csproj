@@ -59,8 +59,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\DBManager.cs" />
+    <Compile Include="Model\DB_Announcement.cs" />
+    <Compile Include="Model\DB_AnonymousBoard.cs" />
+    <Compile Include="Model\DB_MyQuestion.cs" />
+    <Compile Include="Model\DB_QnA.cs" />
+    <Compile Include="Model\DB_Signal.cs" />
     <Compile Include="Model\DB_Subject.cs" />
     <Compile Include="Model\DB_User.cs" />
+    <Compile Include="ViewModel\ViewModelDialogNotice.cs" />
+    <Compile Include="ViewModel\ViewModelPageHiddenTalk.cs" />
+    <Compile Include="ViewModel\ViewModelPageMyQuestion.cs" />
+    <Compile Include="ViewModel\ViewModelPageNotice.cs" />
+    <Compile Include="ViewModel\ViewModelPageQnA.cs" />
+    <Compile Include="ViewModel\ViewModelPageSignalLightMonitor.cs" />
     <Compile Include="ViewModel\ViewModelSubjectList.cs" />
     <Compile Include="View\DialogNotice.xaml.cs">
       <DependentUpon>DialogNotice.xaml</DependentUpon>

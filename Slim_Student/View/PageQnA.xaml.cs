@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student
 {
@@ -23,6 +24,7 @@ namespace Slim_Student
         public PageQnA()
         {
             InitializeComponent();
+            DataContext = new ViewModelPageQnA();
         }
     }
 }

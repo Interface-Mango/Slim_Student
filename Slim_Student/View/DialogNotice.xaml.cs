@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student
 {
@@ -22,6 +23,7 @@ namespace Slim_Student
         public DialogNotice()
         {
             InitializeComponent();
+            DataContext = new ViewModelDialogNotice();
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
