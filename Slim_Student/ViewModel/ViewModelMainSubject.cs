@@ -7,11 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Slim_Student.Model;
+using System.Windows.Navigation;
 
 namespace Slim_Student.ViewModel
 {
     class ViewModelMainSubject : ViewModelBase
     {
+        private SubjectList _subjectlist;
+        public ViewModelMainSubject(SubjectList subjectlist)
+        {
+            _subjectlist = subjectlist;
+        }
+
+
         #region FrameSource
         private Uri _FrameSource;
         public Uri FrameSource
@@ -101,6 +109,22 @@ namespace Slim_Student.ViewModel
         #endregion
 
 
+        #region GoHome
+        private ICommand _GoHome;
+        private MainFrame mf;
+        public ICommand GoHome
+        {
+            get { return _GoHome ?? (_GoHome = new AppCommand(GoHomeFunc)); }
+        }
+
+        public void GoHomeFunc(object o)
+        {
+            mf = MainFrame.thisMainFrame();
+            mf.NavigationService.Navigate(_subjectlist);
+        }
+        #endregion
+
+
         #region Profile
         public string UserGroup
         {
@@ -110,6 +134,23 @@ namespace Slim_Student.ViewModel
         public string UserName
         {
             get { return (string)MainFrame.UserInfo[(int)DB_User.FIELD.user_name]; }
+        }
+        #endregion
+
+        #region LogoutCommand
+        private ICommand _LogoutCommand;
+        public ICommand LogoutCommand
+        {
+            get { return _LogoutCommand ?? (_LogoutCommand = new AppCommand(LogoutCommandFunc)); }
+        }
+
+        public void LogoutCommandFunc(object o)
+        {
+
+            LoginWindow loginwindow = new LoginWindow();
+            loginwindow.Show();
+            MainFrame.closeWindow();
+
         }
         #endregion
 

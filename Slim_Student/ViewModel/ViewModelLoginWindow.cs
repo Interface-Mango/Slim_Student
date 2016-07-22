@@ -72,9 +72,8 @@ namespace Slim_Student.ViewModel
                 // 메인프레임에서 로그인창을 닫아준다
                 obj[(int)DB_User.FIELD.pw] = string.Empty;
                 MainFrame mf = new MainFrame(obj);
-
-                parentWindow.Hide();
-                mf.ShowDialog(); 
+                mf.Show();
+                //parentWindow.Close();
             }
         }
         #endregion
