@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using Slim_Student.Model;
+using System.Windows.Media.Animation;
 
 namespace Slim_Student.ViewModel
 {
@@ -17,12 +18,15 @@ namespace Slim_Student.ViewModel
         private DBManager dbManager;
         private DB_User dbUser;
         private LoginWindow parentWindow;
+        private ProgressRing prog;
+        
 
         public ViewModelLoginWindow(LoginWindow pWindow)
         {
             dbManager = new DBManager();
             dbUser = new DB_User(dbManager);
             parentWindow = pWindow;
+            prog = new ProgressRing();
         }
 
     
@@ -56,15 +60,19 @@ namespace Slim_Student.ViewModel
          */
         private void LoginCommandFunc(Object o)
         {
+            
+            
             if (IDTextBox == string.Empty || parentWindow.PWBox.Password == string.Empty)
                 return;
-            object[] obj = dbUser.SelectUser(IDTextBox, parentWindow.PWBox.Password);
-           
-            //string name = (string)obj[(int)DB_User.FIELD.user_name];
+            prog.Show();
+            object[] obj = dbUser.SelectUser(IDTextBox, parentWindow.PWBox.Password, prog);
             
+
             if (obj == null)
             {
+                prog.Hide();
                 MessageBox.Show("로그인 에러!");
+                
             }                
             else
             {
@@ -72,8 +80,11 @@ namespace Slim_Student.ViewModel
                 // 메인프레임에서 로그인창을 닫아준다
                 obj[(int)DB_User.FIELD.pw] = string.Empty;
                 MainFrame mf = new MainFrame(obj);
+                
                 mf.Show();
-                //parentWindow.Close();
+                parentWindow.Close();
+                
+                
             }
         }
         #endregion

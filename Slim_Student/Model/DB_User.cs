@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
+using System.Windows.Media.Animation;
 
 namespace Slim_Student.Model
 {
     class DB_User
     {
         DBManager db;
+        public Storyboard _mangoAnimation;
+        
 
         public enum FIELD{
             user_id, user_name, group, sub_ids, pw, auth, END
@@ -34,6 +37,7 @@ namespace Slim_Student.Model
                 return result[0];
         }
 
+
         public object[] SelectUser(string id, string pw)
         {
             string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2)";   // DB에 password로 암호화 돼서 저장됐기 때문에 복호화로 password함수 써야한다.
@@ -47,6 +51,29 @@ namespace Slim_Student.Model
             else 
                 return result[0];
         }
+
+        public object[] SelectUser(string id, string pw, ProgressRing _prog)
+        {
+            _mangoAnimation = _prog.MangoProgressBar();
+            _mangoAnimation.Begin(_prog);
+
+            _prog.mangoAnimationStop(_mangoAnimation);
+            
+            
+
+            string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2)";
+            List<object> args = new List<object>();
+            args.Add(id);
+            args.Add(pw);
+
+
+            List<object[]> result = SearchDatas(sql, args);
+            if (result.Count == 0)
+                return null;
+            else
+                return result[0];
+        }
+
 
         public List<object[]> SearchDatas(string sql, List<object> args)
         {
