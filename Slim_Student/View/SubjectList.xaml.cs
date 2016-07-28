@@ -15,14 +15,13 @@ namespace Slim_Student
 {
 	public partial class SubjectList
 	{
-       
-		public SubjectList()
+       public SubjectList()
 		{
 			this.InitializeComponent();
 
             ViewModelSubjectList viewModelSubjectList = new ViewModelSubjectList(this);
             viewModelSubjectList.makeList();
-            DataContext = viewModelSubjectList;
+            DataContext = viewModelSubjectList; 
 		}
 	}
 }

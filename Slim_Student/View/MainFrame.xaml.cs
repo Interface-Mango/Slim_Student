@@ -25,8 +25,8 @@ namespace Slim_Student
 		public MainFrame(object[] _userInfo)
 		{
             this.InitializeComponent();
-            ResizeMode = ResizeMode.NoResize;
             Frame = this;
+            ResizeMode = ResizeMode.NoResize;
             UserInfo = _userInfo;
             serial = new SerialCommunication();
 		}		
@@ -37,8 +37,21 @@ namespace Slim_Student
 			base.OnClosed(e); 
 			Application.Current.Shutdown();
 		}
+        
+
+        public static void closeWindow() 
+        {
+            Frame.Close();
+        }
+
+        public static MainFrame thisMainFrame()
+        {
+            return Frame;
+        }
 
 		
+        
 		
+	
 	}
 }

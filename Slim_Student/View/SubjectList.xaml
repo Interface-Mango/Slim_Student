@@ -183,6 +183,18 @@
                         FontSize="20"
                         FontWeight="Bold"
                         Padding="10" />
+                <Button
+                	Height="40"
+                	Margin="0,410,0,0"
+                	VerticalAlignment="Top"
+                	HorizontalContentAlignment="Right"
+                	Command="{Binding LogoutCommand}"
+                	Background="#FFEED1CF"
+                	BorderBrush="{x:Null}"
+                	Content="Logout"
+                	FontSize="15"
+                	FontWeight="Bold"
+                	Padding="0,0,10,0" />
             </StackPanel>
         </Canvas>
     </Grid>

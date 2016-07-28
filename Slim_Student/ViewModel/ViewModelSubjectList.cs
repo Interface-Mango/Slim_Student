@@ -23,6 +23,7 @@ namespace Slim_Student.ViewModel
         private DBManager dbManager;
         private DB_Subject dbSubject;
         private SubjectList parentWindow;
+        private MainFrame parentMf;
 
         // 생성자
         public ViewModelSubjectList(SubjectList pWindow)
@@ -31,6 +32,15 @@ namespace Slim_Student.ViewModel
             dbSubject = new DB_Subject(dbManager);
             parentWindow = pWindow;
             _ItemList = new List<object[]>();
+        }
+
+        public ViewModelSubjectList(SubjectList pWindow, MainFrame mf)
+        {
+            dbManager = new DBManager();
+            dbSubject = new DB_Subject(dbManager);
+            parentWindow = pWindow;
+            _ItemList = new List<object[]>();
+            parentMf = mf;
         }
 
         #region SubjectItemList
@@ -86,9 +96,28 @@ namespace Slim_Student.ViewModel
             int idx = parentWindow.SubjectListBox.SelectedIndex;
             if (idx < 0)
                 return;
-            parentWindow.NavigationService.Navigate(new PageMainSubject(ItemList[idx]));
+            parentWindow.NavigationService.Navigate(new PageMainSubject(ItemList[idx], parentWindow));
         }
         #endregion
+
+
+        #region LogoutCommand
+        private ICommand _LogoutCommand;
+        public ICommand LogoutCommand
+        {
+            get { return _LogoutCommand ?? (_LogoutCommand = new AppCommand(LogoutCommandFunc)); }
+        }
+
+        public void LogoutCommandFunc(object o)
+        {
+            
+            LoginWindow loginwindow = new LoginWindow();
+            loginwindow.Show();
+            MainFrame.closeWindow();
+            
+        }
+        #endregion
+
 
         /* makeList(void) 메소드
          * 기능: sub_ids.Length개 만큼의 과목 리스트를 만든다.         
@@ -96,18 +125,20 @@ namespace Slim_Student.ViewModel
         public void makeList()
         {
             object[] items = MainFrame.UserInfo;    // 1. 유저(학생) 정보 가져오기
-            string[] sub_ids = items[(int)DB_User.FIELD.sub_ids].ToString().Split('_');
+            // _기준으로 배열에 string넣음
+            string[] sub_ids = items[(int)DB_User.FIELD.sub_ids].ToString().Split('_'); 
             for (int k = 0; k < sub_ids.Length; k++)
-                ItemList.Add(dbSubject.SelectSubjectListForStudent(Convert.ToInt32(sub_ids[k]))); // 2. 해당 학생이 듣는 교과목 정보 가져오기 (sub_ids속성을 참고)
+                // 2. 해당 학생이 듣는 교과목 정보 가져오기 (sub_ids속성을 참고)
+                ItemList.Add(dbSubject.SelectSubjectListForStudent(Convert.ToInt32(sub_ids[k])));
 
             SubjectItemList = SubjectInfo.Data(ItemList);
         }
 
-        internal class SubjectInfo
+        internal class SubjectInfo   
         {
             private static List<SubjectInfo> data;
 
-            public int SubjectId { get; private set; }
+            public int SubjectId { get; private set; }          
             public string SubjectName { get; private set; }
             public string LecTimeLocation { get; private set; }
             public string LecturelerName { get; private set; }

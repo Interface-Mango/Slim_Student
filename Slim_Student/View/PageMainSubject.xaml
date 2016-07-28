@@ -27,9 +27,8 @@
             <Button Canvas.Right="0"
                     Width="50"
                     Height="30"
-                    Margin="0 5 5 5"
-                    Command="NavigationCommands.BrowseBack"
-                    Content="홈으로" />
+                    Command="{Binding GoHome}"
+                    Content="Home" Canvas.Left="1107" Canvas.Top="6" />
             <Image Canvas.Left="18.96"
                    Width="39.336"
                    Height="39.336"
@@ -174,5 +173,17 @@
                Grid.Column="1"
                Source="{Binding FrameSource,
                                 Mode=OneWay}" />
+        <Button
+        	Height="40"
+        	Margin="0,560,0,0"
+        	VerticalAlignment="Top"
+        	HorizontalContentAlignment="Right"
+        	Command="{Binding LogoutCommand}"
+        	Background="#FFEED1CF"
+        	BorderBrush="{x:Null}"
+        	Content="Logout"
+        	FontSize="15"
+        	FontWeight="Bold"
+        	Padding="0,0,10,0" Grid.Row="1" />
     </Grid>
 </Page>
