@@ -19,13 +19,16 @@ namespace Slim_Student
 	public partial class MainFrame : NavigationWindow
 	{
         public static object[] UserInfo;
+        public static MainFrame Frame;
+        private SerialCommunication serial;
 
 		public MainFrame(object[] _userInfo)
 		{
             this.InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
-
+            Frame = this;
             UserInfo = _userInfo;
+            serial = new SerialCommunication();
 		}		
 		
 		// 로그인 창과 호환되기 위한 함수

@@ -66,6 +66,9 @@
     <Compile Include="Model\DB_Signal.cs" />
     <Compile Include="Model\DB_Subject.cs" />
     <Compile Include="Model\DB_User.cs" />
+    <Compile Include="SerialCommunication.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViewModel\ViewModelDialogNotice.cs" />
     <Compile Include="ViewModel\ViewModelPageHiddenTalk.cs" />
     <Compile Include="ViewModel\ViewModelPageMyQuestion.cs" />
@@ -99,6 +102,12 @@
     </Compile>
     <Compile Include="ViewModel\ViewModelLoginWindow.cs" />
     <Compile Include="ViewModel\ViewModelMainSubject.cs" />
+    <Compile Include="View\Widget\Widget.xaml.cs">
+      <DependentUpon>Widget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Widget\WidgetInputWindow.xaml.cs">
+      <DependentUpon>WidgetInputWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="View\LoginWindow.xaml.cs">
@@ -175,6 +184,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Template\Styles.ListBox.Vertical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Widget\Widget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Widget\WidgetInputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

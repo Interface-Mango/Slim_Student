@@ -1,12 +1,14 @@
 ﻿using MVVMBase.Command;
 using MVVMBase.ViewModel;
 using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Slim_Student.Model;
+using Slim_Student.View;
 
 namespace Slim_Student.ViewModel
 {
@@ -49,6 +51,23 @@ namespace Slim_Student.ViewModel
         {
             get { return _ItemList; }
             set { _ItemList = value; }
+        }
+        #endregion
+
+        #region MinimizeCommand
+        private ICommand _MinimizeCommand;
+        public ICommand MinimizeCommand
+        {
+            get
+            {
+                return _MinimizeCommand ?? (_MinimizeCommand = new AppCommand(MinimizeCommandFunc));
+            }
+        }
+        public void MinimizeCommandFunc(Object o)
+        {
+            Widget widget = new Widget();
+            widget.Show();
+            MainFrame.Frame.Hide();
         }
         #endregion
 
