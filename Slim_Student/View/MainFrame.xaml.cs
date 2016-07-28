@@ -27,6 +27,7 @@ namespace Slim_Student
             mFrame = this;
             ResizeMode = ResizeMode.NoResize;
             UserInfo = _userInfo;
+            //
             
 		}
         
