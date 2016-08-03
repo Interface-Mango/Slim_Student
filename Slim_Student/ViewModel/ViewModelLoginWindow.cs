@@ -59,9 +59,7 @@ namespace Slim_Student.ViewModel
          * 기능 : 로그인 버튼 눌렀을 때 회원검사하는 함수
          */
         private void LoginCommandFunc(Object o)
-        {
-            
-            
+        {   
             if (IDTextBox == string.Empty || parentWindow.PWBox.Password == string.Empty)
                 return;
             prog.Show();
@@ -72,7 +70,6 @@ namespace Slim_Student.ViewModel
             {
                 prog.Hide();
                 MessageBox.Show("로그인 에러!");
-                
             }                
             else
             {
@@ -83,8 +80,6 @@ namespace Slim_Student.ViewModel
                 
                 mf.Show();
                 parentWindow.Close();
-                
-                
             }
         }
         #endregion

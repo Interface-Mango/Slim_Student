@@ -61,7 +61,7 @@ namespace Slim_Student.Model
             
             
 
-            string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2)";
+            string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2) AND auth=0";
             List<object> args = new List<object>();
             args.Add(id);
             args.Add(pw);
