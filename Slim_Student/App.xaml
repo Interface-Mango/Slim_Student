@@ -6,7 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="View/Template/Styles.ListBox.Vertical.xaml" />
+                <ResourceDictionary Source="View/Template/Styles.ListBox.Vertical_SubjectList.xaml" />
+                <ResourceDictionary Source="View/Template/Styles.ListBox.Vertical_MyQuestion.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

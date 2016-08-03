@@ -24,7 +24,9 @@ namespace Slim_Student
         public PageMyQuestion()
         {
             InitializeComponent();
-            DataContext = new ViewModelPageMyQuestion();
+            ViewModelPageMyQuestion viewModelPageMyQuestion = new ViewModelPageMyQuestion(this);
+            viewModelPageMyQuestion.makeList();
+            DataContext = viewModelPageMyQuestion;
         }
     }
 }

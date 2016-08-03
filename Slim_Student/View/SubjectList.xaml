@@ -47,7 +47,7 @@
                       Background="#4CD69595">
                     <ListBox Name="SubjectListBox"
                              ItemsSource="{Binding SubjectItemList}"
-                             Style="{DynamicResource LBX_VERTICAL}" />
+                             Style="{DynamicResource LBX_VERTICAL_SubjectList}" />
 
                     <Button Name="EnterButton"
                             Grid.Row="0"

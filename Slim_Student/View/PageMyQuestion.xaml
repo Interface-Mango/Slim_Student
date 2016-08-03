@@ -10,14 +10,32 @@
       WindowWidth="1200"
       mc:Ignorable="d">
 
-    <Grid Height="669" >
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEA8BC3">
+        <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEA8BC3" Grid.Row="0">
             <TextBlock TextWrapping="Wrap" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="93" FontSize="14.667" FontWeight="Bold" Text="나의질문"/>
         </Canvas>
-        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB"/>
+        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFE0F5EB" VerticalAlignment="Top">
+            <ListBox Name="QuestionListBox"
+                             ItemsSource="{Binding QuestionItemList}"
+                             Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" />
+        </Canvas>
+        <Canvas Grid.Row="2" Height="80" Background="#FFE0F5EB">
+            <Button x:Name="EnterButton"
+            	Width="100"
+            	Height="50"
+            	HorizontalAlignment="Center"
+            	VerticalAlignment="Center"
+            	Background="#f76a51"
+            	Command="{Binding WriteQuestionCommand}"
+            	Content="질문 등록"
+            	FontSize="15"
+            	FontWeight="Bold"
+            	Foreground="#ffffff" Canvas.Left="862" Canvas.Top="15"/>
+        </Canvas>
     </Grid>
 </Page>

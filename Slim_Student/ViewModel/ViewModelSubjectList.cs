@@ -151,7 +151,7 @@ namespace Slim_Student.ViewModel
                 data = new List<SubjectInfo>();
 
                 for(int i=0;i<items.Count;i++){
-                    string lecturelerNameTemp = GetLecturelerName(Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.lectureler_id)));
+                    string lecturelerNameTemp = GetLecturerName(Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.lectureler_id)));
                     string subjectTimeTemp = Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.time));
                     string subjectLocationTemp = Convert.ToString(items[i].ElementAt((int)DB_Subject.FIELD.location));
                     subjectTemp = new SubjectInfo
@@ -170,7 +170,7 @@ namespace Slim_Student.ViewModel
                 return data;
             }
 
-            private static string GetLecturelerName(string user_id) // 3. 교과목 정보마다 선생님의 lectureler_id를 이용하여 다시 user테이블을 참고하여 선생님 이름(user_name) 가져오기
+            private static string GetLecturerName(string user_id) // 3. 교과목 정보마다 선생님의 lectureler_id를 이용하여 다시 user테이블을 참고하여 선생님 이름(user_name) 가져오기
             {
                 DBManager dbm = new DBManager();
                 DB_User dbUser = new DB_User(dbm);

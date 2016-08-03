@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="LBXITEM_VERTICAL" TargetType="ListBoxItem">
+    <Style x:Key="LBXITEM_VERTICAL_SubjectList" TargetType="ListBoxItem">
         <Setter Property="Background" Value="#ffffff" />
         <Setter Property="Foreground" Value="#404040" />
         <Setter Property="Template">
@@ -64,8 +64,8 @@
         </Setter>
     </Style>
 
-    <Style x:Key="LBX_VERTICAL" TargetType="ListBox">
-        <Setter Property="ItemContainerStyle" Value="{DynamicResource LBXITEM_VERTICAL}" />
+    <Style x:Key="LBX_VERTICAL_SubjectList" TargetType="ListBox">
+        <Setter Property="ItemContainerStyle" Value="{DynamicResource LBXITEM_VERTICAL_SubjectList}" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
