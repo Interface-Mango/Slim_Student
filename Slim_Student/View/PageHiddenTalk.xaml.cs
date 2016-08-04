@@ -24,7 +24,8 @@ namespace Slim_Student
         public PageHiddenTalk()
         {
             InitializeComponent();
-            DataContext = new ViewModelPageHiddenTalk();
+            textbox2.IsReadOnly = true;
+            DataContext = new ViewModelPageHiddenTalk(textbox1,textbox2);
         }
     }
 }
