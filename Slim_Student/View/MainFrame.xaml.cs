@@ -20,7 +20,6 @@ namespace Slim_Student
 	{
         public static object[] UserInfo;
         public static MainFrame Frame;
-        private SerialCommunication serial;
 
 		public MainFrame(object[] _userInfo)
 		{
@@ -28,7 +27,7 @@ namespace Slim_Student
             Frame = this;
             ResizeMode = ResizeMode.NoResize;
             UserInfo = _userInfo;
-            serial = new SerialCommunication();
+            new SerialCommunication();
 		}		
 		
 		// 로그인 창과 호환되기 위한 함수
@@ -48,10 +47,5 @@ namespace Slim_Student
         {
             return Frame;
         }
-
-		
-        
-		
-	
 	}
 }

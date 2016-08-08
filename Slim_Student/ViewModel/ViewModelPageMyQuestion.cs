@@ -25,6 +25,7 @@ namespace Slim_Student.ViewModel
             dbMyQustion = new DB_MyQuestion(dbManager);
             parentWindow = pWindow;
             _ItemList = new List<object[]>();
+            //parentWindow.QuestionListBox.MouseDoubleClick += new MouseButtonEventHandler(QuestionListBox_MouseDoubleClick);
         }
 
         #region QuestionItemList
@@ -58,6 +59,22 @@ namespace Slim_Student.ViewModel
         public void WriteQuestionCommandFunc(Object o)
         {
             //TODO: 글 작성 다이얼로그 띄우기
+        }
+        #endregion
+        
+        #region ListBoxItem_MouseDoubleClick
+        private ICommand _ListBoxItem_MouseDoubleClickCommand;
+        public ICommand ListBoxItem_MouseDoubleClickCommand
+        {
+            get { return _ListBoxItem_MouseDoubleClickCommand ?? (_ListBoxItem_MouseDoubleClickCommand = new AppCommand(MyQuestionListBoxItem_MouseDoubleClick)); }
+        }
+        public void MyQuestionListBoxItem_MouseDoubleClick(Object o)
+        {
+            MessageBox.Show("################");
+        }
+
+        private void QuestionListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
         }
         #endregion
 

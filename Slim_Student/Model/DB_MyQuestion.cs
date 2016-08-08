@@ -22,7 +22,7 @@ namespace Slim_Student.Model
 
         public List<object[]> SelectMyQuestionList(int std_id, int sub_id)
         {
-            string sql = "SELECT * FROM my_question WHERE std_id=@arg1 AND sub_id=@arg2";
+            string sql = "SELECT * FROM my_question WHERE std_id=@arg1 AND sub_id=@arg2 ORDER BY DESC";
             List<object> args = new List<object>();
             args.Add(std_id);
             args.Add(sub_id);

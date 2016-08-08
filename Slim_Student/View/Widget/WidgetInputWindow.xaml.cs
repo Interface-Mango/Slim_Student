@@ -26,7 +26,20 @@ namespace Slim_Student.View
 
         private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
-            SerialCommunication.SerialPortValue.Write(TextBoxBuffer.Text);
+            Console.WriteLine(Convert.ToChar(TextBoxBuffer.Text));
+            try
+            {
+                byte[] b = new byte[30];
+                SerialCommunication.SerialPortValue.Write(TextBoxBuffer.Text);
+                SerialCommunication.SerialPortValue.Read(b, 0, 30);
+                for (int i = 0; i < 10;i++ )
+                    Console.WriteLine("b:" + b[i]);
+                Console.WriteLine("=================================");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
             this.Close();
         }
     }

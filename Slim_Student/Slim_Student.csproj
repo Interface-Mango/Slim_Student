@@ -99,6 +99,9 @@
     <Compile Include="View\PageSignalLightMonitor.xaml.cs">
       <DependentUpon>PageSignalLightMonitor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PageWriteNote.xaml.cs">
+      <DependentUpon>PageWriteNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProgressRing.xaml.cs">
       <DependentUpon>ProgressRing.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageSignalLightMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageWriteNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
