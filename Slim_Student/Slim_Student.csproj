@@ -230,6 +230,10 @@
       <Project>{3118c2d5-c6e6-48a2-8b34-ecf80efa987b}</Project>
       <Name>MVVMBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SocketGlobal\SocketGlobal.csproj">
+      <Project>{6bc18475-618b-467b-803b-057c8eba8114}</Project>
+      <Name>SocketGlobal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

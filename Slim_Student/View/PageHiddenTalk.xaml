@@ -9,15 +9,20 @@
     Height="629"
     WindowWidth="1200" WindowHeight="700"
     mc:Ignorable="d">
-    
+
     <Grid x:Name="MainPanel" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Canvas x:Name="HiddenTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF94EA8B" Margin="0,0,0,0">
             <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="127.5" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
-        <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB"/>
+        <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB">
+            <Button Command="{Binding ServerConnect}" Content="커넥트" Width="115" Canvas.Left="779" Canvas.Top="26" Height="33"/>
+            <TextBox x:Name="txtMsg"  Height="70" TextWrapping="Wrap" Width="624" Canvas.Left="157" Canvas.Top="488">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
+                </TextBox.InputBindings>
+            </TextBox>
+            <Button Command="{Binding msgSend}" Content="전송" Width="98" Canvas.Left="819" Canvas.Top="492" Height="70"/>
+            <TextBox x:Name="textbox1" Height="394" TextWrapping="Wrap"  Width="846" Canvas.Left="71" Canvas.Top="70"/>
+        </Canvas>
     </Grid>
 </Page>
