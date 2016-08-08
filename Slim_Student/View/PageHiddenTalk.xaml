@@ -11,22 +11,18 @@
     mc:Ignorable="d">
 
     <Grid x:Name="MainPanel" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Canvas x:Name="HiddenTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF94EA8B" Margin="0,0,0,0">
             <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="127.5" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
         <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB">
-            <TextBox x:Name="textbox1" Text="{Binding SendingTextBox}" Height="95" TextWrapping="Wrap" Width="802" Canvas.Left="42" Canvas.Top="462">
+            <Button Command="{Binding ServerConnect}" Content="커넥트" Width="115" Canvas.Left="779" Canvas.Top="26" Height="33"/>
+            <TextBox x:Name="txtMsg"  Height="70" TextWrapping="Wrap" Width="624" Canvas.Left="157" Canvas.Top="488">
                 <TextBox.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding SendingBtn}"/>
+                    <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
                 </TextBox.InputBindings>
             </TextBox>
-            <Button Content="전송" Command="{Binding SendingBtn}" Width="75" Canvas.Left="871" Canvas.Top="514" Height="43" FontSize="14" FontWeight="Bold" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="textbox2" Text="{Binding ShowTextBox}" TextWrapping="Wrap" BorderBrush="White" Background="#FF789297" SelectionOpacity="1" Foreground="White" SelectionBrush="#FFE0DEB4" Height="374" Canvas.Left="42" Canvas.Top="63" Width="904"/>
-            <Button Content="제발받아져라.." Command="{Binding ReceiveServerData}" Width="107" Canvas.Left="42" Canvas.Top="10" Height="30"/>
+            <Button Command="{Binding msgSend}" Content="전송" Width="98" Canvas.Left="819" Canvas.Top="492" Height="70"/>
+            <TextBox x:Name="textbox1" Height="394" TextWrapping="Wrap"  Width="846" Canvas.Left="71" Canvas.Top="70"/>
         </Canvas>
     </Grid>
 </Page>

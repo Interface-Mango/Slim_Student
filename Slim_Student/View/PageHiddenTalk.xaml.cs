@@ -16,16 +16,31 @@ using Slim_Student.ViewModel;
 
 namespace Slim_Student
 {
-    /// <summary>
-    /// PageHiddenTalk.xaml에 대한 상호 작용 논리
-    /// </summary>
+
     public partial class PageHiddenTalk : Page
     {
         public PageHiddenTalk()
         {
             InitializeComponent();
-            textbox2.IsReadOnly = true;
-            DataContext = new ViewModelPageHiddenTalk(textbox1,textbox2);
+
+            DataContext = new ViewModelPageHiddenTalk(this,txtMsg);
+            textbox1.IsReadOnly = true;
+        }
+
+        private delegate void SetTextCallback(String nMessage);
+        public void DisplayMsg(String nMessage)
+        {
+            if (textbox1.Dispatcher.CheckAccess())
+            {
+                textbox1.AppendText(" " + nMessage + "\n");
+                textbox1.ScrollToEnd();
+                textbox1.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            }
+            else
+            {
+                SetTextCallback d = new SetTextCallback(DisplayMsg);
+                textbox1.Dispatcher.BeginInvoke(d, new Object[] { nMessage });
+            }
         }
     }
 }
