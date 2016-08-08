@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slim_Student", "Slim_Student\Slim_Student.csproj", "{815D2E4E-90AC-4AD5-800A-AE63071F2782}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6BC18475-618B-467B-803B-057C8EBA8114} = {6BC18475-618B-467B-803B-057C8EBA8114}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMBase", "MVVMBase\MVVMBase.csproj", "{3118C2D5-C6E6-48A2-8B34-ECF80EFA987B}"
 EndProject
