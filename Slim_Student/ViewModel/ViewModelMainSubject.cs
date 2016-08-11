@@ -14,10 +14,13 @@ namespace Slim_Student.ViewModel
 {
     class ViewModelMainSubject : ViewModelBase
     {
+        public static ViewModelMainSubject MainSubjectObject;
+
         private SubjectList _subjectlist;
         public ViewModelMainSubject(SubjectList subjectlist)
         {
             _subjectlist = subjectlist;
+            MainSubjectObject = this;
         }
 
 

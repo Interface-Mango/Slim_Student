@@ -17,14 +17,21 @@ using Slim_Student.ViewModel;
 namespace Slim_Student.View
 {
     /// <summary>
-    /// PageQnA.xaml에 대한 상호 작용 논리
+    /// PageMyQuestionDetail.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PageQnA : Page
+    public partial class PageMyQuestionDetail : Page
     {
-        public PageQnA()
+        public static int mId;
+        public static string mStdId;
+        public static int mSubId;
+        public static string mContent;
+        public static DateTime mDate;
+        
+        public PageMyQuestionDetail()
         {
             InitializeComponent();
-            DataContext = new ViewModelPageQnA();
+            //DataContext = new ViewModelPageMyQuestionDetail(this);
+            DataContext = new ViewModelPageMyQuestionDetail(this, mId, mStdId, mSubId, mContent, mDate);
         }
     }
 }

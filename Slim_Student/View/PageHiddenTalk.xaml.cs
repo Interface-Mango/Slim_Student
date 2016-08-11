@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
 
     public partial class PageHiddenTalk : Page

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
-
+using Slim_Student.View;
 using System.Net.Sockets;
 using System.Net;
 using System.Windows.Controls;

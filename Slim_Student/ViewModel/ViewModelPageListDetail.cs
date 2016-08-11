@@ -11,7 +11,7 @@ using Slim_Student.Model;
 
 namespace Slim_Student.ViewModel
 {
-    class ViewModelDialogNotice : ViewModelBase
+    class ViewModelPageListDetail : ViewModelBase
     {
     }
 }

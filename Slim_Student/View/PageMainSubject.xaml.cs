@@ -13,8 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
+using Slim_Student.View;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
     /// <summary>
     /// PageMainSubject.xaml에 대한 상호 작용 논리
@@ -25,9 +26,8 @@ namespace Slim_Student
         public PageMainSubject(object[] param, SubjectList subjectlist)
         {
             InitializeComponent();
-            ViewModelMainSubject viewModelMainSubject = new ViewModelMainSubject(subjectlist);
-            DataContext = viewModelMainSubject;
-            viewModelMainSubject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
+            DataContext = new ViewModelMainSubject(subjectlist);
+            ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
             SubjectInfo = param;
             SubName.Text = SubjectInfo.ElementAt(1).ToString();
             
