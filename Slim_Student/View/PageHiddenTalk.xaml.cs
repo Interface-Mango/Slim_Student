@@ -22,8 +22,8 @@ namespace Slim_Student
         public PageHiddenTalk()
         {
             InitializeComponent();
-
-            DataContext = new ViewModelPageHiddenTalk(this,txtMsg);
+            PortBox.MaxLength = 4;
+            DataContext = new ViewModelPageHiddenTalk(this, txtMsg, PortBox, IDText, ServerConnectingBtn);
             textbox1.IsReadOnly = true;
         }
 
@@ -42,5 +42,37 @@ namespace Slim_Student
                 textbox1.Dispatcher.BeginInvoke(d, new Object[] { nMessage });
             }
         }
+
+        #region portBox를 숫자만 입력하게
+        private string prevText;
+        private void PortBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            double value;
+
+            if (double.TryParse(textBox.Text, out value))
+            {
+                this.prevText = textBox.Text;
+            }
+            else
+            {
+                textBox.Text = this.prevText;
+                textBox.SelectionLength = this.prevSelectionLength;
+                textBox.SelectionStart = this.prevSelectionStart;
+            }
+
+        }
+
+        int prevSelectionStart;
+        int prevSelectionLength;
+        private void PortBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            this.prevSelectionStart = textbox.SelectionStart;
+            this.prevSelectionLength = textbox.SelectionLength;
+        }
+
+        #endregion
     }
 }
