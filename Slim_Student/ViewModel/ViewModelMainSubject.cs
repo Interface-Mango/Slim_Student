@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Slim_Student.Model;
 using System.Windows.Navigation;
+using Slim_Student.Model;
+using Slim_Student.View;
 
 namespace Slim_Student.ViewModel
 {
@@ -108,6 +109,23 @@ namespace Slim_Student.ViewModel
         }
         #endregion
 
+
+        #region MinimizeCommand
+        private ICommand _MinimizeCommand;
+        public ICommand MinimizeCommand
+        {
+            get
+            {
+                return _MinimizeCommand ?? (_MinimizeCommand = new AppCommand(MinimizeCommandFunc));
+            }
+        }
+        public void MinimizeCommandFunc(Object o)
+        {
+            Widget widget = new Widget();
+            widget.Show();
+            MainFrame.Frame.Hide();
+        }
+        #endregion
 
         #region GoHome
         private ICommand _GoHome;

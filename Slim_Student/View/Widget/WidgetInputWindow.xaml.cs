@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student.View
 {
@@ -22,6 +23,9 @@ namespace Slim_Student.View
         public WidgetInputWindow()
         {
             InitializeComponent();
+            ResizeMode = ResizeMode.NoResize;
+            TextBoxBuffer.Focus();
+            DataContext = new ViewModelWidgetInputWindow(this);
         }
 
         private void BtnSend_Click(object sender, RoutedEventArgs e)
@@ -29,18 +33,18 @@ namespace Slim_Student.View
             Console.WriteLine(Convert.ToChar(TextBoxBuffer.Text));
             try
             {
-                byte[] b = new byte[30];
                 SerialCommunication.SerialPortValue.Write(TextBoxBuffer.Text);
-                SerialCommunication.SerialPortValue.Read(b, 0, 30);
-                for (int i = 0; i < 10;i++ )
-                    Console.WriteLine("b:" + b[i]);
-                Console.WriteLine("=================================");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
             this.Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

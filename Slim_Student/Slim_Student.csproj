@@ -78,6 +78,7 @@
     <Compile Include="ViewModel\ViewModelPageQnA.cs" />
     <Compile Include="ViewModel\ViewModelPageSignalLightMonitor.cs" />
     <Compile Include="ViewModel\ViewModelSubjectList.cs" />
+    <Compile Include="ViewModel\ViewModelWidgetInputWindow.cs" />
     <Compile Include="View\DialogNotice.xaml.cs">
       <DependentUpon>DialogNotice.xaml</DependentUpon>
     </Compile>
