@@ -67,19 +67,36 @@ namespace Slim_Student.ViewModel
             switch (typeSet)
             {
                 case typeState.Connecting:	// 연결 전
-                    ServerConnectingBtn.Content = "서버 접속";
-                    txtMsg.IsEnabled = false;
-                    portBox.IsEnabled = true;
+                    try
+                    {
+                        ServerConnectingBtn.Content = "서버 접속";
+                        txtMsg.IsEnabled = false;
+                        portBox.IsEnabled = true;
+                    }
+
+                    catch(InvalidOperationException)
+                    {
+                        // 서버에 연결을 하지 않은채
+                        // 클라이언트가 연결을 시도 할 경우
+                        pht.Dispatcher.BeginInvoke(new Action(
+                                delegate()
+                                {
+                                    ServerConnectingBtn.Content = "서버 접속";
+                                    txtMsg.IsEnabled = false;
+                                    portBox.IsEnabled = true;
+                                }));
+                    }
                     break;
 
                 case typeState.DisConnecting:	// 연결완료
-                    pht.Dispatcher.BeginInvoke(new Action(
-                        delegate()
-                        {
-                            ServerConnectingBtn.Content = "서버 종료";
-                        }));
-                    portBox.IsEnabled = false;
-                    txtMsg.IsEnabled = true;
+                            pht.Dispatcher.BeginInvoke(new Action(
+                                delegate()
+                                {
+                                    ServerConnectingBtn.Content = "서버 종료";
+                                }));
+                            portBox.IsEnabled = false;
+                            txtMsg.IsEnabled = true;
+
                     break;
             }
 
@@ -145,7 +162,7 @@ namespace Slim_Student.ViewModel
                         {
                             IDText.Text = "ID";
                         }));
-                        //m_socketMe = null;
+
                         m_socketMe.Close();
                         break;
                     }
@@ -176,6 +193,7 @@ namespace Slim_Student.ViewModel
 
                 pht.DisplayMsg("* 서버 접속 성공 *");
                 //서버 연결이 성공하면 id체크를 시작한다.
+                
                 Login(NickName);
             }
             else
@@ -197,12 +215,18 @@ namespace Slim_Student.ViewModel
 
                 //데이터 수신
                 socketClient.Receive(mdRecieveMsg.Data, mdRecieveMsg.DataLength, SocketFlags.None);
-
                 //명령을 분석 한다.
                 MsgAnalysis(mdRecieveMsg.GetData());
-
-                //다음 메시지를 받을 준비를 한다.
-                socketClient.ReceiveAsync(e);
+                try
+                {
+                    //다음 메시지를 받을 준비를 한다.
+                    socketClient.ReceiveAsync(e);
+                }
+                catch(ObjectDisposedException)
+                {
+                    //receiveAsync 탈출구
+                }
+                
             }
             else
             {
@@ -238,6 +262,9 @@ namespace Slim_Student.ViewModel
                     case claCommand.Command.ID_Check_Fail:	//아이디 실패
                         SendMeg_IDCheck_Fail();
                         break;
+                    case claCommand.Command.Server_Disconnection: // 서버종료를 받음
+                        Disconnection();
+                        break;
                 }
             }
         }
@@ -268,16 +295,18 @@ namespace Slim_Student.ViewModel
         /// 아이디체크 실패
         private void SendMeg_IDCheck_Fail()
         {
-            String Nick1 = randomID();
-            Login(Nick1);
+            NickName = randomID();
+            Login(NickName);
         }
 
         /// 접속이 끊겼다.
         private void Disconnection()
         {
             //접속 끊김
-            m_socketMe = null;
-            pht.DisplayMsg("** See you later~ **\n");
+            m_socketMe.Close();
+            pht.DisplayMsg("* 서버로부터 응답이 없습니다. *\n");
+            UI_Setting(typeState.Connecting);
+
         }
 
         private string randomID()

@@ -74,5 +74,10 @@ namespace Slim_Student
         }
 
         #endregion
+
+        private void PortBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            ServerConnectingBtn.IsEnabled = true;
+        }
     }
 }

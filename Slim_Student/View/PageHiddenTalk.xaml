@@ -15,17 +15,15 @@
             <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="127.5" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
         <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB">
-            <Button x:Name="ServerConnectingBtn" Command="{Binding ServerConnect}" Content="서버 접속" Width="115" Canvas.Left="802" Canvas.Top="16" Height="33"/>
+            <Button x:Name="ServerConnectingBtn" Command="{Binding ServerConnect}" Content="서버 접속" Width="115" Canvas.Left="802" Canvas.Top="16" Height="33" IsEnabled="False"/>
             <TextBox x:Name="txtMsg"  Height="58" TextWrapping="Wrap" Width="788" Canvas.Left="153" Canvas.Top="506">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
                 </TextBox.InputBindings>
             </TextBox>
             <TextBox x:Name="textbox1" Height="418" TextWrapping="Wrap"  Width="912" Canvas.Left="29" Canvas.Top="70"/>
-            <TextBox x:Name="PortBox" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="667" Canvas.Top="16" TextChanged="PortBox_TextChanged">
-                <TextBox.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding ServerConnect}"/>
-                </TextBox.InputBindings>
+            <TextBox x:Name="PortBox" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="667" Canvas.Top="16" TextChanged="PortBox_TextChanged" KeyDown="PortBox_KeyDown">
+                
             </TextBox>
             <TextBlock TextWrapping="Wrap" Text="Port Number" Canvas.Left="560" Canvas.Top="8" Height="54" Width="98" FontSize="17" TextAlignment="Center"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nick Name" VerticalAlignment="Top" Canvas.Left="12" Canvas.Top="502" Height="20" Width="123" FontSize="14" TextAlignment="Center"/>
