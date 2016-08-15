@@ -23,14 +23,83 @@ namespace Slim_Student.ViewModel
 
         /// 내 소켓
         private Socket m_socketMe = null;
+
         private PageHiddenTalk pht;
-        private TextBox txtMsg;
+        private TextBox txtMsg, portBox;
+        private string NickName;
+        private TextBlock IDText;
+        private Button ServerConnectingBtn;
+
+        /// ServerConnectBtn 버튼 상태
+        enum typeState
+        {
+            /// 연결하세요
+            Connecting,
+
+            /// 끊으세요
+            DisConnecting,
+        }
+
+        /// 나의 상태
+        private typeState m_typeState = typeState.Connecting;
 
 
-        public ViewModelPageHiddenTalk(PageHiddenTalk _pht, TextBox _txtMsg)
+        public ViewModelPageHiddenTalk
+            (PageHiddenTalk _pht, TextBox _txtMsg, TextBox _portBox, TextBlock _IDText, Button _ServerConnectingBtn)
         {
             pht = _pht;
             txtMsg = _txtMsg;
+            portBox = _portBox;
+            IDText = _IDText;
+            ServerConnectingBtn = _ServerConnectingBtn;
+            NickName = randomID();
+
+            UI_Setting(typeState.Connecting);
+        }
+
+        // UI 세팅
+        private void UI_Setting(typeState typeSet)
+        {
+            //들어온 값을 세팅하고
+            m_typeState = typeSet;
+
+
+            switch (typeSet)
+            {
+                case typeState.Connecting:	// 연결 전
+                    try
+                    {
+                        ServerConnectingBtn.Content = "서버 접속";
+                        txtMsg.IsEnabled = false;
+                        portBox.IsEnabled = true;
+                    }
+
+                    catch(InvalidOperationException)
+                    {
+                        // 서버에 연결을 하지 않은채
+                        // 클라이언트가 연결을 시도 할 경우
+                        pht.Dispatcher.BeginInvoke(new Action(
+                                delegate()
+                                {
+                                    ServerConnectingBtn.Content = "서버 접속";
+                                    txtMsg.IsEnabled = false;
+                                    portBox.IsEnabled = true;
+                                }));
+                    }
+                    break;
+
+                case typeState.DisConnecting:	// 연결완료
+                            pht.Dispatcher.BeginInvoke(new Action(
+                                delegate()
+                                {
+                                    ServerConnectingBtn.Content = "서버 종료";
+                                }));
+                            portBox.IsEnabled = false;
+                            txtMsg.IsEnabled = true;
+
+                    break;
+            }
+
         }
 
 
@@ -51,6 +120,7 @@ namespace Slim_Student.ViewModel
 
             SendMsg(sbData.ToString());
             txtMsg.Text = "";
+            txtMsg.Focus();
         }
         #endregion
 
@@ -62,17 +132,41 @@ namespace Slim_Student.ViewModel
         }
         private void ServerConnectFunc(Object o)
         {
-            //소켓 생성
-            Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8000);
+            switch (m_typeState)
+            {
+                case typeState.Connecting:
+                    {
+                        //UI 세팅
+                        UI_Setting(typeState.DisConnecting);
 
-            SocketAsyncEventArgs saeaServer = new SocketAsyncEventArgs();
-            saeaServer.RemoteEndPoint = ipepServer;
-            //연결 완료 이벤트 연결
-            saeaServer.Completed += new EventHandler<SocketAsyncEventArgs>(Connect_Completed);
+                        //소켓 생성
+                        Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), Convert.ToInt32(portBox.Text));
 
-            //서버 메시지 대기
-            socketServer.ConnectAsync(saeaServer);
+                        SocketAsyncEventArgs saeaServer = new SocketAsyncEventArgs();
+                        saeaServer.RemoteEndPoint = ipepServer;
+                        //연결 완료 이벤트 연결
+                        saeaServer.Completed += new EventHandler<SocketAsyncEventArgs>(Connect_Completed);
+
+                        //서버 메시지 대기
+                        socketServer.ConnectAsync(saeaServer);
+                        break;
+                    }
+
+                case typeState.DisConnecting:
+                    {
+                        UI_Setting(typeState.Connecting);
+                        pht.DisplayMsg("* 서버 종료 * ");
+                        pht.Dispatcher.BeginInvoke(new Action(
+                        delegate()
+                        {
+                            IDText.Text = "ID";
+                        }));
+
+                        m_socketMe.Close();
+                        break;
+                    }
+            }
         }
         #endregion
 
@@ -97,9 +191,10 @@ namespace Slim_Student.ViewModel
                 //받음 보냄
                 m_socketMe.ReceiveAsync(saeaReceiveArgs);
 
-                pht.DisplayMsg("*** 서버 연결 성공 ***");
+                pht.DisplayMsg("* 서버 접속 성공 *");
                 //서버 연결이 성공하면 id체크를 시작한다.
-                Login();
+                
+                Login(NickName);
             }
             else
             {
@@ -120,12 +215,18 @@ namespace Slim_Student.ViewModel
 
                 //데이터 수신
                 socketClient.Receive(mdRecieveMsg.Data, mdRecieveMsg.DataLength, SocketFlags.None);
-
                 //명령을 분석 한다.
                 MsgAnalysis(mdRecieveMsg.GetData());
-
-                //다음 메시지를 받을 준비를 한다.
-                socketClient.ReceiveAsync(e);
+                try
+                {
+                    //다음 메시지를 받을 준비를 한다.
+                    socketClient.ReceiveAsync(e);
+                }
+                catch(ObjectDisposedException)
+                {
+                    //receiveAsync 탈출구
+                }
+                
             }
             else
             {
@@ -161,6 +262,9 @@ namespace Slim_Student.ViewModel
                     case claCommand.Command.ID_Check_Fail:	//아이디 실패
                         SendMeg_IDCheck_Fail();
                         break;
+                    case claCommand.Command.Server_Disconnection: // 서버종료를 받음
+                        Disconnection();
+                        break;
                 }
             }
         }
@@ -174,6 +278,11 @@ namespace Slim_Student.ViewModel
         /// 아이디 성공
         private void SendMeg_IDCheck_Ok()
         {
+            pht.Dispatcher.BeginInvoke(new Action(
+                        delegate()
+                        {
+                            IDText.Text = NickName;
+                        }));
 
             //아이디확인이 되었으면 서버에 로그인 요청을 하여 로그인을 끝낸다.
             StringBuilder sbData = new StringBuilder();
@@ -186,23 +295,29 @@ namespace Slim_Student.ViewModel
         /// 아이디체크 실패
         private void SendMeg_IDCheck_Fail()
         {
-            pht.DisplayMsg("로그인 실패 : 다른 아이디를 이용해 주세요.");
-            //연결 끊기
-            Disconnection();
+            NickName = randomID();
+            Login(NickName);
         }
 
         /// 접속이 끊겼다.
         private void Disconnection()
         {
             //접속 끊김
-            m_socketMe = null;
+            m_socketMe.Close();
+            pht.DisplayMsg("* 서버로부터 응답이 없습니다. *\n");
+            UI_Setting(typeState.Connecting);
 
-            pht.DisplayMsg("*** 서버 연결 끊김 ***");
         }
 
         private string randomID()
         {
-            string[] NickName = { "asd", "zxc", "qwe", "nvb", "fdv", "4rf", "123" };
+            string[] NickName = 
+            { "Apple ", "Banana ", "Korea ", "Babo ", "Mouse ",
+                "Book ", "Lemon ", "Orange ", "멍청이 ", "이순신 ",
+                "장영실 ", "Melon ", "Moon ", "Star ", "Cloud ",
+                "Winter ", "Spring ", "Summer ","Fall ","광해군 ",
+                "연산군 ", "논개 ", "장희빈 "
+            };
             Random rand = new Random();
 
             int r = rand.Next(0, NickName.Length);
@@ -210,16 +325,19 @@ namespace Slim_Student.ViewModel
         }
 
         /// 아이디 체크 요청
-        private void Login()
+
+        private void Login(String Nick)
         {
             StringBuilder sbData = new StringBuilder();
             sbData.Append(claCommand.Command.ID_Check.GetHashCode());
             sbData.Append(claGlobal.g_Division);
 
-            sbData.Append(randomID().ToString());
+            sbData.Append(Nick);
 
             SendMsg(sbData.ToString());
         }
+
+
 
 
         /// 서버로 메시지를 전달 합니다.
