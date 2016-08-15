@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리

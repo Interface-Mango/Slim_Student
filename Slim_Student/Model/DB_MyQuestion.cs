@@ -12,7 +12,7 @@ namespace Slim_Student.Model
         DBManager db;
 
         public enum FIELD{
-            id, std_id, sub_id, content, END
+            id, std_id, sub_id, content, date, END
         }
 
         public DB_MyQuestion(DBManager _dbm)
@@ -20,9 +20,9 @@ namespace Slim_Student.Model
             db = _dbm;
         }
 
-        public List<object[]> SelectMyQuestionList(int std_id, int sub_id)
+        public List<object[]> SelectMyQuestionList(string std_id, int sub_id)
         {
-            string sql = "SELECT * FROM my_question WHERE std_id=@arg1 AND sub_id=@arg2 ORDER BY DESC";
+            string sql = "SELECT * FROM my_question WHERE std_id=@arg1 AND sub_id=@arg2 ORDER BY id DESC";
             List<object> args = new List<object>();
             args.Add(std_id);
             args.Add(sub_id);

@@ -13,22 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
     /// <summary>
     /// DialogNotice.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class DialogNotice : Window
+    public partial class PageListDetail : Page
     {
-        public DialogNotice()
+        public PageListDetail()
         {
             InitializeComponent();
-            DataContext = new ViewModelDialogNotice();
-        }
-
-        private void EditBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            DataContext = new ViewModelPageListDetail();
         }
     }
 }

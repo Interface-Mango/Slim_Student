@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows;
 using Slim_Student.Model;
 using System.Windows.Media.Animation;
+using Slim_Student.View;
 
 namespace Slim_Student.ViewModel
 {

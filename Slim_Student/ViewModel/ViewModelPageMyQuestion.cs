@@ -61,22 +61,6 @@ namespace Slim_Student.ViewModel
             //TODO: 글 작성 다이얼로그 띄우기
         }
         #endregion
-        
-        #region ListBoxItem_MouseDoubleClick
-        private ICommand _ListBoxItem_MouseDoubleClickCommand;
-        public ICommand ListBoxItem_MouseDoubleClickCommand
-        {
-            get { return _ListBoxItem_MouseDoubleClickCommand ?? (_ListBoxItem_MouseDoubleClickCommand = new AppCommand(MyQuestionListBoxItem_MouseDoubleClick)); }
-        }
-        public void MyQuestionListBoxItem_MouseDoubleClick(Object o)
-        {
-            MessageBox.Show("################");
-        }
-
-        private void QuestionListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-        }
-        #endregion
 
         public void makeList()
         {
@@ -86,7 +70,7 @@ namespace Slim_Student.ViewModel
             string std_id = Convert.ToString(userItems[(int)DB_User.FIELD.user_id]);
             int sub_id = Convert.ToInt32(subItems[(int)DB_Subject.FIELD.sub_id]);
 
-            ItemList = dbMyQustion.SelectMyQuestionList(Convert.ToInt32(std_id), Convert.ToInt32(sub_id));
+            ItemList = dbMyQustion.SelectMyQuestionList(std_id, Convert.ToInt32(sub_id));
             if (ItemList != null)
                 QuestionItemList = QuestionInfo.Data(ItemList);
         }
@@ -95,10 +79,34 @@ namespace Slim_Student.ViewModel
         {
             private static List<QuestionInfo> data;
 
+            public int Id { get; private set; }
             public int MyQuestionId { get; private set; }
             public string MyQuestionStudentId { get; private set; }
             public int MyQuestionSubjectId { get; private set; }
-            public string MyQuestionContent { get; private set; }
+            private string originContent;
+            private string _MyQuestionContent;
+            public string MyQuestionContent { 
+                get
+                {
+                    return _MyQuestionContent;
+                }
+                set
+                {
+                    originContent = value;
+                    if (value.Length > 100) {
+                        string temp = "";
+                        for (int i = 0; i < 100;i++ )
+                        {
+                            temp += value[i];
+                        }
+                        temp += "...";
+                        _MyQuestionContent = temp;
+                    } else {
+                        _MyQuestionContent = value;
+                    }
+                } 
+            }
+            public DateTime MyQuestionDate { get; private set; }
 
             public static List<QuestionInfo> Data(List<object[]> items)
             {
@@ -107,25 +115,37 @@ namespace Slim_Student.ViewModel
 
                 for (int i = 0; i < items.Count; i++)
                 {
-                    string myQuestionContent = Convert.ToString(items[i].ElementAt((int)DB_MyQuestion.FIELD.content));
                     subjectTemp = new QuestionInfo
                     {
-                        MyQuestionId = (i+1),
+                        Id = items.Count-i,
+                        MyQuestionId = Convert.ToInt32(items[i].ElementAt((int)DB_MyQuestion.FIELD.id)),
                         MyQuestionStudentId = Convert.ToString(items[i].ElementAt((int)DB_MyQuestion.FIELD.std_id)),
                         MyQuestionSubjectId = Convert.ToInt32(items[i].ElementAt((int)DB_MyQuestion.FIELD.sub_id)),
-                        MyQuestionContent = Convert.ToString(items[i].ElementAt((int)DB_MyQuestion.FIELD.content))
+                        MyQuestionContent = Convert.ToString(items[i].ElementAt((int)DB_MyQuestion.FIELD.content)),
+                        MyQuestionDate = Convert.ToDateTime(items[i].ElementAt((int)DB_MyQuestion.FIELD.date))
                     };
                     data.Add(subjectTemp);
                 }
                 return data;
             }
-            /*
-            private static string GetSubjectName(string sub_id) 
+
+            #region ListBoxItem_MouseDoubleClick
+            private ICommand _ListBoxItem_MouseDoubleClickCommand;
+            public ICommand ListBoxItem_MouseDoubleClickCommand
             {
-                DBManager dbm = new DBManager();
-                DB_User dbUser = new DB_User(dbm);
-                return Convert.ToString(dbUser.SelectUser(user_id)[(int)DB_User.FIELD.user_name]);
-            }*/
+                get { return _ListBoxItem_MouseDoubleClickCommand ?? (_ListBoxItem_MouseDoubleClickCommand = new AppCommand(MyQuestionListBoxItem_MouseDoubleClick)); }
+            }
+            public void MyQuestionListBoxItem_MouseDoubleClick(Object o)
+            {
+                PageMyQuestionDetail.mId = MyQuestionId;
+                PageMyQuestionDetail.mStdId = MyQuestionStudentId;
+                PageMyQuestionDetail.mSubId = MyQuestionSubjectId;
+                PageMyQuestionDetail.mContent = originContent;
+                PageMyQuestionDetail.mDate = MyQuestionDate;
+
+                ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageMyQuestionDetail.xaml", UriKind.Relative);
+            }
+            #endregion
         }
     }
 }
