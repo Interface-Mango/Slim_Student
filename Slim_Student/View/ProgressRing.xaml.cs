@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
     /// <summary>
     /// Interaction logic for ProgressRing.xaml

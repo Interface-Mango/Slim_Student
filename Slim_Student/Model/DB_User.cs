@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using System.Windows.Media.Animation;
+using Slim_Student.View;
 
 namespace Slim_Student.Model
 {

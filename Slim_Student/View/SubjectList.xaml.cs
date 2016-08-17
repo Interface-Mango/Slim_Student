@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
 	public partial class SubjectList
 	{

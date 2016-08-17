@@ -25,7 +25,7 @@ namespace Slim_Student.Model
 
         public DBManager()
         {
-            string connectionString = "Server=14.63.196.146; Port=3306; Database=slim_schema; Uid=guest; pwd=m@ngo518";
+            string connectionString = "Server=14.63.196.146; Port=3306; Database=slim_schema; Uid=guest; pwd=m@ngo518; Allow Zero Datetime=True;";
             _IsDBOpen = false;
 
             try

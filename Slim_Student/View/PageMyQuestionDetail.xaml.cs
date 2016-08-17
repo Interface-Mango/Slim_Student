@@ -17,27 +17,21 @@ using Slim_Student.ViewModel;
 namespace Slim_Student.View
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// PageMyQuestionDetail.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class PageMyQuestionDetail : Page
     {
-        public LoginWindow()
+        public static int mId;
+        public static string mStdId;
+        public static int mSubId;
+        public static string mContent;
+        public static DateTime mDate;
+        
+        public PageMyQuestionDetail()
         {
             InitializeComponent();
-            ResizeMode = ResizeMode.NoResize;
-            IDTextBox.Focus();
-            DataContext = new ViewModelLoginWindow(this);            
+            //DataContext = new ViewModelPageMyQuestionDetail(this);
+            DataContext = new ViewModelPageMyQuestionDetail(this, mId, mStdId, mSubId, mContent, mDate);
         }
-
-        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
-        private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }

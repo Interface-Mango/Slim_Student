@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 
-namespace Slim_Student
+namespace Slim_Student.View
 {
 	/// <summary>
 	/// MainFrame.xaml에 대한 상호 작용 논리
@@ -23,7 +23,7 @@ namespace Slim_Student
 
 		public MainFrame(object[] _userInfo)
 		{
-            this.InitializeComponent();
+            InitializeComponent();
             Frame = this;
             ResizeMode = ResizeMode.NoResize;
             UserInfo = _userInfo;
