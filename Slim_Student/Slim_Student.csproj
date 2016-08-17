@@ -233,6 +233,7 @@
     <Resource Include="View\Images\mangoLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Images\SlimLogo.jpg" />
     <Resource Include="View\Images\smallmango.jpg" />
   </ItemGroup>
   <ItemGroup>

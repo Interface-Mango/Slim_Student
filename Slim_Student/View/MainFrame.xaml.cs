@@ -47,5 +47,10 @@ namespace Slim_Student.View
         {
             return Frame;
         }
+
+        private void Main_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
 	}
 }
