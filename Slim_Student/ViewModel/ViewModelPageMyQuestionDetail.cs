@@ -12,6 +12,10 @@ using Slim_Student.View;
 
 namespace Slim_Student.ViewModel
 {
+    /// <summary>
+    /// PageMyQuestionDetail
+    /// 나의 질문에서 선택한 하나의 항목에 대한 세부사항
+    /// </summary>
     class ViewModelPageMyQuestionDetail : ViewModelBase
     {
         private PageMyQuestionDetail pMyQuestionDetail;

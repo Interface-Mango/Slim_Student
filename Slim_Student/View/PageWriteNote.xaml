@@ -4,15 +4,36 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="589" d:DesignWidth="980"
+      Width="972"
+      Height="629"
+      WindowHeight="700"
+      WindowWidth="1200"
 	Title="PageWriteNote">
 
-    <Grid Background="#B2B1D2EE">
+    <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="80" />
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        
+        <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEA8BC3" Grid.Row="0" >
+            <TextBlock TextWrapping="Wrap" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="452" Height="20" Width="72" FontSize="15" FontWeight="Bold" Text="질문 작성하기"/>
+        </Canvas>
+        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFE0F5EB" VerticalAlignment="Top">
+            <TextBox Height="510" Width="972" Background="#8d8" TextWrapping="Wrap" Text="{Binding QuestionContentTextBox}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        </Canvas>
+        <Canvas Grid.Row="2" Height="80" Background="#FFE0F5EB">
+            <Button
+            	Width="100"
+            	Height="50"
+            	HorizontalAlignment="Center"
+            	VerticalAlignment="Center"
+            	Background="#f76a51"
+            	Command="{Binding SaveQuestionCommand}"
+            	Content="저장"
+            	FontSize="15"
+            	FontWeight="Bold"
+            	Foreground="#ffffff" Canvas.Left="862" Canvas.Top="15"/>
+        </Canvas>
     </Grid>
 </Page>

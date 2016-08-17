@@ -4,9 +4,9 @@
 
     <Style x:Key="LBXITEM_VERTICAL_MyQuestion" TargetType="ListBoxItem">
         
-        <!--EventSetter Event="MouseDoubleClick" Handler="ListBoxItem_MouseDoubleClickCommand"/-->
         <Setter Property="Background" Value="#ffffff" />
         <Setter Property="Foreground" Value="#404040" />
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
@@ -21,11 +21,13 @@
                         </Border.InputBindings>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
                                 <RowDefinition Height="20"/>
+                                <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="825" />
+                                <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
                             <TextBlock 
@@ -39,14 +41,28 @@
                                 />
 
 
-                            <TextBlock Grid.Row="0"
-                                           Grid.Column="1"
-                                           Margin="10"
-                                           Text="{Binding MyQuestionContent}" />
-                            <TextBlock Grid.Row="1"
-                                           Grid.Column="1"
-                                           Margin="10"
-                                           Text="{Binding MyQuestionDate}" />
+                            <TextBlock  Grid.Row="0"
+                                        Grid.Column="1"
+                                        Text="{Binding MyQuestionContent}"/>
+                            <TextBlock  Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding MyQuestionDate}"/>
+                            
+                            <Button Grid.Row="0"
+                                    Grid.Column="2"
+                                    Grid.RowSpan="2"
+                                    Background="AliceBlue"
+                                    Margin="4"
+                                    Content="수정"
+                                    Command="{Binding QuestionModifyCommand}"/>
+                            
+                            <Button Grid.Row="0"
+                                    Grid.Column="3"
+                                    Grid.RowSpan="2"
+                                    Background="LightGreen"
+                                    Margin="4"
+                                    Content="삭제"
+                                    Command="{Binding QuestionDeleteCommand}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -67,6 +83,7 @@
 
     <Style x:Key="LBX_VERTICAL_MyQuestion" TargetType="ListBox">
         <Setter Property="ItemContainerStyle" Value="{DynamicResource LBXITEM_VERTICAL_MyQuestion}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>

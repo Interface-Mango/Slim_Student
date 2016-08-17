@@ -75,5 +75,85 @@ namespace Slim_Student.Model
 
             return recordList;
         }
+
+        public bool InsertQuestion(string std_id, int sub_id, string content)
+        {
+            string sql = "INSERT INTO my_question(std_id, sub_id, content, date) VALUES(@arg1, @arg2, @arg3, NOW())";
+            List<object> args = new List<object>();
+            args.Add(std_id);
+            args.Add(sub_id);
+            args.Add(content);
+
+            try
+            {
+                db.Connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(sql, db.Connection))
+                {
+                    for (int i = 1; i <= 3;i++ )
+                    {
+                        cmd.Parameters.AddWithValue("@arg" + i, args.ElementAt(i-1));
+                    }
+                    cmd.ExecuteNonQuery();
+                }
+                db.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);  // For Debugging
+                return false;    // 삽입 오류시 false 반환
+            }
+
+            return true;
+        }
+
+        public bool UpdateQuestion(int id, string content)
+        {
+            string sql = "UPDATE my_question SET content=@arg1 WHERE id=@arg2";
+            List<object> args = new List<object>();
+            args.Add(content);
+            args.Add(id);
+
+            try
+            {
+                db.Connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(sql, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@arg1", content);
+                    cmd.Parameters.AddWithValue("@arg2", id);
+                    cmd.ExecuteNonQuery();
+                }
+                db.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);  // For Debugging
+                return false;    // 제거 오류시 false 반환
+            }
+
+            return true;
+        }
+
+        public bool DeleteQuestion(int id)
+        {
+            string sql = "DELETE FROM my_question WHERE id=@arg";
+
+            try
+            {
+                db.Connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(sql, db.Connection))
+                {
+                        cmd.Parameters.AddWithValue("@arg", id);
+                    cmd.ExecuteNonQuery();
+                }
+                db.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);  // For Debugging
+                return false;    // 제거 오류시 false 반환
+            }
+
+            return true;
+        }
     }
 }

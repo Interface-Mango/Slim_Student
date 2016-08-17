@@ -15,17 +15,16 @@ namespace Slim_Student.ViewModel
     class ViewModelPageMyQuestion : ViewModelBase
     {
         private DBManager dbManager;
-        private DB_MyQuestion dbMyQustion;
+        private DB_MyQuestion dbMyQuestion;
         private PageMyQuestion parentWindow;
 
         // 생성자
         public ViewModelPageMyQuestion(PageMyQuestion pWindow)
         {
             dbManager = new DBManager();
-            dbMyQustion = new DB_MyQuestion(dbManager);
+            dbMyQuestion = new DB_MyQuestion(dbManager);
             parentWindow = pWindow;
             _ItemList = new List<object[]>();
-            //parentWindow.QuestionListBox.MouseDoubleClick += new MouseButtonEventHandler(QuestionListBox_MouseDoubleClick);
         }
 
         #region QuestionItemList
@@ -58,7 +57,9 @@ namespace Slim_Student.ViewModel
 
         public void WriteQuestionCommandFunc(Object o)
         {
-            //TODO: 글 작성 다이얼로그 띄우기
+            PageWriteNote.isInsertUpdate = true;
+
+            ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageWriteNote.xaml", UriKind.Relative);
         }
         #endregion
 
@@ -70,14 +71,15 @@ namespace Slim_Student.ViewModel
             string std_id = Convert.ToString(userItems[(int)DB_User.FIELD.user_id]);
             int sub_id = Convert.ToInt32(subItems[(int)DB_Subject.FIELD.sub_id]);
 
-            ItemList = dbMyQustion.SelectMyQuestionList(std_id, Convert.ToInt32(sub_id));
+            ItemList = dbMyQuestion.SelectMyQuestionList(std_id, Convert.ToInt32(sub_id));
             if (ItemList != null)
-                QuestionItemList = QuestionInfo.Data(ItemList);
+                QuestionItemList = QuestionInfo.Data(ItemList, dbMyQuestion);
         }
 
         internal class QuestionInfo
         {
             private static List<QuestionInfo> data;
+            private static DB_MyQuestion dbMyQuestion;
 
             public int Id { get; private set; }
             public int MyQuestionId { get; private set; }
@@ -108,10 +110,11 @@ namespace Slim_Student.ViewModel
             }
             public DateTime MyQuestionDate { get; private set; }
 
-            public static List<QuestionInfo> Data(List<object[]> items)
+            public static List<QuestionInfo> Data(List<object[]> items, DB_MyQuestion _dbMyQuestion)
             {
                 QuestionInfo subjectTemp;
                 data = new List<QuestionInfo>();
+                dbMyQuestion = _dbMyQuestion;
 
                 for (int i = 0; i < items.Count; i++)
                 {
@@ -144,6 +147,37 @@ namespace Slim_Student.ViewModel
                 PageMyQuestionDetail.mDate = MyQuestionDate;
 
                 ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageMyQuestionDetail.xaml", UriKind.Relative);
+            }
+            #endregion
+
+            #region QuestionModifyCommand
+            private ICommand _QuestionModifyCommand;
+            public ICommand QuestionModifyCommand
+            {
+                get { return _QuestionModifyCommand ?? (_QuestionModifyCommand = new AppCommand(QuestionModifyCommandFunc)); }
+            }
+            public void QuestionModifyCommandFunc(Object o)
+            {
+                PageWriteNote.mId = MyQuestionId;
+                PageWriteNote.mContent = originContent;
+                PageWriteNote.isInsertUpdate = false;
+
+                ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageWriteNote.xaml", UriKind.Relative);
+            }
+            #endregion
+
+            #region QuestionDeleteCommand
+            private ICommand _QuestionDeleteCommand;
+            public ICommand QuestionDeleteCommand
+            {
+                get { return _QuestionDeleteCommand ?? (_QuestionDeleteCommand = new AppCommand(QuestionDeleteCommandFunc)); }
+            }
+            public void QuestionDeleteCommandFunc(Object o)
+            {
+                if (MessageBox.Show("삭제하시겠습니까?", "삭제 경고", MessageBoxButton.YesNo) == MessageBoxResult.No) return; 
+                dbMyQuestion.DeleteQuestion(MyQuestionId);
+                PageMainSubject.MainFrameObject.Refresh();
+                ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageMyQuestion.xaml", UriKind.Relative);
             }
             #endregion
         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student.View
 {
@@ -20,9 +21,17 @@ namespace Slim_Student.View
     /// </summary>
     public partial class PageWriteNote : Page
     {
+        public static int mId;
+        public static string mContent;
+        public static bool isInsertUpdate;
+
         public PageWriteNote()
         {
             InitializeComponent();
+            if(isInsertUpdate)  // 새로 삽입
+                DataContext = new ViewModelPageWriteNote(this);
+            else // 수정
+                DataContext = new ViewModelPageWriteNote(this, mId, mContent);
         }
     }
 }

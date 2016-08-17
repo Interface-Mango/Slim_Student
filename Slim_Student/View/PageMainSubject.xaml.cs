@@ -23,14 +23,18 @@ namespace Slim_Student.View
     public partial class PageMainSubject : Page
     {
         public static object[] SubjectInfo;
+        public static Frame MainFrameObject;
+
         public PageMainSubject(object[] param, SubjectList subjectlist)
         {
             InitializeComponent();
             DataContext = new ViewModelMainSubject(subjectlist);
+
+            MainFrameObject = FramePanel;
             ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
+            //FramePanel.Source = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
             SubjectInfo = param;
             SubName.Text = SubjectInfo.ElementAt(1).ToString();
-            
         }
     }
 }

@@ -30,7 +30,6 @@ namespace Slim_Student.View
         public PageMyQuestionDetail()
         {
             InitializeComponent();
-            //DataContext = new ViewModelPageMyQuestionDetail(this);
             DataContext = new ViewModelPageMyQuestionDetail(this, mId, mStdId, mSubId, mContent, mDate);
         }
     }
