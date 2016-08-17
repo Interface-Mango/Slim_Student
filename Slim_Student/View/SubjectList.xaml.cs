@@ -23,5 +23,10 @@ namespace Slim_Student
             viewModelSubjectList.makeList();
             DataContext = viewModelSubjectList; 
 		}
+
+       private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+       {
+           MainFrame.Frame.Close();
+       }
 	}
 }

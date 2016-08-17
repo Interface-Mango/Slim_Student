@@ -4,17 +4,6 @@
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Slim_Student.ProgressRing"
         Title="ProgressRing" Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize">
     <Window.Resources>
-        <Storyboard x:Key="AlwaysAnimation">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="regularPolygon">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="200"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="350"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="420"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="450"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="480"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="500"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="530"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
         <Storyboard x:Key="MangoAnimation" Completed="AutoClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
@@ -26,24 +15,6 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image2">
                 <EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0.1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.7" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
-                <EasingColorKeyFrame KeyTime="0:0:0.9" Value="#FFF92424"/>
-                <EasingColorKeyFrame KeyTime="0:0:1.8" Value="sc#1, 0.9473065, 0.0497065671, 0.0176419541"/>
-                <EasingColorKeyFrame KeyTime="0:0:1.9" Value="sc#1, 1, 0.768151164, 0.0129830325"/>
-                <EasingColorKeyFrame KeyTime="0:0:2.7" Value="#FFFFE31E"/>
-                <EasingColorKeyFrame KeyTime="0:0:3.6" Value="sc#1, 1, 0.768151164, 0.0129830325"/>
-                <EasingColorKeyFrame KeyTime="0:0:3.7" Value="sc#1, 0.149959788, 0.391572475, 0.000910581"/>
-                <EasingColorKeyFrame KeyTime="0:0:4.6" Value="#FF6CA803"/>
-            </ColorAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:3.7" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
@@ -94,31 +65,24 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:5.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="ProgressRing">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:Arc.StartAngle)" Storyboard.TargetName="arc">
+        		<EasingDoubleKeyFrame KeyTime="0:0:5" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
-
     <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+    	<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+    		<BeginStoryboard Storyboard="{StaticResource ProgressRing}"/>
+    		<BeginStoryboard Storyboard="{StaticResource MangoAnimation}"/>
+    	</EventTrigger>
     </Window.Triggers>
 
-    <Grid Background="#FFDFE6B3" Margin="0,0,0,-4">
-
-        <ed:Arc ArcThickness="25" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFFDFCFB" HorizontalAlignment="Center" Height="600" Stretch="None" StartAngle="0" VerticalAlignment="Center" Width="700" Panel.ZIndex="1"/>
-        <ed:RegularPolygon x:Name="regularPolygon" HorizontalAlignment="Left" Height="368.636" InnerRadius="1" PointCount="3" Stretch="Fill" VerticalAlignment="Top" Width="440" Margin="376,350.736,0,-19.372" RenderTransformOrigin="0.5,-0.012" Fill="#FFDFE6B3" Panel.ZIndex="1">
-            <ed:RegularPolygon.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="170"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ed:RegularPolygon.RenderTransform>
-        </ed:RegularPolygon>
-        <Border BorderThickness="1" HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="400" Background="#FFC3CF7A" CornerRadius="30" Panel.ZIndex="2" Margin="396,246,396,254"/>
+    <Grid Background="#FFFFE406" Margin="0,0,0,-4">
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="400" Background="#FF524500" CornerRadius="30" Panel.ZIndex="2" Margin="396,246,396,254"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="130" Margin="402,282,0,0" Source="Images/smallmango.jpg" Panel.ZIndex="5" Opacity="0.1"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="130" Margin="532,282,0,0" Source="Images/smallmango.jpg" Panel.ZIndex="5" Opacity="0.1"/>
         <Image x:Name="image2" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="130" Margin="662,282,0,0" Source="Images/smallmango.jpg" Panel.ZIndex="5" Opacity="0.1"/>
-        <Border x:Name="border" BorderThickness="3" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="440" Margin="376,226,0,0" CornerRadius="25" Panel.ZIndex="1" Background="#FFDFE6B3"/>
-        <ed:Arc ArcThickness="15" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFBDBDEC" HorizontalAlignment="Center" Height="620" Stretch="None" StartAngle="0" VerticalAlignment="Center" Width="721" StrokeThickness="3" Margin="235.5,40.5,235.5,39.5"/>
         <TextBlock x:Name="textBlock" TextWrapping="Wrap" VerticalAlignment="Top" Margin="583.819,479.802,579.68,0" Height="26.886" TextAlignment="Center" FontSize="16" Panel.ZIndex="2" RenderTransformOrigin="0.5,0.5" Text="0">
             <TextBlock.RenderTransform>
                 <TransformGroup>
@@ -130,6 +94,42 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Margin="625.32,485.605,0,0" Height="18.781" FontSize="10.667" Panel.ZIndex="2" Width="9.316"/>
+        <ed:Arc x:Name="arc" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FFFEFEF4" Stretch="None" StrokeThickness="3" Margin="0,-3.018,0,0" HorizontalAlignment="Center" Width="662" Height="352.018" VerticalAlignment="Center" StartAngle="360"/>
+        <Rectangle Fill="#FFFFE406" HorizontalAlignment="Left" Height="92.904" StrokeThickness="3" VerticalAlignment="Top" Width="662" Margin="269,135.482,0,0"/>
+        <Rectangle Fill="#FFFFE406" HorizontalAlignment="Left" Height="299.781" StrokeThickness="3" VerticalAlignment="Top" Width="124" Margin="251,221.719,0,0"/>
+        <Rectangle Fill="#FFFFE406" HorizontalAlignment="Left" Height="86.904" StrokeThickness="3" VerticalAlignment="Top" Width="662" Margin="269,472.596,0,0"/>
+        <Rectangle Fill="#FFFFE406" HorizontalAlignment="Left" Height="293.114" StrokeThickness="3" VerticalAlignment="Top" Width="106" Margin="825,228.386,0,0"/>
+        <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="100" Stretch="None" StrokeThickness="30" StartAngle="0" VerticalAlignment="Top" Width="100" Margin="754.835,198.383,0,0" Fill="#FFFFE406" Stroke="#FFFFE406"/>
+        <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="100" Stretch="None" StrokeThickness="30" StartAngle="0" VerticalAlignment="Top" Width="100" Margin="345,198.316,0,0" Fill="#FFFFE406" Stroke="#FFFFE406" RenderTransformOrigin="0.5,0.5">
+        	<ed:Arc.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform Angle="270"/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</ed:Arc.RenderTransform>
+        </ed:Arc>
+        <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="100" Stretch="None" StrokeThickness="30" StartAngle="0" VerticalAlignment="Top" Width="100" Margin="345,402.816,0,0" Fill="#FFFFE406" Stroke="#FFFFE406" RenderTransformOrigin="0.5,0.5">
+        	<ed:Arc.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform Angle="180"/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</ed:Arc.RenderTransform>
+        </ed:Arc>
+        <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="100" Stretch="None" StrokeThickness="30" StartAngle="0" VerticalAlignment="Top" Width="100" Margin="755,402.316,0,0" Fill="#FFFFE406" Stroke="#FFFFE406" RenderTransformOrigin="0.5,0.5">
+        	<ed:Arc.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform Angle="90"/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</ed:Arc.RenderTransform>
+        </ed:Arc>
 
     </Grid>
 </Window>

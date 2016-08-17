@@ -23,17 +23,8 @@ namespace Slim_Student
         public ProgressRing()
         {
             InitializeComponent();
-			AlwaysProgressRing();
         }
 
-        public void AlwaysProgressRing()
-        {
-            Storyboard progressring;
-            progressring = (Storyboard)this.Resources["AlwaysAnimation"];
-            
-			progressring.RepeatBehavior = RepeatBehavior.Forever;
-            progressring.Begin(this);
-        }
 
 
         public Storyboard MangoProgressBar()

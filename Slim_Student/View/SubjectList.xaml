@@ -18,45 +18,36 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="37*" />
+            <ColumnDefinition Width="206*"/>
         </Grid.ColumnDefinitions>
-        <Canvas Margin="220,40,0,0">
+        <Canvas Margin="0,0,148,629" Grid.Column="1" Grid.Row="1">
             <Canvas Width="972"
                     Height="40"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Background="#FFEA8B8B">
-                <TextBlock Canvas.Left="80"
-                           Canvas.Top="10"
-                           Width="93"
-                           Height="20"
-                           VerticalAlignment="Center"
-                           FontSize="14.667"
-                           FontWeight="Bold"
-                           Text="수업리스트"
-                           TextWrapping="Wrap" />
-            </Canvas>
+                    Background="#FFFFE406"/>
             <Grid Width="972"
                   Height="589"
                   Margin="0,40,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
-                  Background="#FFF4F5E0">
+                  Background="#FFFFE406">
                 <Grid x:Name="SubTableGrid"
                       Margin="150,40,150,40"
                       Background="#4CD69595">
                     <ListBox Name="SubjectListBox"
                              ItemsSource="{Binding SubjectItemList}"
-                             Style="{DynamicResource LBX_VERTICAL_SubjectList}" />
+                             Style="{DynamicResource LBX_VERTICAL_SubjectList}" Margin="0,33,0,0" />
 
                     <Button Name="EnterButton"
                             Grid.Row="0"
                             Width="100"
                             Height="50"
-                            Margin="704,0,-132,459"
+                            Margin="702,459,-130,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Background="#f76a51"
+                            Background="#FF524500"
                             Command="{Binding EnterSubjectCommand}"
                             Content="들어가기"
                             FontSize="11"
@@ -99,39 +90,13 @@
                 </Grid>
             </Grid>
         </Canvas>
-        <Canvas x:Name="TitleCanvas"
-                Grid.Row="0"
-                Grid.ColumnSpan="2"
-                Height="40"
-                Background="#FF71C563">
-            <Image Canvas.Left="18.96"
-                   Width="39.336"
-                   Height="39.336"
-                   Source="Images/smallmango.jpg" />
-            <TextBlock Canvas.Left="60.64"
-                       Canvas.Top="1.891"
-                       Width="112.093"
-                       Height="37.445"
-                       FontSize="24"
-                       Foreground="White"
-                       Text="Slim"
-                       TextWrapping="Wrap" />
-            <Button Content="위젯 모드" Canvas.Left="1100" Canvas.Top="8" Width="80"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Background="#276a51"
-                            Command="{Binding MinimizeCommand}"
-                            FontSize="11"
-                            FontWeight="Bold"
-                            Foreground="#ffffff" />
-        </Canvas>
         <Canvas x:Name="SubPanel" Grid.Row="1">
             <Canvas x:Name="ProfileCanvas"
                     Width="220"
                     Height="80"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Background="#FFE0E4B9">
+                    Background="#FFFFF8CA">
                 <Image x:Name="ProfilePicture"
                        Canvas.Left="10"
                        Canvas.Top="10"
@@ -163,39 +128,46 @@
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
             </Canvas>
-            <StackPanel x:Name="MainMenu"
-                        Canvas.Top="80"
-                        Width="220"
-                        Height="549"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Background="#FFBBCB8F"
-                        Orientation="Vertical">
-                <Button Width="220"
-                        Height="60"
-                        Margin="0,10,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        HorizontalContentAlignment="Right"
-                        Background="#FFD9EEEE"
-                        BorderBrush="{x:Null}"
-                        Content="수업리스트"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Padding="10" />
-                <Button
-                	Height="40"
-                	Margin="0,410,0,0"
-                	VerticalAlignment="Top"
-                	HorizontalContentAlignment="Right"
-                	Command="{Binding LogoutCommand}"
-                	Background="#FFEED1CF"
-                	BorderBrush="{x:Null}"
-                	Content="Logout"
-                	FontSize="15"
-                	FontWeight="Bold"
-                	Padding="0,0,10,0" />
-            </StackPanel>
+            <Grid Canvas.Top="80"
+            	Width="220"
+            	Height="549"
+            	HorizontalAlignment="Left"
+            	VerticalAlignment="Top"
+            	Background="#FFFFF8CA">
+                <Canvas  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="White">
+                    <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="수업리스트" Canvas.Left="5.57" Canvas.Top="20.5" Height="30.5" Width="204.43" FontSize="22.667" TextAlignment="Right" FontWeight="Bold"/>
+                </Canvas>
+            </Grid>
+        </Canvas>
+        <Canvas Height="40"
+        	VerticalAlignment="Top"
+        	Background="#FF524500" Grid.ColumnSpan="3">
+            <TextBlock Canvas.Left="569.205"
+        		Canvas.Top="2.555"
+        		Width="54.473"
+        		Height="37.445"
+        		FontSize="24"
+        		Foreground="White"
+        		Text="Slim"
+        		TextWrapping="Wrap" HorizontalAlignment="Center" />
+            <Canvas x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#FFEC5C5C" Canvas.Left="1158" Canvas.Top="9" MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown">
+                <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Width="24" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center" Canvas.Top="4"/>
+            </Canvas>
+        </Canvas>
+        <Canvas Width="671.25"
+        	Height="40"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Background="#FF524500" Grid.Column="2" Margin="3,73,0,0" Grid.Row="1">
+            <TextBlock
+        		Canvas.Top="10"
+        		Width="671.25"
+        		Height="20"
+        		VerticalAlignment="Center"
+        		FontSize="14.667"
+        		FontWeight="Bold"
+        		Text="수업리스트"
+        		TextWrapping="Wrap" Foreground="White" TextAlignment="Center" />
         </Canvas>
     </Grid>
 </Page>
