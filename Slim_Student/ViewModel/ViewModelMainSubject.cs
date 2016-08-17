@@ -51,8 +51,7 @@ namespace Slim_Student.ViewModel
 
         private void GoSignalLightFunc(Object o)
         {
-            _FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
-            OnPropertyChanged("FrameSource");
+            FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
         }
         #endregion
 
@@ -65,9 +64,7 @@ namespace Slim_Student.ViewModel
 
         private void GoHiddenTalkFunc(Object o)
         {
-            _FrameSource = new Uri("PageHiddenTalk.xaml", UriKind.Relative);
-            Console.WriteLine(_FrameSource.OriginalString);
-            OnPropertyChanged("FrameSource");
+            FrameSource = new Uri("PageHiddenTalk.xaml", UriKind.Relative);
         }
         #endregion
 
@@ -80,8 +77,7 @@ namespace Slim_Student.ViewModel
 
         private void GoMyQuestionFunc(Object o)
         {
-            _FrameSource = new Uri("PageMyQuestion.xaml", UriKind.Relative);
-            OnPropertyChanged("FrameSource");
+            FrameSource = new Uri("PageMyQuestion.xaml", UriKind.Relative);
         }
         #endregion
 
@@ -94,8 +90,7 @@ namespace Slim_Student.ViewModel
 
         private void GoQnaFunc(Object o)
         {
-            _FrameSource = new Uri("PageQnA.xaml", UriKind.Relative);
-            OnPropertyChanged("FrameSource");
+            FrameSource = new Uri("PageQnA.xaml", UriKind.Relative);
         }
         #endregion
 
@@ -108,8 +103,7 @@ namespace Slim_Student.ViewModel
 
         private void GoNoticeFunc(Object o)
         {
-            _FrameSource = new Uri("PageNotice.xaml", UriKind.Relative);
-            OnPropertyChanged("FrameSource");
+            FrameSource = new Uri("PageNotice.xaml", UriKind.Relative);
         }
         #endregion
 
