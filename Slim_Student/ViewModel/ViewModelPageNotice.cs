@@ -118,13 +118,13 @@ namespace Slim_Student.ViewModel
                 return data;
             }
 
-            #region ListBoxItem_MouseDoubleClick
+            #region ListBoxItem_MouseDoubleClickCommand
             private ICommand _ListBoxItem_MouseDoubleClickCommand;
             public ICommand ListBoxItem_MouseDoubleClickCommand
             {
-                get { return _ListBoxItem_MouseDoubleClickCommand ?? (_ListBoxItem_MouseDoubleClickCommand = new AppCommand(NoticeListBoxItem_MouseDoubleClick)); }
+                get { return _ListBoxItem_MouseDoubleClickCommand ?? (_ListBoxItem_MouseDoubleClickCommand = new AppCommand(NoticeListBoxItem_MouseDoubleClickFunc)); }
             }
-            public void NoticeListBoxItem_MouseDoubleClick(Object o)
+            public void NoticeListBoxItem_MouseDoubleClickFunc(Object o)
             {
                 PageNoticeDetail.mId = NoticeId;
                 PageNoticeDetail.mTitle = NoticeTitle;

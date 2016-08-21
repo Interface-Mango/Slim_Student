@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Slim_Student.ViewModel;
 
 namespace Slim_Student.View
 {
@@ -29,7 +30,7 @@ namespace Slim_Student.View
         public PageNoticeDetail()
         {
             InitializeComponent();
-            DataContext = new ViewModelPageNoticeDetail(this, mId, mStdId, mSubId, mContent, mDate);
+            DataContext = new ViewModelPageNoticeDetail(this, mId, mTitle, mContent, mSubId, mDate);
         }
     }
 }

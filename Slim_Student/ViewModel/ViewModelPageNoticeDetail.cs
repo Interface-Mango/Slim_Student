@@ -16,11 +16,29 @@ namespace Slim_Student.ViewModel
     {
         private PageNoticeDetail pNoticeDetail;
 
-        public ViewModelPageNoticeDetail(PageNoticeDetail pDetail, int id, string std_id, int sub_id, string content, DateTime date) 
+        public ViewModelPageNoticeDetail(PageNoticeDetail pDetail, int id, string title, string content, int sub_id, DateTime date) 
         {
             pNoticeDetail = pDetail;
+            NoticeDetailTitle = title;
             NoticeDetailContent = content;
+            NoticeDetailDate = date;
         }
+
+        #region NoticeDetailTitle
+        private string _NoticeDetailTitle;
+        public string NoticeDetailTitle
+        {
+            get { return _NoticeDetailTitle; }
+            set
+            {
+                if (_NoticeDetailTitle != value)
+                {
+                    _NoticeDetailTitle = value;
+                    OnPropertyChanged("NoticeDetailTitle");
+                }
+            }
+        }
+        #endregion
 
         #region NoticeDetailContent
         private string _NoticeDetailContent;
@@ -38,6 +56,22 @@ namespace Slim_Student.ViewModel
         }
         #endregion
 
+        #region NoticeDetailDate
+        private DateTime _NoticeDetailDate;
+        public DateTime NoticeDetailDate
+        {
+            get { return _NoticeDetailDate; }
+            set
+            {
+                if (_NoticeDetailDate != value)
+                {
+                    _NoticeDetailDate = value;
+                    OnPropertyChanged("NoticeDetailDate");
+                }
+            }
+        }
+        #endregion
+
         #region BackCommand
         private ICommand _BackCommand;
         public ICommand BackCommand
@@ -46,7 +80,7 @@ namespace Slim_Student.ViewModel
         }
         public void BackCommandFunc(Object o)
         {
-            ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageMyQuestion.xaml", UriKind.Relative);
+            ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageNotice.xaml", UriKind.Relative);
         }
         #endregion
     }

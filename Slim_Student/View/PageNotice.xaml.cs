@@ -24,11 +24,9 @@ namespace Slim_Student.View
         public PageNotice()
         {
             InitializeComponent();
-            DataContext = new ViewModelPageNotice();
-        }
-
-        private void NoticeTitleBtn_Click(object sender, RoutedEventArgs e)
-        {
+            ViewModelPageNotice viewModelPageNotice = new ViewModelPageNotice(this);
+            viewModelPageNotice.makeList();
+            DataContext = viewModelPageNotice;
         }
     }
 }
