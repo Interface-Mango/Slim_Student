@@ -29,6 +29,10 @@ namespace Slim_Student.View
         public Widget()
         {
             InitializeComponent();
+
+            //위젯 창의 위치(왼쪽 위)
+            this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
+            this.Top = SystemParameters.WorkArea.Height - (SystemParameters.WorkArea.Height);
             //Loaded += new RoutedEventHandler(InitSerialPort);
         }
         /*
@@ -102,41 +106,25 @@ namespace Slim_Student.View
             }
         }*/
 
-        private void BtnHome_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Frame.Show();
-            this.Close();
-        }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
 
-        private void BtnStatus_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	 MainFrame.Frame.Show();
+            this.Hide();
         }
 
-        private void BtnQuestionMark_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
-
-        }
-
-        private void BtnNumber_Click(object sender, RoutedEventArgs e)
-        {
-            WidgetInputWindow inputWindow = new WidgetInputWindow();
+        	WidgetInputWindow inputWindow = new WidgetInputWindow();
             inputWindow.ShowDialog();
         }
 
-        private void BtnOX_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void BtnCheck_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -12,9 +12,7 @@ namespace Slim_Student.Model
 {
     class DB_User
     {
-        DBManager db;
-        public Storyboard _mangoAnimation;
-        
+        DBManager db;        
 
         public enum FIELD{
             user_id, user_name, group, sub_ids, pw, auth, END
@@ -55,12 +53,6 @@ namespace Slim_Student.Model
 
         public object[] SelectUser(string id, string pw, ProgressRing _prog)
         {
-            _mangoAnimation = _prog.MangoProgressBar();
-            _mangoAnimation.Begin(_prog);
-
-            _prog.mangoAnimationStop(_mangoAnimation);
-            
-            
 
             string sql = "SELECT * FROM user WHERE user_id=@arg1 AND pw=password(@arg2) AND auth=0";
             List<object> args = new List<object>();

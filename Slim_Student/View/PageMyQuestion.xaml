@@ -10,7 +10,7 @@
       WindowWidth="1200"
       mc:Ignorable="d">
 
-    <Grid >
+    <Grid Background="#FFF5E113" >
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -24,8 +24,8 @@
                              ItemsSource="{Binding QuestionItemList}"
                              Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" />
         </Canvas>
-        <Canvas Grid.Row="2" Height="80" Background="#FFE0F5EB">
-            <Button x:Name="EnterButton"
+            <Canvas Grid.Row="2" Height="80" Background="#FFE0F5EB">
+                <Button x:Name="EnterButton"
             	Width="100"
             	Height="50"
             	HorizontalAlignment="Center"
@@ -36,6 +36,6 @@
             	FontSize="15"
             	FontWeight="Bold"
             	Foreground="#ffffff" Canvas.Left="862" Canvas.Top="15"/>
-        </Canvas>
+            </Canvas>
     </Grid>
 </Page>

@@ -5,5 +5,5 @@
 	x:Class="Slim_Student.View.MainFrame"
 	x:Name="Main"
 	Title="Slim"
-	Width="1200" Height="700" WindowStartupLocation="CenterOwner" Background="{x:Null}" 
-    Source="SubjectList.xaml" WindowStyle="None" MouseLeftButtonDown="Main_MouseLeftButtonDown" SizeToContent="WidthAndHeight"/>
+	Width="1200" Height="700" WindowStartupLocation="Manual" Background="{x:Null}" 
+    Source="SubjectList.xaml" MouseLeftButtonDown="Main_MouseLeftButtonDown" ResizeMode="NoResize" WindowStyle="None" SizeToContent="WidthAndHeight"/>

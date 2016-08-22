@@ -28,6 +28,11 @@ namespace Slim_Student.View
             ResizeMode = ResizeMode.NoResize;
             UserInfo = _userInfo;
             new SerialCommunication();
+
+            // 창 중앙 위치!!
+            this.Left = (SystemParameters.WorkArea.Width - Width)/2.0 + SystemParameters.WorkArea.Left;
+            this.Height = (SystemParameters.WorkArea.Height - Height)/2.0 + SystemParameters.WorkArea.Top;
+            
 		}		
 		
 		// 로그인 창과 호환되기 위한 함수

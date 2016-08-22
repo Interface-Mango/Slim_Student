@@ -24,27 +24,75 @@ namespace Slim_Student.View
         {
             InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
-            TextBoxBuffer.Focus();
             DataContext = new ViewModelWidgetInputWindow(this);
+
+            this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
+            this.Top = 35.0;
+
+            tbNum.IsReadOnly = true;
         }
 
-        private void BtnSend_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine(Convert.ToChar(TextBoxBuffer.Text));
-            try
-            {
-                SerialCommunication.SerialPortValue.Write(TextBoxBuffer.Text);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            this.Close();
-        }
-
+        #region simple function
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
+
+        private void canvas1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "0";
+        }
+
+        private void canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "1";
+        }
+
+        private void canvas2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "2";
+        }
+
+        private void canvas3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "3";
+        }
+
+        private void canvas4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "4";
+        }
+
+        private void canvas5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "5";
+        }
+
+        private void canvas6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "6";
+        }
+
+        private void canvas7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "7";
+        }
+
+        private void canvas8_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "8";
+        }
+
+        private void canvas9_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbNum.Text = "9";
+        }
+
+        private void canvas10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
     }
 }

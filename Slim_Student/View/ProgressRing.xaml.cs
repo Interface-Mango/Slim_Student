@@ -20,28 +20,18 @@ namespace Slim_Student.View
     /// </summary>
     public partial class ProgressRing : Window
     {
-        public ProgressRing()
+        private object[] obj;
+        public ProgressRing(object[] _obj)
         {
             InitializeComponent();
+            obj = _obj;
         }
 
-
-
-        public Storyboard MangoProgressBar()
-        {
-            Storyboard mangoanimation;
-            mangoanimation = (Storyboard)this.Resources["MangoAnimation"];
-            return mangoanimation;
-        }
-
-        public void mangoAnimationStop(Storyboard m)
-        {
-            m.FillBehavior = FillBehavior.HoldEnd;
-           
-        }
-		
 		public void AutoClose(object sender, EventArgs e)
 		{
+            
+            MainFrame mf = new MainFrame(obj);
+            mf.Show();
             this.Close();
 		}
 
