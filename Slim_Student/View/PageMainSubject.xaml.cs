@@ -25,8 +25,6 @@ namespace Slim_Student.View
         public static object[] SubjectInfo;
         public static Frame MainFrameObject;
 
-        private MainFrame mf;
-        private SubjectList _subjectlist;
 
         public PageMainSubject(object[] param, SubjectList subjectlist)
         {
@@ -35,54 +33,15 @@ namespace Slim_Student.View
 
             MainFrameObject = FramePanel;
             ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
-            //FramePanel.Source = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
             SubjectInfo = param;
             SubName.Text = SubjectInfo.ElementAt(1).ToString();
-            _subjectlist = subjectlist;
-        }
 
-        #region 메뉴 버튼들
-        private void canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            FramePanel.Source = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
         }
-
         
-
-        private void canvas1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            FramePanel.Source = new Uri("PageHiddenTalk.xaml", UriKind.Relative);
-        }
-
-        private void canvas2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            FramePanel.Source = new Uri("PageMyQuestion.xaml", UriKind.Relative);
-        }
-
-        private void canvas3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            FramePanel.Source = new Uri("PageNotice.xaml", UriKind.Relative);
-        }
-
-        private void WidgetBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Widget widget = new Widget();
-            widget.Show();
-            MainFrame.Frame.Hide();
-        }
-
-        private void HomeBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            mf = MainFrame.thisMainFrame();
-            mf.NavigationService.Navigate(_subjectlist);
-        }
-
-        
-
         private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Frame.Close();
         }
-        #endregion
+
     }
 }

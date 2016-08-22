@@ -141,7 +141,7 @@ namespace Slim_Student.ViewModel
 
                         //소켓 생성
                         Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-                        IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("192.168.0.23"), Convert.ToInt32(portBox.Text));
+                        IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), Convert.ToInt32(portBox.Text));
 
                         SocketAsyncEventArgs saeaServer = new SocketAsyncEventArgs();
                         saeaServer.RemoteEndPoint = ipepServer;

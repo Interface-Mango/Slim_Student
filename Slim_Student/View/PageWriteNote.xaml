@@ -16,24 +16,30 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEA8BC3" Grid.Row="0" >
-            <TextBlock TextWrapping="Wrap" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="452" Height="20" Width="72" FontSize="15" FontWeight="Bold" Text="질문 작성하기"/>
+        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFFEE505" VerticalAlignment="Top" Height="509">
+            <TextBox Height="416" Width="778" Background="#FFE9E4B7" TextWrapping="Wrap" Text="{Binding QuestionContentTextBox}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" Canvas.Top="64" Canvas.Left="90">
+            	<TextBox.SelectionBrush>
+            		<SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            	</TextBox.SelectionBrush>
+            </TextBox>
         </Canvas>
-        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFE0F5EB" VerticalAlignment="Top">
-            <TextBox Height="510" Width="972" Background="#8d8" TextWrapping="Wrap" Text="{Binding QuestionContentTextBox}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
-        </Canvas>
-        <Canvas Grid.Row="2" Height="80" Background="#FFE0F5EB">
+        <Canvas Grid.Row="2" Height="80" Background="#FFFAE100">
             <Button
             	Width="100"
             	Height="50"
             	HorizontalAlignment="Center"
             	VerticalAlignment="Center"
-            	Background="#f76a51"
+            	Background="#FF827202"
             	Command="{Binding SaveQuestionCommand}"
             	Content="저장"
-            	FontSize="15"
+            	FontSize="17.333"
             	FontWeight="Bold"
-            	Foreground="#ffffff" Canvas.Left="862" Canvas.Top="15"/>
+            	Foreground="#ffffff" Canvas.Left="858" Canvas.Top="15" BorderBrush="{x:Null}"/>
+            <Button Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF827202" Command="{Binding BackCommand}"
+            	Content="◀" FontSize="18" FontWeight="Bold" Foreground="#ffffff" Canvas.Left="28" Canvas.Top="15"/>
+
         </Canvas>
+        <TextBlock Grid.Row="1" Background="#827202" Foreground="#fff9c8" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="18.667" Text="질문" FontWeight="Bold" Margin="91.5,25,105,444"/>
+        <TextBlock Background="#FFFEE505" Foreground="#fff9c8" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="18.667" FontWeight="Bold"/>
     </Grid>
 </Page>

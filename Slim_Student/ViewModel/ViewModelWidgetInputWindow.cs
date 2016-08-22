@@ -18,28 +18,6 @@ namespace Slim_Student.ViewModel
             widgetInputWindow = wWindow;
         }
 
-        #region SendCommand
-        private ICommand _SendCommand;
-        public ICommand SendCommand
-        {
-            get
-            {
-                return _SendCommand ?? (_SendCommand = new AppCommand(SendCommandFunc));
-            }
-        }
-        public void SendCommandFunc(Object o)
-        {
-            Console.WriteLine(Convert.ToChar(widgetInputWindow.TextBoxBuffer.Text));
-            try
-            {
-                SerialCommunication.SerialPortValue.Write(widgetInputWindow.TextBoxBuffer.Text);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            widgetInputWindow.Close();
-        }
-        #endregion
+       
     }
 }

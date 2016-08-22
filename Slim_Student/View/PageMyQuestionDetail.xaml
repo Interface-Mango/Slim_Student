@@ -18,7 +18,7 @@
                 <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="16" Padding="10" Text="{Binding MyQuestionDetailContent}"/>
             </Grid>
         </Border>
-        <Button Width="49" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#f76a51" Command="{Binding BackCommand}"
+        <Button Width="49" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF827202" Command="{Binding BackCommand}"
                 			Content="◀" FontSize="15" FontWeight="Bold" Foreground="#ffffff" Margin="0,550,900,25"/>
     </Grid>
 </Page>

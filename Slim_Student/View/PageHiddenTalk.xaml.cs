@@ -13,18 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
+using System.Windows.Media.Animation;
 
 namespace Slim_Student.View
 {
 
     public partial class PageHiddenTalk : Page
     {
+        private int count;
         public PageHiddenTalk()
         {
             InitializeComponent();
             PortBox.MaxLength = 4;
             DataContext = new ViewModelPageHiddenTalk(this, txtMsg, PortBox, IDText, ServerConnectingBtn);
             textbox1.IsReadOnly = true;
+            count = 0;
         }
 
         private delegate void SetTextCallback(String nMessage);
@@ -77,7 +80,14 @@ namespace Slim_Student.View
 
         private void PortBox_KeyDown(object sender, KeyEventArgs e)
         {
-            ServerConnectingBtn.IsEnabled = true;
+            
+            if (count == 0)
+            {
+                Storyboard ServerConnecting = new Storyboard();
+                ServerConnecting = (Storyboard)this.Resources["ServerConnectingAnimation"];
+                ServerConnecting.Begin();
+                count++;
+            }
         }
     }
 }

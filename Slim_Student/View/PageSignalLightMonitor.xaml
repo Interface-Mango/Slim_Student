@@ -18,6 +18,6 @@
         <Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEADD8B">
             <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
-        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFE0F5EB"/>
+        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505"/>
     </Grid>
 </Page>
