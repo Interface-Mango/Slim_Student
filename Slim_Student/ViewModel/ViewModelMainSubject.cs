@@ -126,8 +126,8 @@ namespace Slim_Student.ViewModel
         #endregion
 
         #region GoHome
+        private MainFrame mainFrame;
         private ICommand _GoHome;
-        private MainFrame mf;
         public ICommand GoHome
         {
             get { return _GoHome ?? (_GoHome = new AppCommand(GoHomeFunc)); }
@@ -135,8 +135,8 @@ namespace Slim_Student.ViewModel
 
         public void GoHomeFunc(object o)
         {
-            mf = MainFrame.thisMainFrame();
-            mf.NavigationService.Navigate(_subjectlist);
+            mainFrame = MainFrame.thisMainFrame();
+            mainFrame.NavigationService.Navigate(_subjectlist);
         }
         #endregion
 
