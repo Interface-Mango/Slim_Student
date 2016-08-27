@@ -12,7 +12,7 @@ namespace Slim_Student.Model
         DBManager db;
 
         public enum FIELD{
-            sub_id, sub_name, lectureler_id, time, location, END
+            sub_id, sub_name, lectureler_id, time, location, ipaddr, port, END
         }
 
         public DB_Subject(DBManager _dbm)
@@ -32,9 +32,6 @@ namespace Slim_Student.Model
             else 
                 return result[0];
         }
-
-
-
 
         public List<object[]> SearchDatas(string sql, List<object> args)
         {

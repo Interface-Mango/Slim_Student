@@ -20,14 +20,11 @@ namespace Slim_Student.View
 
     public partial class PageHiddenTalk : Page
     {
-        private int count;
         public PageHiddenTalk()
         {
             InitializeComponent();
-            PortBox.MaxLength = 4;
-            DataContext = new ViewModelPageHiddenTalk(this, txtMsg, PortBox, IDText, ServerConnectingBtn);
+            DataContext = new ViewModelPageHiddenTalk(this, txtMsg, IDText, ServerConnectingBtn);
             textbox1.IsReadOnly = true;
-            count = 0;
         }
 
         private delegate void SetTextCallback(String nMessage);
@@ -46,48 +43,5 @@ namespace Slim_Student.View
             }
         }
 
-        #region portBox를 숫자만 입력하게
-        private string prevText;
-        private void PortBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-
-            double value;
-
-            if (double.TryParse(textBox.Text, out value))
-            {
-                this.prevText = textBox.Text;
-            }
-            else
-            {
-                textBox.Text = this.prevText;
-                textBox.SelectionLength = this.prevSelectionLength;
-                textBox.SelectionStart = this.prevSelectionStart;
-            }
-
-        }
-
-        int prevSelectionStart;
-        int prevSelectionLength;
-        private void PortBox_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            TextBox textbox = sender as TextBox;
-            this.prevSelectionStart = textbox.SelectionStart;
-            this.prevSelectionLength = textbox.SelectionLength;
-        }
-
-        #endregion
-
-        private void PortBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-            if (count == 0)
-            {
-                Storyboard ServerConnecting = new Storyboard();
-                ServerConnecting = (Storyboard)this.Resources["ServerConnectingAnimation"];
-                ServerConnecting.Begin();
-                count++;
-            }
-        }
     }
 }

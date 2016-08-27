@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using Slim_Student.View;
+using Slim_Student.Model;
 using System.Net.Sockets;
 using System.Net;
 using System.Windows.Controls;
@@ -25,11 +26,11 @@ namespace Slim_Student.ViewModel
         private Socket m_socketMe = null;
 
         private PageHiddenTalk pht;
-        private TextBox txtMsg, portBox;
+        private TextBox txtMsg;
         private string NickName;
         private TextBlock IDText;
         private Button ServerConnectingBtn;
-
+        
         /// ServerConnectBtn 버튼 상태
         enum typeState
         {
@@ -45,11 +46,10 @@ namespace Slim_Student.ViewModel
 
 
         public ViewModelPageHiddenTalk
-            (PageHiddenTalk _pht, TextBox _txtMsg, TextBox _portBox, TextBlock _IDText, Button _ServerConnectingBtn)
+            (PageHiddenTalk _pht, TextBox _txtMsg, TextBlock _IDText, Button _ServerConnectingBtn)
         {
             pht = _pht;
             txtMsg = _txtMsg;
-            portBox = _portBox;
             IDText = _IDText;
             ServerConnectingBtn = _ServerConnectingBtn;
             NickName = randomID();
@@ -69,9 +69,8 @@ namespace Slim_Student.ViewModel
                 case typeState.Connecting:	// 연결 전
                     try
                     {
-                        ServerConnectingBtn.Content = "서버 접속";
+                        ServerConnectingBtn.Content = "채팅 접속";
                         txtMsg.IsEnabled = false;
-                        portBox.IsEnabled = true;
                     }
 
                     catch(InvalidOperationException)
@@ -81,9 +80,8 @@ namespace Slim_Student.ViewModel
                         pht.Dispatcher.BeginInvoke(new Action(
                                 delegate()
                                 {
-                                    ServerConnectingBtn.Content = "서버 접속";
+                                    ServerConnectingBtn.Content = "채팅 접속";
                                     txtMsg.IsEnabled = false;
-                                    portBox.IsEnabled = true;
                                 }));
                     }
                     break;
@@ -92,9 +90,8 @@ namespace Slim_Student.ViewModel
                             pht.Dispatcher.BeginInvoke(new Action(
                                 delegate()
                                 {
-                                    ServerConnectingBtn.Content = "서버 종료";
+                                    ServerConnectingBtn.Content = "채팅 종료";
                                 }));
-                            portBox.IsEnabled = false;
                             txtMsg.IsEnabled = true;
 
                     break;
@@ -139,9 +136,13 @@ namespace Slim_Student.ViewModel
                         //UI 세팅
                         UI_Setting(typeState.DisConnecting);
 
+                        int portNum = Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.port));
+                        string ipaddr = PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.ipaddr).ToString();
+
+
                         //소켓 생성
                         Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-                        IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), Convert.ToInt32(portBox.Text));
+                        IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse(ipaddr), portNum);
 
                         SocketAsyncEventArgs saeaServer = new SocketAsyncEventArgs();
                         saeaServer.RemoteEndPoint = ipepServer;
@@ -156,7 +157,7 @@ namespace Slim_Student.ViewModel
                 case typeState.DisConnecting:
                     {
                         UI_Setting(typeState.Connecting);
-                        pht.DisplayMsg("* 서버 종료 * ");
+                        pht.DisplayMsg("* 채팅 종료 * ");
                         pht.Dispatcher.BeginInvoke(new Action(
                         delegate()
                         {

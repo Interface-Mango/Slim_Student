@@ -9,58 +9,15 @@
     Height="629"
     WindowWidth="1200" WindowHeight="700"
     mc:Ignorable="d">
-	<Page.Resources>
-		<Storyboard x:Key="ServerConnectingAnimation">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="PortBox">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-129.333"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBlock">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-129.333"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ServerConnectingBtn">
-				<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="ServerConnectingBtn">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="Transparent"/>
-				<EasingColorKeyFrame KeyTime="0:0:0.2" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="ServerConnectingBtn">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#00827201"/>
-				<EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF827201"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-	</Page.Resources>
-
     <Grid x:Name="MainPanel" >
         <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505">
-            <Button x:Name="ServerConnectingBtn" Command="{Binding ServerConnect}" Content="서버 접속" Width="115" Canvas.Left="826" Height="33" Canvas.Top="23.666" BorderBrush="{x:Null}" Background="#00827201" Foreground="#00000000" FontFamily="Calibri" Visibility="Hidden"/>
+            <Button x:Name="ServerConnectingBtn" Content="채팅 접속" Command="{Binding ServerConnect}" Width="115" Canvas.Left="826" Height="33" Canvas.Top="24" BorderBrush="{x:Null}" Background="#827201" Foreground="#00000000" FontFamily="Calibri" Visibility="Visible"/>
             <TextBox x:Name="txtMsg"  Height="58" TextWrapping="Wrap" Width="788" Canvas.Left="153" Canvas.Top="506" Background="#FF827201" Foreground="White">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
                 </TextBox.InputBindings>
             </TextBox>
             <TextBox x:Name="textbox1" Height="418" TextWrapping="Wrap"  Width="912" Canvas.Left="29" Canvas.Top="70" Background="#FF827201" Foreground="White"/>
-            <TextBox x:Name="PortBox" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="819.333" Canvas.Top="23.763" TextChanged="PortBox_TextChanged" KeyDown="PortBox_KeyDown" FontSize="14.667" RenderTransformOrigin="0.5,0.5">
-            	<TextBox.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</TextBox.RenderTransform>
-
-            </TextBox>
-            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Port Number" Canvas.Left="693.339" Canvas.Top="28.432" Height="24" Width="121" FontSize="17" TextAlignment="Center" RenderTransformOrigin="0.5,0.5">
-            	<TextBlock.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</TextBlock.RenderTransform>
-            </TextBlock>
             <TextBlock x:Name="IDText" Text="ID" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Canvas.Left="12" Canvas.Top="522" Height="38" Width="123" FontSize="21" TextAlignment="Center" Foreground="#FF509146" FontFamily="Calibri" FontWeight="Bold"/>
         </Canvas>
         <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEADD8B">
