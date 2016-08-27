@@ -104,6 +104,9 @@ namespace Slim_Student.ViewModel
 
                 for (int i = 0; i < items.Count; i++)
                 {
+                    /*
+                    string[] tempDate = items[i].ElementAt((int)DB_Notice.FIELD.date).ToString().Split(' ');
+                    string strDate = tempDate[0] + " " + tempDate[2];*/
                     listItem = new NoticeInfo
                     {
                         Id = items.Count-i,

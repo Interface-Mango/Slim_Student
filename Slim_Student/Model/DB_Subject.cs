@@ -33,6 +33,19 @@ namespace Slim_Student.Model
                 return result[0];
         }
 
+        public object[] SelectIpNPort(int sub_id)
+        {
+            string sql = "SELECT ipaddr, port FROM subject WHERE sub_id=@arg1";
+            List<object> args = new List<object>();
+            args.Add(sub_id);
+
+            List<object[]> result = SearchDatas(sql, args);
+            if (result.Count == 0)
+                return null;
+            else
+                return result[0];
+        }
+
         public List<object[]> SearchDatas(string sql, List<object> args)
         {
             List<object[]> recordList = new List<object[]>();

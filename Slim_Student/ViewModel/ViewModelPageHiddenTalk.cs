@@ -30,6 +30,8 @@ namespace Slim_Student.ViewModel
         private string NickName;
         private TextBlock IDText;
         private Button ServerConnectingBtn;
+
+        private DB_Subject dbSubject;
         
         /// ServerConnectBtn 버튼 상태
         enum typeState
@@ -53,6 +55,8 @@ namespace Slim_Student.ViewModel
             IDText = _IDText;
             ServerConnectingBtn = _ServerConnectingBtn;
             NickName = randomID();
+
+            dbSubject = new DB_Subject(new DBManager());
 
             UI_Setting(typeState.Connecting);
         }
@@ -132,41 +136,44 @@ namespace Slim_Student.ViewModel
             switch (m_typeState)
             {
                 case typeState.Connecting:
+
+                    int portNum = Convert.ToInt32(dbSubject.SelectIpNPort(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)))[1]);
+                    if (portNum == 0)
                     {
-                        //UI 세팅
-                        UI_Setting(typeState.DisConnecting);
-
-                        int portNum = Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.port));
-                        string ipaddr = PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.ipaddr).ToString();
-
-
-                        //소켓 생성
-                        Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-                        IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse(ipaddr), portNum);
-
-                        SocketAsyncEventArgs saeaServer = new SocketAsyncEventArgs();
-                        saeaServer.RemoteEndPoint = ipepServer;
-                        //연결 완료 이벤트 연결
-                        saeaServer.Completed += new EventHandler<SocketAsyncEventArgs>(Connect_Completed);
-
-                        //서버 메시지 대기
-                        socketServer.ConnectAsync(saeaServer);
-                        break;
+                        MessageBox.Show("채팅방이 닫혀있습니다.");
+                        return;
                     }
+                    string ipaddr = Convert.ToString(dbSubject.SelectIpNPort(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)))[0]);
 
-                case typeState.DisConnecting:
+                    //UI 세팅
+                    UI_Setting(typeState.DisConnecting);
+
+                    //소켓 생성
+                    Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+                    IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse(ipaddr), portNum);
+
+                    SocketAsyncEventArgs saeaServer = new SocketAsyncEventArgs();
+                    saeaServer.RemoteEndPoint = ipepServer;
+                    //연결 완료 이벤트 연결
+                    saeaServer.Completed += new EventHandler<SocketAsyncEventArgs>(Connect_Completed);
+
+                        
+                    //서버 메시지 대기
+                    socketServer.ConnectAsync(saeaServer);
+                    break;                    
+
+                case typeState.DisConnecting:                    
+                    UI_Setting(typeState.Connecting);
+                    pht.DisplayMsg("* 채팅 종료 * ");
+                    pht.Dispatcher.BeginInvoke(new Action(
+                    delegate()
                     {
-                        UI_Setting(typeState.Connecting);
-                        pht.DisplayMsg("* 채팅 종료 * ");
-                        pht.Dispatcher.BeginInvoke(new Action(
-                        delegate()
-                        {
-                            IDText.Text = "ID";
-                        }));
+                        IDText.Text = "ID";
+                    }));
 
-                        m_socketMe.Close();
-                        break;
-                    }
+                    m_socketMe.Close();
+                    break;
+                    
             }
         }
         #endregion

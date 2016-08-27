@@ -11,7 +11,7 @@
     mc:Ignorable="d">
     <Grid x:Name="MainPanel" >
         <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505">
-            <Button x:Name="ServerConnectingBtn" Content="채팅 접속" Command="{Binding ServerConnect}" Width="115" Canvas.Left="826" Height="33" Canvas.Top="24" BorderBrush="{x:Null}" Background="#827201" Foreground="#00000000" FontFamily="Calibri" Visibility="Visible"/>
+            <Button x:Name="ServerConnectingBtn" Content="채팅 접속" Command="{Binding ServerConnect}" Width="115" Canvas.Left="826" Height="33" Canvas.Top="24" BorderBrush="{x:Null}" Background="#827201" Foreground="#fff" FontFamily="Calibri" Visibility="Visible"/>
             <TextBox x:Name="txtMsg"  Height="58" TextWrapping="Wrap" Width="788" Canvas.Left="153" Canvas.Top="506" Background="#FF827201" Foreground="White">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
