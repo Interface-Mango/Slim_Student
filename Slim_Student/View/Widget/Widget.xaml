@@ -4,24 +4,24 @@
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Name="window" x:Class="Slim_Student.View.Widget"
         Title="Widget" Height="35" Width="114" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown" BorderThickness="1">
     <Window.Resources>
-    	<Storyboard x:Key="More">
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="window">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="268.833"/>
-    		</DoubleAnimationUsingKeyFrames>
-    	</Storyboard>
-    	<Storyboard x:Key="Short">
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="window">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="114.666"/>
-    		</DoubleAnimationUsingKeyFrames>
-    	</Storyboard>
+        <Storyboard x:Key="More">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="window">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="268.833"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Short">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="window">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="114.666"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
-    	<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
-    		<BeginStoryboard Storyboard="{StaticResource More}"/>
-    	</EventTrigger>
-    	<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
-    		<BeginStoryboard Storyboard="{StaticResource Short}"/>
-    	</EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
+            <BeginStoryboard Storyboard="{StaticResource More}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
+            <BeginStoryboard Storyboard="{StaticResource Short}"/>
+        </EventTrigger>
     </Window.Triggers>
     <Grid Margin="-1.332,-3,1.332,-2" Background="#FFFEE505">
         <Button Content="LED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="26" Background="#FF827201" BorderBrush="{x:Null}" Foreground="White" Margin="7.665,5.855,0,0"/>

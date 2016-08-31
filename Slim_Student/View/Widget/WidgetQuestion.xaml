@@ -28,6 +28,22 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="19.283"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Key="LoadWIndow">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="canvas">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-275"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-274"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="window">
+				<EasingDoubleKeyFrame KeyTime="0" Value="17.283"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="18.033"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="295.283"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="window">
+				<EasingColorKeyFrame KeyTime="0" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.2" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
 	</Window.Resources>
 	<Window.Triggers>
 		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
@@ -38,6 +54,9 @@
 		</EventTrigger>
 		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas">
 			<BeginStoryboard Storyboard="{StaticResource Close}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource LoadWIndow}"/>
 		</EventTrigger>
 	</Window.Triggers>
 	<Grid Background="#FFCDA5A5">

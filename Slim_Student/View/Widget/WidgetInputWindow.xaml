@@ -204,6 +204,18 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="20"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="LoadForm">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="canvas11">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-96"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-96.333"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-0.333"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="window">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="24"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="25"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="122"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
@@ -281,6 +293,9 @@
         <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas11">
             <BeginStoryboard Storyboard="{StaticResource Close}"/>
         </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+        	<BeginStoryboard Storyboard="{StaticResource LoadForm}"/>
+        </EventTrigger>
     </Window.Triggers>
     <Grid Background="#FFCBBF6E">
         <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="33" Margin="10,10,0,0" Background="#FF827201" MouseLeftButtonDown="canvas1_MouseLeftButtonDown">
@@ -321,7 +336,7 @@
         <Canvas x:Name="canvas9" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="33" Background="#FF827201" Margin="170,55,0,0" MouseLeftButtonDown="canvas9_MouseLeftButtonDown">
             <TextBlock x:Name="textBlock9" HorizontalAlignment="Center" TextWrapping="Wrap" Text="9" VerticalAlignment="Center" Height="23" Width="13" Canvas.Left="10" Canvas.Top="5.331" TextAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White"/>
         </Canvas>
-        <Canvas x:Name="canvas11" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="299" Margin="-1,96,-2,-1" Background="#FFB8A31A" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="canvas11" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="299" Margin="-1,96,-2,-1" Background="#FFB8A31A" RenderTransformOrigin="0.502,2.56">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

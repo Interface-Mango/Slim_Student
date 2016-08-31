@@ -130,7 +130,7 @@ namespace Slim_Student.View
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             WidgetQuestion Question = new WidgetQuestion();
-            Question.ShowDialog();
+            Question.Show();
 
             try
             {
