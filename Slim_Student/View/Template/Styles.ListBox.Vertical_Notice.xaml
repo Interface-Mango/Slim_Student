@@ -29,16 +29,19 @@
                                        Grid.RowSpan="2"
                                        Grid.Column="0"
                                        Margin="10"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
                                        FontSize="20"
                                        FontWeight="Bold"
                                        Text="{Binding Id}" />
-
-
                             <TextBlock Grid.Row="0"
                                        Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontSize="16"
                                        Text="{Binding NoticeTitle}" />
                             <TextBlock Grid.Row="1"
                                        Grid.Column="1"
+                                       Foreground="#FFC7A6A6"
                                        Text="{Binding NoticeDate}" />
                         </Grid>
                     </Border>

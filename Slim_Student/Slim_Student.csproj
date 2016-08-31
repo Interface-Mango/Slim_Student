@@ -83,9 +83,8 @@
     <Compile Include="ViewModel\ViewModelPageWriteNote.cs" />
     <Compile Include="ViewModel\ViewModelSubjectList.cs" />
     <Compile Include="ViewModel\ViewModelWidgetInputWindow.cs" />
-    <Compile Include="View\PageListDetail.xaml.cs">
-      <DependentUpon>PageListDetail.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\ViewModelWidgetOX.cs" />
+    <Compile Include="ViewModel\ViewModelWidgetQuestion.cs" />
     <Compile Include="View\PageHiddenTalk.xaml.cs">
       <DependentUpon>PageHiddenTalk.xaml</DependentUpon>
     </Compile>
@@ -103,9 +102,6 @@
     </Compile>
     <Compile Include="View\PageNoticeDetail.xaml.cs">
       <DependentUpon>PageNoticeDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PageQnA.xaml.cs">
-      <DependentUpon>PageQnA.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageSignalLightMonitor.xaml.cs">
       <DependentUpon>PageSignalLightMonitor.xaml</DependentUpon>
@@ -126,6 +122,12 @@
     </Compile>
     <Compile Include="View\Widget\WidgetInputWindow.xaml.cs">
       <DependentUpon>WidgetInputWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Widget\WidgetOX.xaml.cs">
+      <DependentUpon>WidgetOX.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Widget\WidgetQuestion.xaml.cs">
+      <DependentUpon>WidgetQuestion.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -165,15 +167,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Widget\WidgetOX.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Widget\WidgetQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\PageListDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\PageHiddenTalk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,10 +205,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageNotice.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PageQnA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

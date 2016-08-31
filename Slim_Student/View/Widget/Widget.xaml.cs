@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO.Ports;
 
+
 namespace Slim_Student.View
 {
     /// <summary>
@@ -32,7 +33,7 @@ namespace Slim_Student.View
 
             //위젯 창의 위치(왼쪽 위)
             this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
-            this.Top = SystemParameters.WorkArea.Height - (SystemParameters.WorkArea.Height);
+            this.Top = SystemParameters.WorkArea.Height - SystemParameters.WorkArea.Height;
             //Loaded += new RoutedEventHandler(InitSerialPort);
         }
         /*
@@ -123,6 +124,30 @@ namespace Slim_Student.View
         {
         	WidgetInputWindow inputWindow = new WidgetInputWindow();
             inputWindow.ShowDialog();
+        }
+
+        // ? 눌렀을때 '?' 송신
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            WidgetQuestion Question = new WidgetQuestion();
+            Question.ShowDialog();
+
+            try
+            {
+                SerialCommunication.SerialPortValue.Write("?");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
+
+        // OX 눌렀을때
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            WidgetOX widgetOX = new WidgetOX();
+            widgetOX.ShowDialog();
         }
 
 

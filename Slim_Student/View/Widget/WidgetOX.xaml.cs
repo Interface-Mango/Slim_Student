@@ -16,14 +16,16 @@ using Slim_Student.ViewModel;
 namespace Slim_Student.View
 {
     /// <summary>
-    /// DialogNotice.xaml에 대한 상호 작용 논리
+    /// WidgetOX.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PageListDetail : Page
+    public partial class WidgetOX : Window
     {
-        public PageListDetail()
+        public WidgetOX()
         {
             InitializeComponent();
-            DataContext = new ViewModelPageListDetail();
+            
+            DataContext = new ViewModelWidgetOX(this);
+
         }
     }
 }

@@ -24,18 +24,18 @@
                              ItemsSource="{Binding QuestionItemList}"
                              Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" />
         </Canvas>
-            <Canvas Grid.Row="2" Height="80" Background="#FFE0F5EB">
-                <Button x:Name="EnterButton"
-            	Width="100"
-            	Height="50"
+        <Canvas Grid.Row="2" Height="80" Background="#FFFEE505">
+            <Button x:Name="EnterButton"
+            	Width="140"
+            	Height="32"
             	HorizontalAlignment="Center"
             	VerticalAlignment="Center"
-            	Background="#f76a51"
+            	Background="#FF827201"
             	Command="{Binding WriteQuestionCommand}"
             	Content="질문 등록"
             	FontSize="15"
             	FontWeight="Bold"
-            	Foreground="#ffffff" Canvas.Left="862" Canvas.Top="15"/>
-            </Canvas>
+            	Foreground="#ffffff" Canvas.Left="833" BorderBrush="{x:Null}" Canvas.Top="-1"/>
+        </Canvas>
     </Grid>
 </Page>

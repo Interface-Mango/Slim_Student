@@ -6,68 +6,21 @@
     <Window.Resources>
         <Storyboard x:Key="MangoAnimation" Completed="AutoClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image1">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0.1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image2">
-                <EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0.1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3.7" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
-                <DiscreteStringKeyFrame KeyTime="0:0:0.1" Value="1"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.2" Value="2"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.3" Value="3"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.4" Value="5"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.5" Value="6"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.6" Value="8"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.7" Value="9"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.8" Value="11"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:0.9" Value="13"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1" Value="15"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.1" Value="18"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.2" Value="22"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.3" Value="24"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.4" Value="28"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.5" Value="33"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.6" Value="34"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.7" Value="35"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.8" Value="38"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.9" Value="41"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2" Value="44"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.1" Value="45"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.2" Value="48"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.3" Value="50"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.4" Value="55"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.5" Value="58"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.6" Value="62"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.7" Value="66"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.8" Value="75"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2.9" Value="76"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3" Value="77"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.1" Value="83"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.2" Value="84"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.3" Value="85"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.4" Value="86"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.5" Value="87"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.6" Value="94"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.7" Value="95"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.8" Value="96"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:3.9" Value="98"/>
-                <DiscreteStringKeyFrame KeyTime="0:0:4.6" Value="100"/>
-            </StringAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBlock">
-                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:5.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="ProgressRing">
         	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:Arc.StartAngle)" Storyboard.TargetName="arc">
-        		<EasingDoubleKeyFrame KeyTime="0:0:5" Value="0"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="0"/>
         	</DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -83,17 +36,6 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="130" Margin="402,282,0,0" Source="Images/smallmango.jpg" Panel.ZIndex="5" Opacity="0.1"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="130" Margin="532,282,0,0" Source="Images/smallmango.jpg" Panel.ZIndex="5" Opacity="0.1"/>
         <Image x:Name="image2" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="130" Margin="662,282,0,0" Source="Images/smallmango.jpg" Panel.ZIndex="5" Opacity="0.1"/>
-        <TextBlock x:Name="textBlock" TextWrapping="Wrap" VerticalAlignment="Top" Margin="583.819,479.802,579.68,0" Height="26.886" TextAlignment="Center" FontSize="16" Panel.ZIndex="2" RenderTransformOrigin="0.5,0.5" Text="0">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Margin="625.32,485.605,0,0" Height="18.781" FontSize="10.667" Panel.ZIndex="2" Width="9.316"/>
         <ed:Arc x:Name="arc" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FFFEFEF4" Stretch="None" StrokeThickness="3" Margin="0,-3.018,0,0" HorizontalAlignment="Center" Width="662" Height="352.018" VerticalAlignment="Center" StartAngle="360"/>
         <Rectangle Fill="#FFFFE406" HorizontalAlignment="Left" Height="92.904" StrokeThickness="3" VerticalAlignment="Top" Width="662" Margin="269,135.482,0,0"/>
         <Rectangle Fill="#FFFFE406" HorizontalAlignment="Left" Height="299.781" StrokeThickness="3" VerticalAlignment="Top" Width="124" Margin="251,221.719,0,0"/>

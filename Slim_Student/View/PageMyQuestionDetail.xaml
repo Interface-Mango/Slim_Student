@@ -8,7 +8,7 @@
       Height="629"
 	  Title="PageMyQuestionDetail">
     <Grid Background="#ffe506">
-        <Border BorderThickness="1" Background="#fff9c8" Margin="25 25 25 100">
+        <Border BorderThickness="1" Background="#fff9c8" Margin="61,25,25,47">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -18,7 +18,7 @@
                 <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="16" Padding="10" Text="{Binding MyQuestionDetailContent}"/>
             </Grid>
         </Border>
-        <Button Width="49" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF827202" Command="{Binding BackCommand}"
-                			Content="◀" FontSize="15" FontWeight="Bold" Foreground="#ffffff" Margin="0,550,900,25"/>
+        <Button Width="35" Height="557" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF827202" Command="{Binding BackCommand}"
+                			Content="◀" FontSize="15" FontWeight="Bold" Foreground="#ffffff" Margin="0,25,937,47"/>
     </Grid>
 </Page>

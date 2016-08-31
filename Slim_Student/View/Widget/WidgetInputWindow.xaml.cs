@@ -29,6 +29,8 @@ namespace Slim_Student.View
             this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
             this.Top = 35.0;
 
+            
+
             tbNum.IsReadOnly = true;
         }
 

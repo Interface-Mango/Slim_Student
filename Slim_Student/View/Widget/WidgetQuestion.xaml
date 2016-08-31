@@ -1,0 +1,14 @@
+﻿<Window x:Class="Slim_Student.View.Widget.WidgetQuestion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WidgetQuestion" Height="274" Width="300" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#FFCDA5A5">
+        <TextBox HorizontalAlignment="Left" Height="68" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,36,0,0" BorderBrush="{x:Null}" Background="#FFAC5A5A" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" Height="68" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,145,0,0" BorderBrush="{x:Null}" Background="#FFAC5A5A" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="질문" VerticalAlignment="Top" Margin="21,19,0,0" Background="#FFAC5A5A" Foreground="White" Width="40" TextAlignment="Center" Height="21"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="답변" VerticalAlignment="Top" Margin="21,127,0,0" Background="#FFAC5A5A" Foreground="White" Width="40" TextAlignment="Center" Height="21"/>
+        <Button Command="{Binding Close}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="207,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FF6C1313" Content="취소"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="117,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FF6C1313" Content="등록"/>
+
+    </Grid>
+</Window>

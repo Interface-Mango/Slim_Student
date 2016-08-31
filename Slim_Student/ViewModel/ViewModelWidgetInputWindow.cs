@@ -29,9 +29,10 @@ namespace Slim_Student.ViewModel
         }
         public void SendCommandFunc(Object o)
         {
-            Console.WriteLine(Convert.ToChar(widgetInputWindow.tbNum.Text));
+            //Console.WriteLine(Convert.ToChar(widgetInputWindow.tbNum.Text));
             try
             {
+                
                 SerialCommunication.SerialPortValue.Write(widgetInputWindow.tbNum.Text);
             }
             catch (Exception ex)
