@@ -29,6 +29,10 @@ namespace Slim_Student.View
             this.Top = 35.0;
             
         }
+        public void AutoClose(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
     }
 }

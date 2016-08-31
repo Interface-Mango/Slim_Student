@@ -14,7 +14,7 @@ namespace Slim_Student.ViewModel
     class ViewModelWidgetOX : ViewModelBase
     {
         private WidgetOX widgetOX;
-        private TextBox tb;
+       
         public ViewModelWidgetOX(WidgetOX wWindow)
         {
             widgetOX = wWindow;
@@ -67,6 +67,7 @@ namespace Slim_Student.ViewModel
             {
 
                 SerialCommunication.SerialPortValue.Write(widgetOX.textBox.Text);
+                widgetOX.textBox.Text = "";
             }
             catch (Exception ex)
             {

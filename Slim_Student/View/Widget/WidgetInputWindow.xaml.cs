@@ -90,7 +90,7 @@ namespace Slim_Student.View
             tbNum.Text = "9";
         }
 
-        private void canvas10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        public void AutoClose(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -39,7 +39,7 @@ namespace Slim_Student.ViewModel
             {
                 Console.WriteLine(ex);
             }
-            widgetInputWindow.Close();
+            
         }
         #endregion
     }

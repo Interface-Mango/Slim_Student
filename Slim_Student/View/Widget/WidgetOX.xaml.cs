@@ -23,9 +23,17 @@ namespace Slim_Student.View
         public WidgetOX()
         {
             InitializeComponent();
-            
+            this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
+            this.Top = 35.0;
             DataContext = new ViewModelWidgetOX(this);
 
         }
+
+        public void AutoClose(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }
