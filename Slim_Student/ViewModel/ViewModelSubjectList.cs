@@ -25,6 +25,8 @@ namespace Slim_Student.ViewModel
         private SubjectList parentWindow;
         private MainFrame parentMf;
 
+        private const int FINISH_CLASS = 0;
+
         // 생성자
         public ViewModelSubjectList(SubjectList pWindow)
         {
@@ -96,6 +98,13 @@ namespace Slim_Student.ViewModel
             int idx = parentWindow.SubjectListBox.SelectedIndex;
             if (idx < 0)
                 return;
+            int canLogin = dbSubject.SelectIsProcessing(SubjectItemList.ElementAt(idx).SubjectId); // 선택한 과목의 subid를 전달해서 강사가 접속상태인지 확인
+            if (canLogin == FINISH_CLASS)
+            {
+                MessageBox.Show("아직 접속할 수 없습니다.");
+                return;
+            }
+            MessageBox.Show("출석 되었습니다.");
             parentWindow.NavigationService.Navigate(new PageMainSubject(ItemList[idx], parentWindow));
         }
         #endregion

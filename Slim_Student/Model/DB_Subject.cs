@@ -46,6 +46,19 @@ namespace Slim_Student.Model
                 return result[0];
         }
 
+        public int SelectIsProcessing(int sub_id)
+        {
+            string sql = "SELECT is_processing FROM subject WHERE sub_id=@arg1";
+            List<object> args = new List<object>();
+            args.Add(sub_id);
+
+            List<object[]> result = SearchDatas(sql, args);
+            if (result.Count == 0)
+                return -1;
+            else
+                return Convert.ToInt32(result[0][0]);
+        }
+
         public List<object[]> SearchDatas(string sql, List<object> args)
         {
             List<object[]> recordList = new List<object[]>();
