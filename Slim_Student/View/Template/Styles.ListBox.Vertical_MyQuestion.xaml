@@ -26,7 +26,7 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50" />
-                                <ColumnDefinition Width="825" />
+                                <ColumnDefinition Width="780" />
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
@@ -34,6 +34,8 @@
                                 Grid.RowSpan="2"
                                 Grid.Row="0"
                                 Grid.Column="0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
                                 Margin="10"
                                 FontSize="20"
                                 FontWeight="Bold"
@@ -43,26 +45,40 @@
 
                             <TextBlock  Grid.Row="0"
                                         Grid.Column="1"
+                                        FontSize="16"
+                                        VerticalAlignment="Center"
                                         Text="{Binding MyQuestionContent}"/>
+                            
                             <TextBlock  Grid.Row="1"
                                         Grid.Column="1"
-                                        Text="{Binding MyQuestionDate}"/>
+                                        Foreground="#FFC7A6A6"
+                                        Text="{Binding MyQuestionDate}"
+                                        FontSize="11"/>
                             
                             <Button Grid.Row="0"
                                     Grid.Column="2"
                                     Grid.RowSpan="2"
-                                    Background="AliceBlue"
+                                    Background="#FFBB9F20"
+                                    BorderBrush="{x:Null}"
                                     Margin="4"
                                     Content="수정"
-                                    Command="{Binding QuestionModifyCommand}"/>
+                                    Command="{Binding QuestionModifyCommand}"
+                                    Width="50" 
+                                    Foreground="White" 
+                                    FontWeight="Bold"/>
                             
                             <Button Grid.Row="0"
                                     Grid.Column="3"
-                                    Grid.RowSpan="2"
-                                    Background="LightGreen"
+                                    Grid.RowSpan="4"
+                                    Background="#FFBB5820"
+                                    BorderBrush="{x:Null}"
                                     Margin="4"
                                     Content="삭제"
-                                    Command="{Binding QuestionDeleteCommand}"/>
+                                    Command="{Binding QuestionDeleteCommand}"
+                                    Foreground="White" 
+                                    FontWeight="Bold"
+                                    Width="50"/>
+                            
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
