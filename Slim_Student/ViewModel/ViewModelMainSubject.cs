@@ -10,6 +10,10 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using Slim_Student.Model;
 using Slim_Student.View;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Windows.Controls;
+
 
 namespace Slim_Student.ViewModel
 {
@@ -21,13 +25,38 @@ namespace Slim_Student.ViewModel
 
         private DB_Attendance dbAttendance;
         private DB_Subject dbSubject;
+        private TextBox _temp;
 
-        public ViewModelMainSubject(SubjectList subjectlist)
+        
+
+        #region Algorithm component
+        private PerformanceCounter cpu_Counter; // cpu 점유율
+        private IntPtr handle;//활성화 윈도우를 담는 그릇
+        private uint pid; // processID 얻어오기위한 그릇
+        private Process ps; // pid로 프로세스 검색하기 위한 변수
+        #region WindowProcessID
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+        [DllImport("user32.dll")]
+        static extern uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetForegroundWindow();
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private const int SW_SHOWMAXIMIZED = 3;
+        #endregion
+        #endregion
+
+        public ViewModelMainSubject(SubjectList subjectlist,TextBox temp)
         {
+            _temp = temp;
             _subjectlist = subjectlist;
             MainSubjectObject = this;
             dbAttendance = new DB_Attendance(new DBManager());
             dbSubject = new DB_Subject(new DBManager());
+            Clock();
+
+            cpu_Counter = new PerformanceCounter("Process", "% User Time", Process.GetCurrentProcess().ProcessName);
         }
 
 
@@ -160,7 +189,6 @@ namespace Slim_Student.ViewModel
         }
         #endregion
 
-
         #region Profile
         public string UserGroup
         {
@@ -188,6 +216,37 @@ namespace Slim_Student.ViewModel
             MainFrame.closeWindow();
 
         }
+        #endregion
+
+
+        #region Algorithm
+        public void Clock()
+        {
+            System.Windows.Threading.DispatcherTimer TimerClock =
+                new System.Windows.Threading.DispatcherTimer();
+
+            TimerClock.Interval = new TimeSpan(0, 0, 0, 1);
+            TimerClock.IsEnabled = true;
+            TimerClock.Tick += new EventHandler(TimerClock_Tick);
+        }
+
+        public void TimerClock_Tick(object sender, EventArgs e)
+        {
+            handle = GetForegroundWindow();        // 활성화 윈도우
+            GetWindowThreadProcessId(handle, out pid); // 핸들로 프로세스아이디 얻어옴 
+            ps = Process.GetProcessById((int)pid); // 프로세스아이디로 프로세스 검색
+
+            if (cpu_Counter.NextValue() >= 2)
+            {
+                //임시 박스에 임시적으로...!
+                _temp.AppendText(ps.ProcessName + Environment.NewLine );
+            }
+
+            //현재 활성화 되어있는 process의 이름으로 cpu_Counter InstanceName에 대입
+            cpu_Counter.InstanceName = ps.ProcessName;
+
+        }
+
         #endregion
 
     }

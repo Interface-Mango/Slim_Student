@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Slim_Student.ViewModel;
 using Slim_Student.View;
 using Slim_Student.Model;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Slim_Student.View
 {
@@ -27,11 +29,13 @@ namespace Slim_Student.View
         public static Frame MainFrameObject;
 
         private DB_Attendance dbAttendance;
+        
+
 
         public PageMainSubject(object[] param, SubjectList subjectlist)
         {
             InitializeComponent();
-            DataContext = new ViewModelMainSubject(subjectlist);
+            DataContext = new ViewModelMainSubject(subjectlist,temp1);
 
             MainFrameObject = FramePanel;
             ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
@@ -68,11 +72,10 @@ namespace Slim_Student.View
                                                      1);   
             } 
         }
-        
+
         private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Frame.Close();
         }
-
     }
 }
