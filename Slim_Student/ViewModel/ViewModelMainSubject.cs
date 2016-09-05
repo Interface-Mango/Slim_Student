@@ -18,10 +18,16 @@ namespace Slim_Student.ViewModel
         public static ViewModelMainSubject MainSubjectObject;
 
         private SubjectList _subjectlist;
+
+        private DB_Attendance dbAttendance;
+        private DB_Subject dbSubject;
+
         public ViewModelMainSubject(SubjectList subjectlist)
         {
             _subjectlist = subjectlist;
             MainSubjectObject = this;
+            dbAttendance = new DB_Attendance(new DBManager());
+            dbSubject = new DB_Subject(new DBManager());
         }
 
 
@@ -135,6 +141,20 @@ namespace Slim_Student.ViewModel
 
         public void GoHomeFunc(object o)
         {
+            // LED 끄기
+            try
+            {
+                SerialCommunication.SerialPortValue.Write("n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            if (Convert.ToInt32(dbSubject.SelectIsProcessing(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)))) == 1)
+            {
+                dbAttendance.UpdateAttendance(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)), MainFrame.UserInfo.ElementAt((int)DB_User.FIELD.user_id).ToString(), DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day, 0);
+            }
+        
             mainFrame = MainFrame.thisMainFrame();
             mainFrame.NavigationService.Navigate(_subjectlist);
         }

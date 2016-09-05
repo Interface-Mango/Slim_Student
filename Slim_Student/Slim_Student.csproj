@@ -63,6 +63,7 @@
     <Compile Include="Model\DBManager.cs" />
     <Compile Include="Model\DB_Announcement.cs" />
     <Compile Include="Model\DB_AnonymousBoard.cs" />
+    <Compile Include="Model\DB_Attendance.cs" />
     <Compile Include="Model\DB_MyQuestion.cs" />
     <Compile Include="Model\DB_Notice.cs" />
     <Compile Include="Model\DB_QnA.cs" />
