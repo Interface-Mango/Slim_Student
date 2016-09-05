@@ -263,7 +263,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\Question.jpg" />
+    <Resource Include="View\Images\mangoRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\mangoGreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

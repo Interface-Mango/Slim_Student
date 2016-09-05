@@ -17,12 +17,12 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEADD8B" Grid.Row="0" >
-            <TextBlock TextWrapping="Wrap" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="452" Height="20" Width="72" FontSize="15" FontWeight="Bold" Text="나의 질문"/>
+            <TextBlock TextWrapping="Wrap" Text="나의질문" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
         <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFE0F5EB" VerticalAlignment="Top">
             <ListBox Name="QuestionListBox"
                              ItemsSource="{Binding QuestionItemList}"
-                             Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" />
+                             Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" BorderBrush="White" />
         </Canvas>
         <Canvas Grid.Row="2" Height="80" Background="#FFFEE505">
             <Button x:Name="EnterButton"
