@@ -265,7 +265,7 @@ namespace Slim_Student.ViewModel
             System.Windows.Threading.DispatcherTimer TimerClock =
                 new System.Windows.Threading.DispatcherTimer();
 
-            const int TIMER_VALUE= 10;
+            const int TIMER_VALUE = 2;
 
             TimerClock.Interval = new TimeSpan(0, 0, 0, TIMER_VALUE);
             TimerClock.IsEnabled = true;

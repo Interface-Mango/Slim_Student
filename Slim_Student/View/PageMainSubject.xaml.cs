@@ -35,11 +35,11 @@ namespace Slim_Student.View
         public PageMainSubject(object[] param, SubjectList subjectlist)
         {
             InitializeComponent();
-            DataContext = new ViewModelMainSubject(subjectlist,temp1);
+            SubjectInfo = param;
+            DataContext = new ViewModelMainSubject(subjectlist, temp1);
 
             MainFrameObject = FramePanel;
             ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
-            SubjectInfo = param;
             SubName.Text = SubjectInfo.ElementAt(1).ToString();
 
             dbAttendance = new DB_Attendance(new DBManager());
