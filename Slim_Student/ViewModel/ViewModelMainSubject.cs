@@ -25,6 +25,8 @@ namespace Slim_Student.ViewModel
 
         private DB_Attendance dbAttendance;
         private DB_Subject dbSubject;
+        private DB_OnetimeProgram dbOneTime;
+        private DB_AllProgram dbAllProgram;
         private TextBox _temp;
 
         
@@ -54,10 +56,48 @@ namespace Slim_Student.ViewModel
             MainSubjectObject = this;
             dbAttendance = new DB_Attendance(new DBManager());
             dbSubject = new DB_Subject(new DBManager());
+            dbOneTime = new DB_OnetimeProgram(new DBManager());
+            dbAllProgram = new DB_AllProgram(new DBManager());
+            makeRedGreenList();
+
             Clock();
 
             cpu_Counter = new PerformanceCounter("Process", "% User Time", Process.GetCurrentProcess().ProcessName);
         }
+
+        #region makeList
+        public void makeRedGreenList()
+        {
+
+            object[] subItems = PageMainSubject.SubjectInfo;
+            int sub_id = Convert.ToInt32(subItems[(int)DB_Subject.FIELD.sub_id]);
+
+            ItemRedList = dbAllProgram.SelectAllProgramList(Convert.ToInt32(sub_id), 0);
+            ItemGreenList = dbAllProgram.SelectAllProgramList(Convert.ToInt32(sub_id), 1);
+
+
+        } 
+        #endregion
+
+
+        #region ItemRedList
+        private List<object[]> _ItemRedList;
+        public List<object[]> ItemRedList
+        {
+            get { return _ItemRedList; }
+            set { _ItemRedList = value; }
+        }
+        #endregion
+
+
+        #region ItemGreenList
+        private List<object[]> _ItemGreenList;
+        public List<object[]> ItemGreenList
+        {
+            get { return _ItemGreenList; }
+            set { _ItemGreenList = value; }
+        }
+        #endregion
 
 
         #region FrameSource
@@ -225,7 +265,9 @@ namespace Slim_Student.ViewModel
             System.Windows.Threading.DispatcherTimer TimerClock =
                 new System.Windows.Threading.DispatcherTimer();
 
-            TimerClock.Interval = new TimeSpan(0, 0, 0, 1);
+            const int TIMER_VALUE= 10;
+
+            TimerClock.Interval = new TimeSpan(0, 0, 0, TIMER_VALUE);
             TimerClock.IsEnabled = true;
             TimerClock.Tick += new EventHandler(TimerClock_Tick);
         }
@@ -236,15 +278,93 @@ namespace Slim_Student.ViewModel
             GetWindowThreadProcessId(handle, out pid); // 핸들로 프로세스아이디 얻어옴 
             ps = Process.GetProcessById((int)pid); // 프로세스아이디로 프로세스 검색
 
-            if (cpu_Counter.NextValue() >= 2)
+            if (cpu_Counter.NextValue() >= 3)   // 3%이상이면 ..(YES)
             {
-                //임시 박스에 임시적으로...!
-                _temp.AppendText(ps.ProcessName + Environment.NewLine );
+                #region 알고리즘 설명
+                // _temp.AppendText(ps.ProcessName + Environment.NewLine );
+                // 1. OneTimeDB 불러오기
+                // List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(sub_id);
+                // if(oneTimeList != null)    // OnetimeDB에 YES
+                // {
+                //     if(check필드가 1이면 )   
+                //     { 
+                //          GREEN라이트
+                //          return;
+                //     }
+                //     else {
+                //          AllProgramDB 불러오기
+                //          if(Allprogram에 데이터 없으면) {
+                //              red라이트;
+                //              return;
+                //          } else {
+                //              red_green 필드 조사
+                //              if(red_green == 1) red라이트
+                //              else green라이트
+                //          }
+                //     }
+                // }
+                // else  // OnetimeDB에 NO - // OnetimeDB에 쌓이지 않은 프로세스일 경우
+                // { 
+                //     if (AllProgramDB){
+                //          1-1. AllProgramDB 불러오기  
+                //     }
+                // }
+                //  
+                #endregion
+                List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)), ps.ProcessName);   //
+                if (oneTimeList != null)       // OnetimeDB에 YES (같은 이름의 프로세스가 존재하면)
+                {
+                    for (int i = 0; i < oneTimeList.Count; i++)
+                    {
+                        if (Convert.ToInt32(oneTimeList[i].ElementAt((int)DB_OnetimeProgram.FIELD.check_field)) == 1)
+                        {
+                            SerialCommunication.SerialPortValue.Write("g");
+                            return;
+                        }
+                        else
+                        {
+                            CheckAllProgramDB();
+                        }
+                    }
+                }
+                else    // OnetimeDB에 NO - // OnetimeDB에 쌓이지 않은 프로세스일 경우
+                {
+                    CheckAllProgramDB();
+                }
             }
+            // 3%를 넘지 않으면..(NO) 그냥 지나가면 됨
 
             //현재 활성화 되어있는 process의 이름으로 cpu_Counter InstanceName에 대입
             cpu_Counter.InstanceName = ps.ProcessName;
 
+        }
+
+        public void CheckAllProgramDB()
+        {
+            if (ItemRedList == null) return;
+            if (ItemGreenList == null) return;
+
+            for (int i = 0; i < ItemRedList.Count; i++)
+            {
+                if (ItemRedList[i].ElementAt((int)DB_AllProgram.FIELD.process_name).ToString() == ps.ProcessName)
+                {
+                    SerialCommunication.SerialPortValue.Write("r");
+                    return;
+                }
+            }
+
+            for (int i = 0; i < ItemGreenList.Count; i++)
+            {
+                if (ItemGreenList[i].ElementAt((int)DB_AllProgram.FIELD.process_name).ToString() == ps.ProcessName)
+                {
+                    SerialCommunication.SerialPortValue.Write("g");
+                    return;
+                }
+            }
+
+            SerialCommunication.SerialPortValue.Write("r");
+
+            
         }
 
         #endregion
