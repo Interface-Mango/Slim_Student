@@ -39,5 +39,10 @@ namespace Slim_Student.View
             this.Close();
         }
 
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -72,10 +72,5 @@ namespace Slim_Student.View
                                                      1);   
             } 
         }
-
-        private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MainFrame.Frame.Close();
-        }
     }
 }

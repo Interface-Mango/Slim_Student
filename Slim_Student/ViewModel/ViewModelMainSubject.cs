@@ -117,6 +117,29 @@ namespace Slim_Student.ViewModel
         #endregion
 
 
+        #region ClosingWindowCommand
+        private ICommand _ClosingWindowCommand;
+        public ICommand ClosingWindowCommand
+        {
+            get { return _ClosingWindowCommand ?? (_ClosingWindowCommand = new AppCommand(ClosingWindowFunc)); }
+        }
+
+        private void ClosingWindowFunc(Object o)
+        {
+            if (MessageBox.Show("종료하시겠습니까?", "종료", MessageBoxButton.YesNo) == MessageBoxResult.No) return;
+
+            try
+            {
+                SerialCommunication.SerialPortValue.Write("n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            MainFrame.Frame.Close();
+        }       
+        #endregion
+
         #region GoSignalLight
         private ICommand _GoSignalLight;
         public ICommand GoSignalLight
@@ -278,10 +301,10 @@ namespace Slim_Student.ViewModel
             GetWindowThreadProcessId(handle, out pid); // 핸들로 프로세스아이디 얻어옴 
             ps = Process.GetProcessById((int)pid); // 프로세스아이디로 프로세스 검색
 
+            _temp.Text = ps.ProcessName;
             if (cpu_Counter.NextValue() >= 3)   // 3%이상이면 ..(YES)
             {
                 #region 알고리즘 설명
-                // _temp.AppendText(ps.ProcessName + Environment.NewLine );
                 // 1. OneTimeDB 불러오기
                 // List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(sub_id);
                 // if(oneTimeList != null)    // OnetimeDB에 YES
@@ -318,7 +341,14 @@ namespace Slim_Student.ViewModel
                     {
                         if (Convert.ToInt32(oneTimeList[i].ElementAt((int)DB_OnetimeProgram.FIELD.check_field)) == 1)
                         {
-                            SerialCommunication.SerialPortValue.Write("g");
+                            try
+                            {
+                                SerialCommunication.SerialPortValue.Write("g");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex);
+                            }
                             return;
                         }
                         else
@@ -348,7 +378,14 @@ namespace Slim_Student.ViewModel
             {
                 if (ItemRedList[i].ElementAt((int)DB_AllProgram.FIELD.process_name).ToString() == ps.ProcessName)
                 {
-                    SerialCommunication.SerialPortValue.Write("r");
+                    try
+                    {
+                        SerialCommunication.SerialPortValue.Write("r");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                     return;
                 }
             }
@@ -357,12 +394,26 @@ namespace Slim_Student.ViewModel
             {
                 if (ItemGreenList[i].ElementAt((int)DB_AllProgram.FIELD.process_name).ToString() == ps.ProcessName)
                 {
-                    SerialCommunication.SerialPortValue.Write("g");
+                    try
+                    {
+                        SerialCommunication.SerialPortValue.Write("g");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                     return;
                 }
             }
 
-            SerialCommunication.SerialPortValue.Write("r");
+            try
+            {
+                SerialCommunication.SerialPortValue.Write("r");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
             
         }

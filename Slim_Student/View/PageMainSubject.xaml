@@ -194,16 +194,10 @@
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="CloseBtn">
                 <EasingColorKeyFrame KeyTime="0" Value="White"/>
             </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock6">
-                <EasingColorKeyFrame KeyTime="0" Value="Black"/>
-            </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MouseLeaveInBtn7">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="CloseBtn">
                 <EasingColorKeyFrame KeyTime="0" Value="#FFEC5C5C"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock6">
-                <EasingColorKeyFrame KeyTime="0" Value="White"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
@@ -332,7 +326,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="공지사항" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="WidgetBtn"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,429,0,50" Background="#FFFFF8CA">
+                <Canvas x:Name="WidgetBtn" HorizontalAlignment="Left" Height="70" Width="220" Margin="0,310,0,169" Background="#FFFFF8CA">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -340,7 +334,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="Widget Mode" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="HomeBtn"   HorizontalAlignment="Left" Width="220" Margin="0,499,0,0" Background="#FFFFF8CA" Height="50">
+                <Canvas x:Name="HomeBtn"   HorizontalAlignment="Left" Width="220" Margin="0,380,0,116" Background="#FFFFF8CA" >
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -357,16 +351,17 @@
                                 Mode=OneWay}" />
         <Canvas Height="40"
         	VerticalAlignment="Top"
-        	Background="#FF524500" Grid.ColumnSpan="2">
-            <Canvas x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#FFEC5C5C" Canvas.Left="1158" Canvas.Top="9" MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown" >
-                <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Width="24" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center" Canvas.Top="4" Background="{x:Null}"/>
-            </Canvas>
+        	Background="Black" Grid.ColumnSpan="2">
+            <Button Command="{Binding ClosingWindowCommand}"  x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#aa0000" Canvas.Left="1158" Canvas.Top="9">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center"/>
+            </Button>
             <TextBlock x:Name="SubName"
         		FontSize="20"
         		Foreground="White"
         		Text="Subject Name"
         		TextWrapping="Wrap" Height="30" Canvas.Top="6" Width="1158" TextAlignment="Center" />
         </Canvas>
-        <TextBox x:Name="temp1" HorizontalAlignment="Left" Height="114" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="10,388,0,0" Grid.Row="1"/>
+        <TextBox x:Name="temp1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="200" Margin="10,596,0,0" Grid.Row="1" Background="White" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FFDE4949"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current Process Name" VerticalAlignment="Top" Margin="10,580,0,0" Grid.Row="1" Width="200" TextAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Page>
