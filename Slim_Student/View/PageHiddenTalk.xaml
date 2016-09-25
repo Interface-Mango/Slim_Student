@@ -11,14 +11,17 @@
     mc:Ignorable="d">
     <Grid x:Name="MainPanel" >
         <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505">
-            <Button x:Name="ServerConnectingBtn" Content="채팅 접속" Command="{Binding ServerConnect}" Width="115" Canvas.Left="826" Height="33" Canvas.Top="24" BorderBrush="{x:Null}" Background="#827201" Foreground="#fff" FontFamily="Calibri" Visibility="Visible"/>
-            <TextBox x:Name="txtMsg"  Height="58" TextWrapping="Wrap" Width="788" Canvas.Left="153" Canvas.Top="506" Background="#FF827201" Foreground="White">
+            <Button x:Name="ServerConnectingBtn" Content="채팅 접속" Command="{Binding ServerConnect}" Width="115" Canvas.Left="826" Height="40" Canvas.Top="17" BorderBrush="{x:Null}" Background="White" Foreground="#FF827201" FontFamily="Calibri" Visibility="Visible"/>
+            <TextBox x:Name="txtMsg"  Height="74" TextWrapping="Wrap" Width="912" Canvas.Left="29" Canvas.Top="490" Background="#FF827201" Foreground="White">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
                 </TextBox.InputBindings>
             </TextBox>
-            <TextBox x:Name="textbox1" Height="418" TextWrapping="Wrap"  Width="912" Canvas.Left="29" Canvas.Top="70" Background="#FF827201" Foreground="White"/>
-            <TextBlock x:Name="IDText" Text="ID" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Canvas.Left="12" Canvas.Top="522" Height="38" Width="123" FontSize="21" TextAlignment="Center" Foreground="#FF509146" FontFamily="Calibri" FontWeight="Bold"/>
+            <TextBox x:Name="textbox1" Height="398" TextWrapping="Wrap"  Width="912" Canvas.Left="29" Canvas.Top="70" Background="#FF827201" Foreground="White" BorderBrush="{x:Null}"/>
+            <TextBlock TextWrapping="Wrap" Canvas.Left="456" Canvas.Top="17" Height="44" Width="352" FontSize="14" Foreground="#FF7C832F"><Run Text="익명으로 사람들과 자유로운 토론을 진행해 보세요 !"/><LineBreak/><Run Text="단, 기본적인 에티켓은 지켜주시길 바랍니다."/></TextBlock>
+            <Canvas Height="41" Width="142" Canvas.Left="77" Canvas.Top="30" Background="#FF827201">
+                <TextBlock x:Name="IDText" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Canvas.Top="10" Height="28" Width="122" FontSize="18" TextAlignment="Center" Foreground="#FF1B3F49" FontFamily="Calibri" FontWeight="Bold" Canvas.Left="10" Background="#FFFEE505"><Run Text="ID"/></TextBlock>
+            </Canvas>
         </Canvas>
         <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEADD8B">
             <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold"/>
