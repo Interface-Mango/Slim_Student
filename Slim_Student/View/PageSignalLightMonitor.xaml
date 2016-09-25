@@ -18,6 +18,24 @@
         <Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEADD8B">
             <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold"/>
         </Canvas>
-        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505"/>
+        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505">
+            <Canvas Height="500" Width="600" Canvas.Left="338" Canvas.Top="43" Background="#FFFEBA05">
+                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="26" Canvas.Top="20" Background="White">
+                    <Image Height="200" Width="240" Source="Images/question.png" Canvas.Top="10" Canvas.Left="10"/>
+                </Canvas>
+                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="26" Canvas.Top="259" Background="White">
+                    <Image Height="200" Width="240" Canvas.Top="10" Canvas.Left="10" Source="Images/number.png"/>
+                </Canvas>
+                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="322" Canvas.Top="259" Background="White">
+                    <Image Height="200" Width="240" Canvas.Top="10" Canvas.Left="10" Source="Images/ox.png"/>
+                </Canvas>
+                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="322" Canvas.Top="20" Background="White">
+                    <Image Height="200" Width="240" Source="Images/check.png" Canvas.Top="10" Canvas.Left="10"/>
+                </Canvas>
+            </Canvas>
+            <Canvas HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="262" Background="#FF42A216" Canvas.Left="40" Canvas.Top="115"/>
+            <TextBlock TextWrapping="Wrap" Text="현재 나의 LED matrix의 상태" Canvas.Left="73" Canvas.Top="454" Width="213" Height="28" FontSize="14"/>
+        </Canvas>
+        <Image HorizontalAlignment="Left" Height="100" Margin="-164,410,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
