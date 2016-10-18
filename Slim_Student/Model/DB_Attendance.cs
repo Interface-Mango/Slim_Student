@@ -111,8 +111,9 @@ namespace Slim_Student.Model
 
         public bool UpdateAttendance(int sub_id, string std_id, string date, int check)
         {
-            string sql = "UPDATE attendance SET att_check=@arg1 WHERE std_id=@arg2 AND sub_id=@arg3 AND date LIKE '"+date+"%'";
+            string sql = "UPDATE attendance SET date=@arg1, att_check=@arg2 WHERE std_id=@arg3 AND sub_id=@arg4 AND date LIKE '"+date+"%'";
             List<object> args = new List<object>();
+            args.Add(DateTime.Now);
             args.Add(check);
             args.Add(std_id);
             args.Add(sub_id);

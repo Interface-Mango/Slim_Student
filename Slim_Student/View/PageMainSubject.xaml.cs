@@ -55,22 +55,22 @@ namespace Slim_Student.View
             // 2. 출석 체크 DB에 쌓기 
             List<object[]> selectList = dbAttendance.SelectAttendanceList(Convert.ToInt32(SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)), MainFrame.UserInfo.ElementAt((int)DB_User.FIELD.user_id).ToString(), DateTime.Now.Date.ToString().Split(' ')[0]);   // 날짜를 넣어서 시간빼고 비교
             
-            if (selectList != null){
+            //if (selectList != null){
                 string temp = selectList[0].ElementAt((int)DB_Attendance.FIELD.date).ToString();
                 string date = temp.Split(' ')[0];
                 if (date == DateTime.Now.Date.ToString().Split(' ')[0])
                 {
                     // 수업시간 도중 프로그램 종료 후 재접시 다시 출석 되게 att_check 바꿈
                     dbAttendance.UpdateAttendance(Convert.ToInt32(SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)), MainFrame.UserInfo.ElementAt((int)DB_User.FIELD.user_id).ToString(), DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day, 1);
-                    MessageBox.Show("재접속 출석처리 되었습니다.");
+                    //MessageBox.Show("재접속 출석처리 되었습니다.");
                 }
-            }
+            /*}
             else
             {
                 dbAttendance.InsertStudentAttendance(MainFrame.UserInfo.ElementAt((int)DB_User.FIELD.user_id).ToString(),
                                                      Convert.ToInt32(SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)),
                                                      1);   
-            } 
+            } */
         }
     }
 }
