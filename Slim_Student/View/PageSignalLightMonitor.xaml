@@ -15,11 +15,11 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FFEADD8B">
-            <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold"/>
+        <Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF123663">
+            <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold" Foreground="White"/>
         </Canvas>
-        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="#FFFEE505">
-            <Canvas Height="500" Width="600" Canvas.Left="338" Canvas.Top="43" Background="#FFFEBA05">
+        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="White">
+            <Canvas Height="500" Width="594.03" Canvas.Left="338" Canvas.Top="43" Background="#FFDAEAF3">
                 <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="26" Canvas.Top="20" Background="White">
                     <Image x:Name="questionImg" Height="200" Width="240" Source="Images/question.png" Canvas.Top="10" Canvas.Left="10" Cursor="Hand">
                         <Image.InputBindings>
@@ -32,14 +32,14 @@
                 <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="26" Canvas.Top="259" Background="White">
                     <Image x:Name="numberImg" Height="200" Width="240" Canvas.Top="10" Canvas.Left="10" Source="Images/number.png" Cursor="Hand"/>
                 </Canvas>
-                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="322" Canvas.Top="259" Background="White">
+                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="311.549" Canvas.Top="259" Background="White">
                     <Image x:Name="oxImg" Height="200" Width="240" Canvas.Top="10" Canvas.Left="10" Source="Images/ox.png" Cursor="Hand"/>
                 </Canvas>
-                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="322" Canvas.Top="20" Background="White">
+                <Canvas HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="260" Canvas.Left="311.549" Canvas.Top="20" Background="White">
                     <Image x:Name="checkImg" Height="200" Width="240" Source="Images/check.png" Canvas.Top="10" Canvas.Left="10" Cursor="Hand"/>
                 </Canvas>
             </Canvas>
-            <Canvas HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="262" Background="#FF42A216" Canvas.Left="40" Canvas.Top="115">
+            <Canvas HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="262" Canvas.Left="40" Canvas.Top="115" Background="#FFD6EAE4">
                 <Image Name="CurrentState" Height="200" Width="240" Canvas.Top="60" Canvas.Left="10"/>
             </Canvas>
             <TextBlock Name="TB" TextWrapping="Wrap" Text="현재 LED Matrix 상태" Canvas.Left="104" Canvas.Top="450" Width="138" Height="28" FontSize="14"/>

@@ -30,6 +30,7 @@
 		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="CloseBtn">
 			<BeginStoryboard Storyboard="{StaticResource MouseLeaveInBtn}"/>
 		</EventTrigger>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="EnterButton"/>
 	</Page.Triggers>
     <Grid x:Name="MainPanel">
         <Grid.RowDefinitions>
@@ -46,33 +47,27 @@
                     Height="40"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Background="#FFFFE406"/>
+                    Background="#FFFEFEFE"/>
             <Grid Width="972"
                   Height="589"
                   Margin="0,40,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
-                  Background="#FFFFE406">
+                  Background="#FFFEFEFE">
                 <Grid x:Name="SubTableGrid"
                       Margin="150,40,150,40"
-                      Background="#4CD69595">
+                      Background="#4CFFFFFF" RenderTransformOrigin="0.5,0.5">
+                	<Grid.RenderTransform>
+                		<TransformGroup>
+                			<ScaleTransform/>
+                			<SkewTransform/>
+                			<RotateTransform/>
+                			<TranslateTransform/>
+                		</TransformGroup>
+                	</Grid.RenderTransform>
                     <ListBox Name="SubjectListBox"
                              ItemsSource="{Binding SubjectItemList}"
-                             Style="{DynamicResource LBX_VERTICAL_SubjectList}" Margin="0,33,0,0" />
-
-                    <Button Name="EnterButton"
-                            Grid.Row="0"
-                            Width="100"
-                            Height="50"
-                            Margin="702,459,-130,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Background="#FF524500"
-                            Command="{Binding EnterSubjectCommand}"
-                            Content="들어가기"
-                            FontSize="11"
-                            FontWeight="Bold"
-                            Foreground="#ffffff" />
+                             Style="{DynamicResource LBX_VERTICAL_SubjectList}" Margin="0,33,0,0" BorderBrush="{x:Null}" Background="#FFE9E7F5" />
                     <!--ListView Margin="10">
                         <Canvas x:Name="canvas"
                             Width="652"
@@ -108,6 +103,19 @@
                         </Canvas>
                     </-->
                 </Grid>
+                <Button x:Name="EnterButton"
+                	Grid.Row="0"
+                	Width="100"
+                	Height="50"
+                	Margin="844,499,28,40"
+                	HorizontalAlignment="Center"
+                	VerticalAlignment="Center"
+                	Background="#FF123663"
+                	Command="{Binding EnterSubjectCommand}"
+                	Content="들어가기"
+                	FontSize="11"
+                	FontWeight="Bold"
+                	Foreground="#ffffff" />
             </Grid>
         </Canvas>
         <Canvas x:Name="TitleCanvas"
@@ -134,23 +142,14 @@
                     Height="80"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Background="#FFFFF8CA">
-                <Image x:Name="ProfilePicture"
-                       Canvas.Left="10"
-                       Canvas.Top="10"
-                       Width="60"
-                       Height="60"
-                       Margin="0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       Source="Images/basicprofile.jpg" />
+                    Background="#FF355065">
                 <TextBlock x:Name="ProfileGroup"
                            Canvas.Left="75"
                            Canvas.Top="10"
                            Width="131"
                            Height="26"
                            FontSize="20"
-                           Foreground="#FF741616"
+                           Foreground="White"
                            Text="{Binding UserGroup}"
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
@@ -161,7 +160,7 @@
                            Height="26"
                            FontSize="20"
                            FontWeight="Bold"
-                           Foreground="#FF741616"
+                           Foreground="White"
                            Text="{Binding UserName}"
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
@@ -171,8 +170,8 @@
             	Height="549"
             	HorizontalAlignment="Left"
             	VerticalAlignment="Top"
-            	Background="#FFFFF8CA">
-                <Canvas  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="White">
+            	Background="#FF355065">
+                <Canvas  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="#FFFEFEFE">
                     <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="수업리스트" Canvas.Left="5.57" Canvas.Top="20.5" Height="30.5" Width="204.43" FontSize="22.667" TextAlignment="Right" FontWeight="Bold"/>
                 </Canvas>
             </Grid>
@@ -192,11 +191,11 @@
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center"/>
             </Button>
         </Canvas>
-        <Canvas Width="671.25"
+        <Canvas x:Name="canvas" Width="671.25"
         	Height="40"
         	HorizontalAlignment="Left"
         	VerticalAlignment="Top"
-        	Background="#FF524500" Grid.Column="2" Margin="3,73,0,0" Grid.Row="1">
+        	Background="#FF123663" Grid.Column="2" Margin="3,73,0,0" Grid.Row="1">
             <TextBlock
         		Canvas.Top="10"
         		Width="671.25"

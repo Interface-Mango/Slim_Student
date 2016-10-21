@@ -261,23 +261,14 @@
                     Height="80"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Background="#FFFFF8CA">
-                <Image x:Name="ProfilePicture"
-                       Canvas.Left="10"
-                       Canvas.Top="10"
-                       Width="60"
-                       Height="60"
-                       Margin="0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       Source="Images/basicprofile.jpg" />
+                    Background="#FF325068">
                 <TextBlock x:Name="ProfileGroup"
                            Canvas.Left="75"
                            Canvas.Top="10"
                            Width="131"
                            Height="26"
                            FontSize="20"
-                           Foreground="#FF741616"
+                           Foreground="White"
                            Text="{Binding UserGroup}"
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
@@ -288,13 +279,13 @@
                            Height="26"
                            FontSize="20"
                            FontWeight="Bold"
-                           Foreground="#FF741616"
+                           Foreground="White"
                            Text="{Binding UserName}"
                            TextAlignment="Center"
                            TextWrapping="Wrap" />
             </Canvas>
-            <Grid HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="220" Background="#FFFFF8CA" Canvas.Top="80">
-                <Canvas x:Name="canvas"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="#FFFFF8CA">
+            <Grid HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="220" Background="#FF325068" Canvas.Top="80">
+                <Canvas x:Name="canvas"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="#FF325068">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -302,7 +293,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="canvas1"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,100,0,379" Background="#FFFFF8CA">
+                <Canvas x:Name="canvas1"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,100,0,379" Background="#FF325068">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -310,7 +301,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="canvas2"   HorizontalAlignment="Left" Height="70" Width="220" Margin="0,170,0,309" Background="#FFFFF8CA">
+                <Canvas x:Name="canvas2"   HorizontalAlignment="Left" Height="70" Width="220" Margin="0,170,0,309" Background="#FF325068">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -318,7 +309,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="나의질문" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="canvas3"   HorizontalAlignment="Left" Height="70" Width="220" Margin="0,240,0,239" Background="#FFFFF8CA">
+                <Canvas x:Name="canvas3"   HorizontalAlignment="Left" Height="70" Width="220" Margin="0,240,0,239" Background="#FF325068">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -326,7 +317,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="공지사항" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="WidgetBtn" HorizontalAlignment="Left" Height="70" Width="220" Margin="0,310,0,169" Background="#FFFFF8CA">
+                <Canvas x:Name="WidgetBtn" HorizontalAlignment="Left" Height="70" Width="220" Margin="0,310,0,169" Background="#FF325068">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -334,7 +325,7 @@
                     </Canvas.InputBindings>
                     <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="Widget Mode" Canvas.Top="20" Height="30" Width="220" FontSize="20" TextAlignment="Center"/>
                 </Canvas>
-                <Canvas x:Name="HomeBtn"   HorizontalAlignment="Left" Width="220" Margin="0,380,0,116" Background="#FFFFF8CA" >
+                <Canvas x:Name="HomeBtn"   HorizontalAlignment="Left" Width="220" Margin="0,380,0,116" Background="#FF325068" >
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
