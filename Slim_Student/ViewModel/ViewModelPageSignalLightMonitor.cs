@@ -33,7 +33,7 @@ namespace Slim_Student.ViewModel
             var uriSource = new Uri(@"..\View\Images\question.png", UriKind.Relative);
             parentWindow.CurrentState.Source = new BitmapImage(uriSource);
             parentWindow.CurrentState.UpdateLayout();
-            parentWindow.TB.Text = "Question";
+            //parentWindow.TB.Text = "Question";
         }
         #endregion
     }
