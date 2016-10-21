@@ -186,7 +186,7 @@
         		Height="37.445"
         		FontSize="24"
         		Foreground="White"
-        		Text="Slim"
+        		Text="SLIM"
         		TextWrapping="Wrap" HorizontalAlignment="Center" />
             <Button Click="CloseBtn_Click"  x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#aa0000" Canvas.Left="1158" Canvas.Top="9">
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center"/>

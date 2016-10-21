@@ -41,7 +41,7 @@ namespace Slim_Student.ViewModel
         {
             get
             {
-                return _Xclick ?? (_Oclick = new AppCommand(XclickFunc));
+                return _Xclick ?? (_Xclick = new AppCommand(XclickFunc));
             }
         }
         private void XclickFunc(Object o)
@@ -65,8 +65,8 @@ namespace Slim_Student.ViewModel
             //Console.WriteLine(Convert.ToChar(widgetInputWindow.tbNum.Text));
             try
             {
-
-                SerialCommunication.SerialPortValue.Write(widgetOX.textBox.Text);
+                SerialCommunication.CurrentSignal = widgetOX.textBox.Text;
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
                 widgetOX.textBox.Text = "";
             }
             catch (Exception ex)

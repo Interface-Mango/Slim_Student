@@ -46,7 +46,8 @@ namespace Slim_Student.View
             // 1. 초록불 키기
             try
             {
-                SerialCommunication.SerialPortValue.Write("g");
+                SerialCommunication.CurrentSignal = "g";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
             }
             catch (Exception ex)
             {

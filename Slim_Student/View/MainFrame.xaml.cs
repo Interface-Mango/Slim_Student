@@ -49,7 +49,8 @@ namespace Slim_Student.View
             // LED 끄기
             try
             {
-                SerialCommunication.SerialPortValue.Write("n");// 수업시간 도중 프로그램 종료 후 재접시 다시 출석 되게 att_check 바꿈
+                SerialCommunication.CurrentSignal = "n";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);// 수업시간 도중 프로그램 종료 후 재접시 다시 출석 되게 att_check 바꿈
                 
                 // 여기서 선생님이 로그아웃 되어있는지 체크하고 수업중인데 나가면 0으로 바꿈.
                 int flag = Convert.ToInt32(dbSubject.SelectIsProcessing(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id))));

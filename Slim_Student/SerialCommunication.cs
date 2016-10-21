@@ -10,6 +10,7 @@ namespace Slim_Student
     class SerialCommunication : SerialPort
     {
         public static SerialPort SerialPortValue;
+        public static string CurrentSignal;
 
         private string g_RecvData = string.Empty;
         private delegate void SetTextCallBack(string text);

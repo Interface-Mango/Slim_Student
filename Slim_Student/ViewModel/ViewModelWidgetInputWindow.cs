@@ -32,8 +32,8 @@ namespace Slim_Student.ViewModel
             //Console.WriteLine(Convert.ToChar(widgetInputWindow.tbNum.Text));
             try
             {
-                
-                SerialCommunication.SerialPortValue.Write(widgetInputWindow.tbNum.Text);
+                SerialCommunication.CurrentSignal = widgetInputWindow.tbNum.Text;
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
             }
             catch (Exception ex)
             {

@@ -134,7 +134,8 @@ namespace Slim_Student.View
 
             try
             {
-                SerialCommunication.SerialPortValue.Write("?");
+                SerialCommunication.CurrentSignal = "?";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
             }
             catch (Exception ex)
             {
