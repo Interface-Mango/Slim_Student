@@ -20,11 +20,22 @@ namespace Slim_Student.View
     /// </summary>
     public partial class WidgetOX : Window
     {
-        public WidgetOX()
+        public WidgetOX(bool state)
         {
             InitializeComponent();
-            this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
-            this.Top = 35.0;
+
+            if (state == false)
+            {
+                this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
+                this.Top = 35.0;
+            }
+            else
+            {
+                this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            }
+
+            
             DataContext = new ViewModelWidgetOX(this);
 
         }

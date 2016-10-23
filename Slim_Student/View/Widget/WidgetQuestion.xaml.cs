@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Slim_Student.ViewModel;
+using System.Windows.Media.Animation;
+
 
 namespace Slim_Student.View
 {
@@ -20,17 +22,46 @@ namespace Slim_Student.View
     /// </summary>
     public partial class WidgetQuestion : Window
     {
-        public WidgetQuestion()
+
+        private bool _isRegist = false;
+        public bool IsRegist
+        { 
+            get { return _isRegist; }
+            set
+            {
+                _isRegist = value;
+            }
+        }
+
+        public WidgetQuestion(bool state)
         {
             InitializeComponent();
+            
             DataContext = new ViewModelWidgetQuestion(this);
 
-            this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
-            this.Top = 35.0;
+            if (state == false)
+            {
+                this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
+                this.Top = 35.0;
+            }
+            else
+            {
+                this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            }
+            
             
         }
         public void AutoClose(object sender, EventArgs e)
         {
+            IsRegist = false;
+            this.Close();
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IsRegist = true;
             this.Close();
         }
 

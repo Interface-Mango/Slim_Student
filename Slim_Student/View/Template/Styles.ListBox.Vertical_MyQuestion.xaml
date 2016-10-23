@@ -4,7 +4,7 @@
 
     <Style x:Key="LBXITEM_VERTICAL_MyQuestion" TargetType="ListBoxItem">
         
-        <Setter Property="Background" Value="#ffffff" />
+        <Setter Property="Background" Value="#ffe9e7f5" />
         <Setter Property="Foreground" Value="#404040" />
         <Setter Property="HorizontalContentAlignment" Value="Right"/>
         <Setter Property="Template">

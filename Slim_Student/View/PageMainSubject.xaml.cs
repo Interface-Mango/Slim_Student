@@ -18,6 +18,8 @@ using Slim_Student.Model;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+
+
 namespace Slim_Student.View
 {
     /// <summary>
@@ -29,15 +31,16 @@ namespace Slim_Student.View
         public static Frame MainFrameObject;
 
         private DB_Attendance dbAttendance;
-        
+    
 
+        
 
         public PageMainSubject(object[] param, SubjectList subjectlist)
         {
             InitializeComponent();
             SubjectInfo = param;
             DataContext = new ViewModelMainSubject(subjectlist, temp1);
-
+            
             MainFrameObject = FramePanel;
             ViewModelMainSubject.MainSubjectObject.FrameSource = new Uri("PageSignalLightMonitor.xaml", UriKind.Relative);
             SubName.Text = SubjectInfo.ElementAt(1).ToString();
@@ -73,5 +76,6 @@ namespace Slim_Student.View
                                                      1);   
             } */
         }
+
     }
 }

@@ -64,7 +64,7 @@
 		<TextBox HorizontalAlignment="Left" Height="68" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,145,0,0" BorderBrush="{x:Null}" Background="#FFAC5A5A" Foreground="White"/>
 		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="질문" VerticalAlignment="Top" Margin="21,19,0,0" Background="#FFAC5A5A" Foreground="White" Width="40" TextAlignment="Center" Height="21"/>
 		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="답변" VerticalAlignment="Top" Margin="21,127,0,0" Background="#FFAC5A5A" Foreground="White" Width="40" TextAlignment="Center" Height="21"/>
-		<Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="215,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FF6C1313" Content="등록"/>
+		<Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="215,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FF6C1313" Content="등록" Click="Button_Click"/>
 		<Canvas x:Name="canvas" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="300" Margin="0,273.283,0,0" Background="#FFC76F6F" RenderTransformOrigin="0.5,0.5">
 			<Canvas.RenderTransform>
 				<TransformGroup>

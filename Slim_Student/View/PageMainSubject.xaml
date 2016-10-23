@@ -15,15 +15,9 @@
             	<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
             </ColorAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="textBlock">
-            	<EasingDoubleKeyFrame KeyTime="0" Value="22.667"/>
             	<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="22.667"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock">
-            	<DiscreteObjectKeyFrame KeyTime="0">
-            		<DiscreteObjectKeyFrame.Value>
-            			<FontWeight>Bold</FontWeight>
-            		</DiscreteObjectKeyFrame.Value>
-            	</DiscreteObjectKeyFrame>
             	<DiscreteObjectKeyFrame KeyTime="0:0:0.1">
             		<DiscreteObjectKeyFrame.Value>
             			<FontWeight>Bold</FontWeight>
@@ -209,10 +203,10 @@
     </Page.Resources>
     <Page.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
-            <BeginStoryboard Storyboard="{StaticResource MouseEnterInBtn1}"/>
+            <BeginStoryboard x:Name="MouseEnterInBtn1_BeginStoryboard" Storyboard="{StaticResource MouseEnterInBtn1}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
-            <BeginStoryboard Storyboard="{StaticResource MouseLeaveInBtn1}"/>
+            <BeginStoryboard x:Name="MouseLeaveInBtn1_BeginStoryboard" Storyboard="{StaticResource MouseLeaveInBtn1}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas1">
             <BeginStoryboard Storyboard="{StaticResource MouseEnterInBtn2}"/>
@@ -291,7 +285,7 @@
                            TextWrapping="Wrap" />
             </Canvas>
             <Grid HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="220" Background="#FF325068" Canvas.Top="80">
-                <Canvas x:Name="canvas"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="White">
+                <Canvas x:Name="canvas"  HorizontalAlignment="Left" Height="70" Width="220" Margin="0,30,0,449" Background="#FF325068">
                     <Canvas.InputBindings>
                         <MouseBinding 
                                     MouseAction="LeftClick"
@@ -358,7 +352,7 @@
         		Text="Subject Name"
         		TextWrapping="Wrap" Height="30" Canvas.Top="6" Width="1158" TextAlignment="Center" FontFamily="HYkanB" />
         </Canvas>
-        <TextBox x:Name="temp1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="200" Margin="10,596,0,0" Grid.Row="1" Background="White" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FFDE4949" FontFamily="HYkanB"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current Process Name" VerticalAlignment="Top" Margin="10,580,0,0" Grid.Row="1" Width="200" TextAlignment="Center" FontWeight="Bold" FontFamily="HYkanB"/>
+        <TextBox x:Name="temp1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="200" Margin="10,596,0,0" Grid.Row="1" Background="White" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FFDE4949" FontFamily="Malgun Gothic"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current Process Name" VerticalAlignment="Top" Margin="10,580,0,0" Grid.Row="1" Width="200" TextAlignment="Center" FontWeight="Bold" FontFamily="HYkanB" Foreground="White"/>
     </Grid>
 </Page>

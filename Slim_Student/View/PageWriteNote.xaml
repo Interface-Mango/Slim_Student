@@ -16,8 +16,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Background="#FFFEE505" VerticalAlignment="Top" Height="629" Grid.RowSpan="3">
-            <TextBox Height="501" Width="881" Background="#FFE9E4B7" TextWrapping="Wrap" Text="{Binding QuestionContentTextBox}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" Canvas.Top="73" Canvas.Left="55">
+        <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Background="White" VerticalAlignment="Top" Height="629" Grid.RowSpan="3">
+            <TextBox Height="501" Width="881" Background="#FFE9E7F5" TextWrapping="Wrap" Text="{Binding QuestionContentTextBox}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" Canvas.Top="73" Canvas.Left="55">
                 <TextBox.SelectionBrush>
                     <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                 </TextBox.SelectionBrush>
@@ -36,6 +36,6 @@
             	FontWeight="Bold"
             	Foreground="#ffffff" Canvas.Top="572" BorderBrush="{x:Null}" Canvas.Left="796"/>
         </Canvas>
-        <TextBlock Background="#827202" Foreground="#fff9c8" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="18.667" Text="질문" FontWeight="Bold" Margin="56,34,37,475" Grid.RowSpan="2"/>
+        <TextBlock Background="#FF123663" Foreground="White" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="18.667" Text="질문" FontWeight="Bold" Margin="56,34,37,475" Grid.RowSpan="2"/>
     </Grid>
 </Page>

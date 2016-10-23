@@ -40,6 +40,7 @@ namespace Slim_Student.View
             // 창 중앙 위치!!
             this.Left = (SystemParameters.WorkArea.Width - Width)/2.0 + SystemParameters.WorkArea.Left;
             this.Height = (SystemParameters.WorkArea.Height - Height)/2.0 + SystemParameters.WorkArea.Top;
+
             
 		}
 		
@@ -81,7 +82,15 @@ namespace Slim_Student.View
 
         private void Main_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 	}
 }

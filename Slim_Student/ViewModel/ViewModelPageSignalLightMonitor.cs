@@ -33,7 +33,24 @@ namespace Slim_Student.ViewModel
             var uriSource = new Uri(@"..\View\Images\question.png", UriKind.Relative);
             parentWindow.CurrentState.Source = new BitmapImage(uriSource);
             parentWindow.CurrentState.UpdateLayout();
-            //parentWindow.TB.Text = "Question";
+            
+        }
+        #endregion
+
+
+        #region CheckSignal
+        private ICommand _CheckSignal;
+        public ICommand CheckSignal
+        {
+            get { return _CheckSignal ?? (_CheckSignal = new AppCommand(CheckSignalFunc)); }
+        }
+
+        private void CheckSignalFunc(Object o)
+        {
+            var uriSource = new Uri(@"..\View\Images\check.png", UriKind.Relative);
+            parentWindow.CurrentState.Source = new BitmapImage(uriSource);
+            parentWindow.CurrentState.UpdateLayout();
+            
         }
         #endregion
     }

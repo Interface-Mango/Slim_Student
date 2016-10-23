@@ -122,14 +122,14 @@ namespace Slim_Student.View
 
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
-        	WidgetInputWindow inputWindow = new WidgetInputWindow();
+        	WidgetInputWindow inputWindow = new WidgetInputWindow(false);
             inputWindow.ShowDialog();
         }
 
         // ? 눌렀을때 '?' 송신
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            WidgetQuestion Question = new WidgetQuestion();
+            WidgetQuestion Question = new WidgetQuestion(false);
             Question.Show();
 
             try
@@ -147,7 +147,7 @@ namespace Slim_Student.View
         // OX 눌렀을때
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            WidgetOX widgetOX = new WidgetOX();
+            WidgetOX widgetOX = new WidgetOX(false);
             widgetOX.ShowDialog();
         }
 

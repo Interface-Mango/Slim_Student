@@ -20,15 +20,22 @@ namespace Slim_Student.View
     /// </summary>
     public partial class WidgetInputWindow : Window
     {
-        public WidgetInputWindow()
+        public WidgetInputWindow(bool state)
         {
             InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
             DataContext = new ViewModelWidgetInputWindow(this);
 
-            this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
-            this.Top = 35.0;
+            if (state == false)
+            {
+                this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
+                this.Top = 35.0;
+            }
+            else
+            {
+                this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            }
             
 
             tbNum.IsReadOnly = true;
