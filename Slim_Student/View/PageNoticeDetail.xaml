@@ -8,21 +8,21 @@
       Height="629"
 	Title="PageNoticeDetail">
 
-    <Grid Background="#ffe506">
-        <Border BorderThickness="1" Background="#fff9c8" Margin="42,25,25,27">
+    <Grid Background="#FFE9E7F5">
+        <Border BorderThickness="1" Background="White">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Background="#827202" Orientation="Horizontal" Grid.Row="0">
-                    <TextBlock Background="#827202" Width="688" Foreground="#fff9c8" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="16" Text="{Binding NoticeDetailTitle}"/>
-                    <TextBlock Background="#fff9c8" Margin="2,10,2,0" Width="182" Foreground="#827202" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="16" Text="{Binding NoticeDetailDate}"/>
+                <StackPanel Background="#FF325166" Orientation="Horizontal" Margin="58,36,32,549" Width="880" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">
+                    <TextBlock Background="#FF325166" Width="648" Foreground="White" Padding="7" TextWrapping="Wrap" FontSize="16" Text="{Binding NoticeDetailTitle}" Height="34" FontFamily="NanumSquareOTF Bold"/>
+                    <TextBlock Background="#FF325166" Margin="2,10,2,0" Width="222" Foreground="White" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="16" Text="{Binding NoticeDetailDate}" FontFamily="NanumSquareOTF Bold"/>
                 </StackPanel>
-                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="16" Padding="10" Text="{Binding NoticeDetailContent}"/>
+                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="16" Padding="10" Text="{Binding NoticeDetailContent}" Background="#FFE9E7F5" Margin="58,40,32,46" Height="501" FontFamily="NanumSquareOTF"/>
             </Grid>
         </Border>
-        <Button Width="37" Height="577" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF827201" Command="{Binding BackCommand}"
-                			Content="◀" FontSize="15" FontWeight="Bold" Foreground="#ffffff" Margin="0,25,935,27"/>
+        <Button Width="31" Height="545" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF9BA3A5" Command="{Binding BackCommand}"
+                			Content="◀" FontSize="15" FontWeight="Bold" Foreground="#ffffff" Margin="0,37,941,47" BorderBrush="{x:Null}"/>
     </Grid>
 </Page>

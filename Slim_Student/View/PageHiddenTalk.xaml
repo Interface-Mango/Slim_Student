@@ -12,16 +12,16 @@
     <Grid x:Name="MainPanel" >
         <Canvas x:Name="HiddenCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Margin="0,40,0,0" Background="White">
             <Button x:Name="ServerConnectingBtn" Content="채팅 접속" Command="{Binding ServerConnect}" Width="115" Canvas.Left="826" Height="40" Canvas.Top="17" BorderBrush="{x:Null}" Background="#FFA4A4A4" Foreground="White" FontFamily="Calibri" Visibility="Visible"/>
-            <TextBox x:Name="txtMsg"  Height="74" TextWrapping="Wrap" Width="785" Canvas.Left="156" Canvas.Top="490" Background="#FFE9E7F5" Foreground="Black" BorderBrush="{x:Null}">
+            <TextBox x:Name="txtMsg"  Height="74" TextWrapping="Wrap" Width="785" Canvas.Left="156" Canvas.Top="490" Background="#FFE9E7F5" Foreground="Black" BorderBrush="{x:Null}" FontFamily="NanumSquareOTF">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding msgSend}"/>
                 </TextBox.InputBindings>
             </TextBox>
-            <TextBox x:Name="textbox1" Height="398" TextWrapping="Wrap"  Width="912" Canvas.Left="29" Canvas.Top="70" Background="#FF355065" Foreground="White" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="textbox1" Height="398" TextWrapping="Wrap"  Width="912" Canvas.Left="29" Canvas.Top="70" Background="#FF355065" Foreground="White" BorderBrush="{x:Null}" FontFamily="NanumSquareOTF"/>
             <TextBlock x:Name="IDText" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Canvas.Top="514.667" Height="25.333" Width="122" FontSize="18" TextAlignment="Center" Foreground="Black" FontFamily="Calibri" FontWeight="Bold" Background="White" Canvas.Left="29"><Run Text="ID"/></TextBlock>
         </Canvas>
-        <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF123663">
-            <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White"/>
+        <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068">
+            <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold"/>
         </Canvas>
     </Grid>
 </Page>

@@ -33,37 +33,7 @@ namespace Slim_Student.View
             story1 = this.Resources["CreateNewByClick"] as Storyboard;
         }
 
-      /*  private void numberImg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            var uriSource = new Uri(@"/Images/number.png");
-            CurrentState.Source = new BitmapImage(uriSource);
-            CurrentState.UpdateLayout();
-            
-        }
-
-        private void checkImg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            var uriSource = new Uri(@"/Slim_Student;component/Images/check.png");
-            CurrentState.Source = new BitmapImage(uriSource);
-            CurrentState.UpdateLayout();
-            
-        }
-
-        private void oxImg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            var uriSource = new Uri(@"/Slim_Student;component/Images/ox.png");
-            CurrentState.Source = new BitmapImage(uriSource);
-            CurrentState.UpdateLayout();
-          
-        }
-
-        private void questionImg_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            var uriSource = new Uri(@"/Slim_Student;component/Images/quetion.png");
-            CurrentState.Source = new BitmapImage(uriSource);
-            CurrentState.UpdateLayout();
-            
-        } */
+      
 
         
         private void QuestionWindow(object sender, MouseButtonEventArgs e)
@@ -91,6 +61,27 @@ namespace Slim_Student.View
         {
             WidgetOX widgetOX = new WidgetOX(true);
             widgetOX.ShowDialog();
+
+            if (widgetOX.IsRegist)
+            { //등록되었을 때
+
+                if (widgetOX.IsOX)
+                {
+                    var uriSource = new Uri(@"..\View\Images\o.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else
+                {
+                    var uriSource = new Uri(@"..\View\Images\xx.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+                
+            }
         }
 
 
@@ -98,6 +89,109 @@ namespace Slim_Student.View
         {
             WidgetInputWindow inputWindow = new WidgetInputWindow(true);
             inputWindow.ShowDialog();
+
+            if (inputWindow.IsRegist)//등록되었을 때
+            {
+                if (inputWindow.isNumber == 0)
+                {
+                    var uriSource = new Uri(@"..\View\Images\0.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 1)
+                {
+                    var uriSource = new Uri(@"..\View\Images\1.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 2)
+                {
+                    var uriSource = new Uri(@"..\View\Images\2.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 3)
+                {
+                    var uriSource = new Uri(@"..\View\Images\xx.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 4)
+                {
+                    var uriSource = new Uri(@"..\View\Images\4.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 5)
+                {
+                    var uriSource = new Uri(@"..\View\Images\5.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 6)
+                {
+                    var uriSource = new Uri(@"..\View\Images\6.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 7)
+                {
+                    var uriSource = new Uri(@"..\View\Images\7.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 8)
+                {
+                    var uriSource = new Uri(@"..\View\Images\8.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+
+                else if (inputWindow.isNumber == 9)
+                {
+                    var uriSource = new Uri(@"..\View\Images\9.png", UriKind.Relative);
+                    CurrentState.Source = new BitmapImage(uriSource);
+                    CurrentState.UpdateLayout();
+                    story1.Begin(this);
+                }
+            }
+        }
+
+
+        private void canvas1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
+
+        private void canvas1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                SerialCommunication.CurrentSignal = "V";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
 

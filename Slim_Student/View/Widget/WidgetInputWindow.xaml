@@ -302,7 +302,7 @@
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Height="23" Width="13" Canvas.Left="10" Canvas.Top="5.331" TextAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White"/>
         </Canvas>
         <TextBox x:Name="tbNum" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" Margin="210,10,0,0" BorderBrush="{x:Null}" Background="Black" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Calibri" TextAlignment="Center"/>
-        <Canvas x:Name="canvas10" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="73" Margin="211,55,0,0" Background="#FF827201">
+        <Canvas x:Name="canvas10" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="73" Margin="211,55,0,0" Background="#FF827201" MouseLeftButtonUp="canvas10_MouseLeftButtonUp">
             <TextBlock x:Name="textBlock10" HorizontalAlignment="Center" TextWrapping="Wrap" Text="완료" VerticalAlignment="Center" Height="23" Width="53" Canvas.Left="10" Canvas.Top="7.999" TextAlignment="Center" FontSize="14.667" FontFamily="Calibri" Foreground="White">
                 <TextBlock.InputBindings>
                     <MouseBinding  Command="{Binding SendCommand}" MouseAction="LeftClick" />

@@ -27,6 +27,8 @@ namespace Slim_Student.View
         private string[] ports;
         private int portNum = 0;*/
 
+        private string CurrentSign;
+
         public Widget()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace Slim_Student.View
             this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
             this.Top = SystemParameters.WorkArea.Height - SystemParameters.WorkArea.Height;
             //Loaded += new RoutedEventHandler(InitSerialPort);
+            
+            Clock();
         }
         /*
         public void InitSerialPort(object sender, EventArgs e)
@@ -90,7 +94,6 @@ namespace Slim_Student.View
                 g_RecvData = string.Empty;
             }
         }*/
-
         /*/
         // 수신 데이터 처리 메소드
         //
@@ -106,6 +109,33 @@ namespace Slim_Student.View
                 tbRecvData.Dispatcher.Invoke(d, new object[] { text });
             }
         }*/
+
+        #region Timer
+        public void Clock()
+        {
+            System.Windows.Threading.DispatcherTimer TimerClock = new System.Windows.Threading.DispatcherTimer();
+
+            const int TIMER_VALUE = 2;
+
+            TimerClock.Interval = new TimeSpan(0, 0, 0, TIMER_VALUE);
+            TimerClock.IsEnabled = true;
+            TimerClock.Tick += new EventHandler(TimerClock_Tick);
+        }
+
+        public void TimerClock_Tick(object sender, EventArgs e)
+        {
+            CurrentSign = SerialCommunication.CurrentSignal;
+
+            if (CurrentSign == "r")
+            {
+               currentLED.Text = "RED";
+
+            }
+            else if (CurrentSign == "g")
+                currentLED.Text = "Green";
+        }
+
+        #endregion
 
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

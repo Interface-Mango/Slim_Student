@@ -32,16 +32,20 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        FontSize="20"
+									   FontFamily="NanumSquareOTF"
                                        FontWeight="Bold"
                                        Text="{Binding Id}" />
                             <TextBlock Grid.Row="0"
                                        Grid.Column="1"
                                        VerticalAlignment="Center"
+									   FontFamily="NanumSquareOTF"
                                        FontSize="16"
                                        Text="{Binding NoticeTitle}" />
                             <TextBlock Grid.Row="1"
                                        Grid.Column="1"
+									   FontFamily="NanumSquareOTF"
                                        Foreground="#FFC7A6A6"
+                                       Margin="0,0,0,5"
                                        Text="{Binding NoticeDate}" />
                         </Grid>
                     </Border>

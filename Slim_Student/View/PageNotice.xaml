@@ -18,8 +18,8 @@
             <ListBox ItemsSource="{Binding NoticeItemList}"
                      Style="{DynamicResource LBX_VERTICAL_Notice}" Height="589" Width="972" BorderBrush="White" />
         </Canvas>
-        <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF123663">
-            <TextBlock TextWrapping="Wrap" Text="공지사항" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White"/>
+        <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068">
+            <TextBlock TextWrapping="Wrap" Text="공지사항" Canvas.Top="11.334" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold"/>
         </Canvas>
     </Grid>
 </Page>

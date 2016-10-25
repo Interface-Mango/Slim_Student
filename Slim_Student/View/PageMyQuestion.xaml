@@ -16,13 +16,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF123663" Grid.Row="0" >
-            <TextBlock TextWrapping="Wrap" Text="나의질문" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White"/>
+        <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068" Grid.Row="0" >
+            <TextBlock TextWrapping="Wrap" Text="나의질문" Canvas.Top="12" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold"/>
         </Canvas>
         <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFE0F5EB" VerticalAlignment="Top">
             <ListBox Name="QuestionListBox"
                              ItemsSource="{Binding QuestionItemList}"
-                             Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" BorderBrush="White" Background="#FFE9E7F5" />
+                             Style="{DynamicResource LBX_VERTICAL_MyQuestion}" Height="510" Width="972" BorderBrush="White" Background="White" />
         </Canvas>
         <Canvas Grid.Row="2" Height="80" Background="White">
             <Button x:Name="EnterButton"
@@ -30,12 +30,12 @@
             	Height="32"
             	HorizontalAlignment="Center"
             	VerticalAlignment="Center"
-            	Background="#FF9DA3A3"
+            	Background="#FFE04153"
             	Command="{Binding WriteQuestionCommand}"
             	Content="질문 등록"
             	FontSize="15"
             	FontWeight="Bold"
-            	Foreground="#ffffff" Canvas.Left="825.663" BorderBrush="{x:Null}" Canvas.Top="-1"/>
+            	Foreground="#ffffff" Canvas.Left="822" BorderBrush="{x:Null}" Canvas.Top="24" FontFamily="NanumSquareOTF"/>
         </Canvas>
     </Grid>
 </Page>

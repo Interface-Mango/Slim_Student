@@ -163,13 +163,13 @@
         	<ed:BlockArrow x:Name="blockArrow" Fill="#FFF4F4F5" Height="13.788" Orientation="Up" Width="17.452" Canvas.Left="90" Canvas.Top="3.712"/>
         </Canvas>
 
-        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="59" VerticalAlignment="Center" Width="50" Margin="12,14,0,27" Background="#FF369DB4">
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="59" VerticalAlignment="Center" Width="50" Margin="12,14,0,27" Background="#FF369DB4" MouseLeftButtonUp="canvas_MouseDown">
             <Canvas.InputBindings>
                 <MouseBinding Command="{Binding Oclick}" MouseAction="LeftClick" />
             </Canvas.InputBindings>
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="28" Height="50" FontSize="40" FontWeight="Bold" FontFamily="Calibri" Foreground="White" Canvas.Left="12" Canvas.Top="4"><Run Text="O"/></TextBlock>
         </Canvas>
-        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="59" VerticalAlignment="Center" Width="50" Margin="136,14,0,27" Background="#FF369DB4">
+        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="59" VerticalAlignment="Center" Width="50" Margin="136,14,0,27" Background="#FF369DB4" MouseLeftButtonUp="canvas1_MouseLeftButtonUp">
             <Canvas.InputBindings>
                 <MouseBinding Command="{Binding Xclick}" MouseAction="LeftClick" />
             </Canvas.InputBindings>
@@ -181,7 +181,7 @@
                  Text="" Margin="67,14,69,51"
                  BorderBrush="{x:Null}"
                  Foreground="{x:Null}"/>
-        <Button x:Name="button" Command="{Binding SendCommand}" Content="전송" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Margin="67,54.174,0,0" BorderBrush="{x:Null}" Background="#FF75B4AE" FontWeight="Bold" Foreground="#FF14514B" Height="20.913"/>
+        <Button x:Name="button" Command="{Binding SendCommand}" Content="전송" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Margin="67,54.174,0,0" BorderBrush="{x:Null}" Background="#FF75B4AE" FontWeight="Bold" Foreground="#FF14514B" Height="20.913" Click="button_Click"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="28" Height="50" FontSize="40" FontWeight="Bold" FontFamily="Calibri" Foreground="Blue" Margin="86,-47,0,97" RenderTransformOrigin="0.5,0.5"><TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

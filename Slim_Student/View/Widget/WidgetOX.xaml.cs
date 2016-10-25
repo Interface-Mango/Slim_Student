@@ -20,6 +20,28 @@ namespace Slim_Student.View
     /// </summary>
     public partial class WidgetOX : Window
     {
+
+        private bool _isRegist = false;
+        public bool IsRegist
+        {
+            get { return _isRegist; }
+            set
+            {
+                _isRegist = value;
+            }
+        }
+
+        private bool _isOX;
+        public bool IsOX
+        {
+            get { return _isOX; }
+            set
+            {
+                _isOX = value;
+            }
+        }
+
+
         public WidgetOX(bool state)
         {
             InitializeComponent();
@@ -35,15 +57,34 @@ namespace Slim_Student.View
 
             }
 
-            
             DataContext = new ViewModelWidgetOX(this);
 
         }
 
+
         public void AutoClose(object sender, EventArgs e)
         {
+            IsRegist = false;
             this.Close();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            IsRegist = true;
+            this.Close();
+        }
+
+        private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            IsOX = true;
+        }
+
+        private void canvas1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            IsOX = false;
+        }
+
+
 
 
     }

@@ -245,9 +245,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\basicprofile.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="View\Images\mangoLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +272,27 @@
     <Resource Include="View\Images\number.png" />
     <Resource Include="View\Images\ox.png" />
     <Resource Include="View\Images\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\o.png" />
+    <Resource Include="View\Images\xx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\0.png" />
+    <Resource Include="View\Images\1.png" />
+    <Resource Include="View\Images\2.png" />
+    <Resource Include="View\Images\4.png" />
+    <Resource Include="View\Images\5.png" />
+    <Resource Include="View\Images\6.png" />
+    <Resource Include="View\Images\7.png" />
+    <Resource Include="View\Images\8.png" />
+    <Resource Include="View\Images\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\RED.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

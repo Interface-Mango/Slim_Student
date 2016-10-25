@@ -10,412 +10,409 @@
       WindowHeight="700"
       WindowWidth="1200"
       mc:Ignorable="d">
-	<Page.Resources>
-		<Storyboard x:Key="SignalLightLoof" RepeatBehavior="Forever">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="arc">
-				<EasingColorKeyFrame KeyTime="0:0:1" Value="#FFE60C13"/>
-				<EasingColorKeyFrame KeyTime="0:0:1.3" Value="#FFE60C13"/>
-				<EasingColorKeyFrame KeyTime="0:0:2.3" Value="#FFCC5054"/>
-			</ColorAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0.24"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc1">
-				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0.24"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="0.24"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="arc1">
-				<EasingColorKeyFrame KeyTime="0:0:2.3" Value="#FFB5DC30"/>
-				<EasingColorKeyFrame KeyTime="0:0:3.3" Value="#FFF3FF00"/>
-				<EasingColorKeyFrame KeyTime="0:0:3.6" Value="#FFF3FF00"/>
-				<EasingColorKeyFrame KeyTime="0:0:4.6" Value="#FFB5DC30"/>
-			</ColorAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc2">
-				<EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="0.24"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:5.6" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:5.9" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:6.9" Value="0.24"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="arc2">
-				<EasingColorKeyFrame KeyTime="0:0:4.6" Value="#FF48D314"/>
-				<EasingColorKeyFrame KeyTime="0:0:5.6" Value="#FF0CFF00"/>
-				<EasingColorKeyFrame KeyTime="0:0:5.9" Value="#FF0CFF00"/>
-				<EasingColorKeyFrame KeyTime="0:0:6.9" Value="#FF48D314"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="ForwardLeft">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-974"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="ForwardRight">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.99"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="QuestionEnter">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="QuestionLeave">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="CheckEnter">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas1">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="CheckLeave">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas1">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="OXEnter">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas2">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="OXLeave">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas2">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="NumberEnter">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas3">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="NumberLeave">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas3">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="CreateNewByClick" >
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="callout">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="callout">
-				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="calloutEnter">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:CompositeContentShape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFE988"/>
-			</ColorAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF615858"/>
-			</ColorAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="callout">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="18.667"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="calloutLeave">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:CompositeContentShape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFD51F"/>
-			</ColorAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="callout">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="16"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="callout">
-				<DiscreteObjectKeyFrame KeyTime="0:0:0.1">
-					<DiscreteObjectKeyFrame.Value>
-						<FontWeight>Normal</FontWeight>
-					</DiscreteObjectKeyFrame.Value>
-				</DiscreteObjectKeyFrame>
-			</ObjectAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="Black"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="CurrentState">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="canvas4">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.7"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.71"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="canvas4">
-				<DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
-				<DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
-				<DiscreteObjectKeyFrame KeyTime="0:0:1.3" Value="{x:Static Visibility.Collapsed}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="callout">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-	</Page.Resources>
-	<Page.Triggers>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard x:Name="SignalLightLoof_BeginStoryboard" Storyboard="{StaticResource SignalLightLoof}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="callout">
-			<BeginStoryboard x:Name="calloutLeave_BeginStoryboard1" Storyboard="{StaticResource calloutLeave}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonUp" SourceName="canvas"/>
-		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonUp" SourceName="canvas1">
-			<BeginStoryboard x:Name="CreateNewByClick_BeginStoryboard1" Storyboard="{StaticResource CreateNewByClick}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas2">
-			<BeginStoryboard x:Name="CreateNewByClick_BeginStoryboard2" Storyboard="{StaticResource CreateNewByClick}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas3">
-			<BeginStoryboard x:Name="CreateNewByClick_BeginStoryboard3" Storyboard="{StaticResource CreateNewByClick}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="callout">
-			<BeginStoryboard x:Name="CurrentState_BeginStoryboard1" Storyboard="{StaticResource CurrentState}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="callout">
-			<BeginStoryboard x:Name="calloutEnter_BeginStoryboard1" Storyboard="{StaticResource calloutEnter}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas3">
-			<BeginStoryboard x:Name="NumberLeave_BeginStoryboard1" Storyboard="{StaticResource NumberLeave}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas3">
-			<BeginStoryboard x:Name="NumberEnter_BeginStoryboard1" Storyboard="{StaticResource NumberEnter}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas2">
-			<BeginStoryboard x:Name="OXLeave_BeginStoryboard1" Storyboard="{StaticResource OXLeave}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas2">
-			<BeginStoryboard x:Name="OXEnter_BeginStoryboard1" Storyboard="{StaticResource OXEnter}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="grid">
-			<BeginStoryboard x:Name="ForwardLeft_BeginStoryboard" Storyboard="{StaticResource ForwardLeft}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="grid">
-			<BeginStoryboard x:Name="ForwardRight_BeginStoryboard" Storyboard="{StaticResource ForwardRight}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
-			<BeginStoryboard x:Name="QuestionEnter_BeginStoryboard" Storyboard="{StaticResource QuestionEnter}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas1">
-			<BeginStoryboard x:Name="CheckEnter_BeginStoryboard1" Storyboard="{StaticResource CheckEnter}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas1">
-			<BeginStoryboard x:Name="CheckLeave_BeginStoryboard1" Storyboard="{StaticResource CheckLeave}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
-			<BeginStoryboard x:Name="QuestionLeave_BeginStoryboard1" Storyboard="{StaticResource QuestionLeave}"/>
-		</EventTrigger>
-	</Page.Triggers>
+    <Page.Resources>
+        <Storyboard x:Key="SignalLightLoof" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="arc">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFE60C13"/>
+                <EasingColorKeyFrame KeyTime="0:0:1.3" Value="#FFE60C13"/>
+                <EasingColorKeyFrame KeyTime="0:0:2.3" Value="#FFCC5054"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0.24"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc1">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0.24"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="0.24"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="arc1">
+                <EasingColorKeyFrame KeyTime="0:0:2.3" Value="#FFB5DC30"/>
+                <EasingColorKeyFrame KeyTime="0:0:3.3" Value="#FFF3FF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:3.6" Value="#FFF3FF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:4.6" Value="#FFB5DC30"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc2">
+                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="0.24"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.6" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.9" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6.9" Value="0.24"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="arc2">
+                <EasingColorKeyFrame KeyTime="0:0:4.6" Value="#FF48D314"/>
+                <EasingColorKeyFrame KeyTime="0:0:5.6" Value="#FF0CFF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:5.9" Value="#FF0CFF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:6.9" Value="#FF48D314"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ForwardLeft">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-974"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ForwardRight">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.99"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="QuestionEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="QuestionLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CheckEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas1">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CheckLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas1">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OXEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas2">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OXLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas2">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="NumberEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas3">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="NumberLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas3">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE9E7F5"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CreateNewByClick" >
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="callout">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="callout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="calloutEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:CompositeContentShape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFE988"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF615858"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="callout">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="18.667"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="calloutLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:CompositeContentShape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFD51F"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="callout">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="16"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="callout">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontWeight>Normal</FontWeight>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="callout">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="Black"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CurrentState">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="canvas4">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.71"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="canvas4">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.3" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="callout">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="SignalLightLoof_BeginStoryboard" Storyboard="{StaticResource SignalLightLoof}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="callout">
+            <BeginStoryboard x:Name="calloutLeave_BeginStoryboard1" Storyboard="{StaticResource calloutLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonUp" SourceName="canvas"/>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas1">
+            <BeginStoryboard x:Name="CreateNewByClick_BeginStoryboard1" Storyboard="{StaticResource CreateNewByClick}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas2"/>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas3"/>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="callout">
+            <BeginStoryboard x:Name="CurrentState_BeginStoryboard1" Storyboard="{StaticResource CurrentState}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="callout">
+            <BeginStoryboard x:Name="calloutEnter_BeginStoryboard1" Storyboard="{StaticResource calloutEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas3">
+            <BeginStoryboard x:Name="NumberLeave_BeginStoryboard1" Storyboard="{StaticResource NumberLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas3">
+            <BeginStoryboard x:Name="NumberEnter_BeginStoryboard1" Storyboard="{StaticResource NumberEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas2">
+            <BeginStoryboard x:Name="OXLeave_BeginStoryboard1" Storyboard="{StaticResource OXLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas2">
+            <BeginStoryboard x:Name="OXEnter_BeginStoryboard1" Storyboard="{StaticResource OXEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="grid">
+            <BeginStoryboard x:Name="ForwardLeft_BeginStoryboard" Storyboard="{StaticResource ForwardLeft}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="grid">
+            <BeginStoryboard x:Name="ForwardRight_BeginStoryboard" Storyboard="{StaticResource ForwardRight}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
+            <BeginStoryboard x:Name="QuestionEnter_BeginStoryboard" Storyboard="{StaticResource QuestionEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas1">
+            <BeginStoryboard x:Name="CheckEnter_BeginStoryboard1" Storyboard="{StaticResource CheckEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas1">
+            <BeginStoryboard x:Name="CheckLeave_BeginStoryboard1" Storyboard="{StaticResource CheckLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
+            <BeginStoryboard x:Name="QuestionLeave_BeginStoryboard1" Storyboard="{StaticResource QuestionLeave}"/>
+        </EventTrigger>
+    </Page.Triggers>
 
-	<Grid x:Name="DetailPanel">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="40"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
-		<Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF123663">
-			<TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold" Foreground="White"/>
-		</Canvas>
-		<Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Background="White" Grid.Row="1">
-			<Grid x:Name="grid" HorizontalAlignment="Left" Height="246.5" VerticalAlignment="Top" Width="972" Background="#FF123663" Panel.ZIndex="3" Opacity="0.7" Canvas.Left="974" RenderTransformOrigin="0.5,0.5">
-				<Grid.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform/>
-						<RotateTransform/>
-						<TranslateTransform/>
-					</TransformGroup>
-				</Grid.RenderTransform>
-				<Canvas x:Name="canvas" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="10,10,0,0" MouseUp="QuestionWindow">
-					<Canvas.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</Canvas.RenderTransform>
-					<Image x:Name="questionImg1" Source="Images/question.png" Cursor="Hand" Height="200" Canvas.Left="10" Canvas.Top="10" Width="220">
-						<Image.InputBindings>
-							<MouseBinding 
-								MouseAction="LeftClick"
-								Command="{Binding QuestionSignal}"/>
-						</Image.InputBindings>
-					</Image>
-				</Canvas>
-				<Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="250,10,0,0">
-					<Canvas.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</Canvas.RenderTransform>
-                    <Image x:Name="checkImg1" Height="200" Width="220" Source="Images/check.png" Canvas.Top="10" Canvas.Left="10" Cursor="Hand">
+    <Grid x:Name="DetailPanel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068">
+            <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold"/>
+        </Canvas>
+        <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Background="White" Grid.Row="1">
+            <Grid x:Name="grid" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="972" Background="#FF123663" Panel.ZIndex="3" Opacity="0.7" Canvas.Left="974" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="10,10,0,0" MouseUp="QuestionWindow">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <Image x:Name="questionImg1" Source="Images/question.png" Cursor="Hand" Height="200" Canvas.Left="10" Canvas.Top="10" Width="220">
                         <Image.InputBindings>
                             <MouseBinding 
 								MouseAction="LeftClick"
-								Command="{Binding CheckSignal}"/>
+								Command="{Binding QuestionSignal}"/>
                         </Image.InputBindings>
                     </Image>
                 </Canvas>
-				<Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="490,10,0,0" MouseDown="OXWindow">
-					<Canvas.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</Canvas.RenderTransform>
-					<Image x:Name="oxImg1" Height="200" Width="220" Canvas.Top="10" Canvas.Left="10" Source="Images/ox.png" Cursor="Hand"/>
-				</Canvas>
-				<Canvas x:Name="canvas3" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="730,10,0,0" MouseDown="NumberWindow">
-					<Canvas.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</Canvas.RenderTransform>
-					<Image x:Name="numberImg1" Height="200" Width="220" Canvas.Top="10" Canvas.Left="10" Source="Images/number.png" Cursor="Hand"/>
-				</Canvas>
-				<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="42.667" VerticalAlignment="Top" Width="65" Margin="-66.5,26.333,0,0" Fill="#FF464670"/>
-				<ed:RegularPolygon Fill="White" HorizontalAlignment="Left" Height="31" InnerRadius="1" PointCount="3" Stretch="Fill" VerticalAlignment="Top" Width="23.5" RenderTransformOrigin="0.5,0.5" Margin="-44.417,32.583,0,0">
-					<ed:RegularPolygon.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform Angle="-90"/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</ed:RegularPolygon.RenderTransform>
-				</ed:RegularPolygon>
-			</Grid>
-			<Canvas HorizontalAlignment="Left" Height="25.108" VerticalAlignment="Top" Width="238.667" Background="#FF464670" Canvas.Left="105" Canvas.Top="101.949" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
-				<Canvas.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform AngleY="-8.647"/>
-						<RotateTransform/>
-						<TranslateTransform Y="-18.099"/>
-					</TransformGroup>
-				</Canvas.RenderTransform>
-				<Ellipse Height="284.852" Width="47.409" Canvas.Left="101.913" Canvas.Top="167.539" RenderTransformOrigin="0.503,0.923" Opacity="0.9">
-					<Ellipse.Fill>
-						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-							<GradientStop Color="#FF5B4848" Offset="0.878"/>
-							<GradientStop Color="White" Offset="0.11"/>
-						</LinearGradientBrush>
-					</Ellipse.Fill>
-					<Ellipse.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform AngleX="-5.542"/>
-							<RotateTransform Angle="76.219"/>
-							<TranslateTransform X="-116.625" Y="-89.585"/>
-						</TransformGroup>
-					</Ellipse.RenderTransform>
-				</Ellipse>
-				<Rectangle Fill="#FF1F1F34" HorizontalAlignment="Left" Height="240.568" VerticalAlignment="Top" Width="7.86" Canvas.Left="104.956" Canvas.Top="-150.985" RenderTransformOrigin="0.5,0.5">
-					<Rectangle.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform AngleY="-69.408"/>
-							<RotateTransform Angle="90"/>
-							<TranslateTransform X="0.381" Y="27.944"/>
-						</TransformGroup>
-					</Rectangle.RenderTransform>
-				</Rectangle>
-				<Rectangle Fill="#FF30304D" Height="351.736" Width="21.333" Canvas.Left="-21.165" Canvas.Top="16.034" RenderTransformOrigin="0.5,0.5">
-					<Rectangle.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform AngleY="20.761"/>
-							<RotateTransform/>
-							<TranslateTransform Y="-18.955"/>
-						</TransformGroup>
-					</Rectangle.RenderTransform>
-				</Rectangle>
-				<Rectangle Fill="#FF464670" Height="349.252" Width="27" Canvas.Left="-0.667" Canvas.Top="3.596"/>
-				<Canvas Height="50.928" Width="134" Canvas.Left="104.751" Canvas.Top="25.346" Background="#FF9CA3A4">
-					<ed:Arc x:Name="arc" ArcThickness="150" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFCC5054" Height="30.679" Stretch="None" StartAngle="0" Width="28.915" StrokeThickness="0" Canvas.Top="10.249" Canvas.Left="12" Opacity="0.25"/>
-					<ed:Arc x:Name="arc1" ArcThickness="150" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFB5DC30" Height="30.679" Stretch="None" StartAngle="0" Width="28.915" StrokeThickness="0" Canvas.Top="10.249" Canvas.Left="53.916" Opacity="0.25"/>
-					<ed:Arc x:Name="arc2" ArcThickness="150" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF48D314" Height="30.679" Stretch="None" StartAngle="0" Width="28.915" StrokeThickness="0" Canvas.Top="10" Canvas.Left="95.085" Opacity="0.25"/>
-				</Canvas>
-				<Rectangle Height="50.274" Width="28" Canvas.Left="77.004" Canvas.Top="29.098" RenderTransformOrigin="0.5,0.5" Fill="#FF848889">
-					<Rectangle.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform AngleY="34.738"/>
-							<RotateTransform/>
-							<TranslateTransform Y="-13.474"/>
-						</TransformGroup>
-					</Rectangle.RenderTransform>
-				</Rectangle>
-				<Rectangle Fill="#FF464670" Height="19.608" Width="100" Canvas.Left="54.694" Canvas.Top="5.5"/>
-			</Canvas>
-			<Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="74.243" Canvas.Top="321.985" Width="121.033" RenderTransformOrigin="0.5,0.5">
-				<Rectangle.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform AngleY="62.816"/>
-						<RotateTransform Angle="-76.751"/>
-						<TranslateTransform X="231.287" Y="88.033"/>
-					</TransformGroup>
-				</Rectangle.RenderTransform>
-			</Rectangle>
-			<Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="188.243" Canvas.Top="349.985" Width="121.033" RenderTransformOrigin="0.5,0.5">
-				<Rectangle.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform AngleY="62.816"/>
-						<RotateTransform Angle="-76.751"/>
-						<TranslateTransform X="231.287" Y="88.033"/>
-					</TransformGroup>
-				</Rectangle.RenderTransform>
-			</Rectangle>
-			<Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="300.743" Canvas.Top="379.985" Width="121.033" RenderTransformOrigin="0.5,0.5">
-				<Rectangle.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform AngleY="62.816"/>
-						<RotateTransform Angle="-76.751"/>
-						<TranslateTransform X="231.287" Y="88.033"/>
-					</TransformGroup>
-				</Rectangle.RenderTransform>
-			</Rectangle>
-			<Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="417.743" Canvas.Top="411.485" Width="121.033" RenderTransformOrigin="0.5,0.5">
-				<Rectangle.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform AngleY="62.816"/>
-						<RotateTransform Angle="-76.751"/>
-						<TranslateTransform X="231.287" Y="88.033"/>
-					</TransformGroup>
-				</Rectangle.RenderTransform>
-			</Rectangle>
-			<ed:Callout x:Name="callout" AnchorPoint="0,1.5" CalloutStyle="RoundedRectangle" Content="New" Fill="#FFFFD51E" FontSize="16" Height="55" Canvas.Left="366" Canvas.Top="18" Width="90" FontFamily="Viner Hand ITC" Visibility="Collapsed"/>
-			<Canvas x:Name="canvas4" Height="300" Width="285" Canvas.Left="386" Canvas.Top="132" Background="#FF123663" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="5" Opacity="0" Visibility="Collapsed">
-				<Canvas.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform/>
-						<RotateTransform/>
-						<TranslateTransform/>
-					</TransformGroup>
-				</Canvas.RenderTransform>
-				<Canvas HorizontalAlignment="Left" Height="231.237" VerticalAlignment="Top" Width="264.292" Background="#FFE9E7F5" Canvas.Left="10" Canvas.Top="10">
-					<Image x:Name="CurrentState" Height="211.237" Width="245.771" Canvas.Top="10" Canvas.Left="10"/>
-				</Canvas>
-			</Canvas>
-		</Canvas>
-	</Grid>
+                <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="250,10,0,0" MouseLeftButtonUp="canvas1_MouseLeftButtonUp" MouseLeftButtonDown="canvas1_MouseLeftButtonDown">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <Image x:Name="checkImg1" Height="200" Width="220" Source="Images/check.png" Canvas.Top="10" Canvas.Left="10" Cursor="Hand">
+                        <!--Image.InputBindings>
+                            <MouseBinding 
+								MouseAction="LeftClick"
+								Command="{Binding CheckSignal}"/>
+                        </Image.InputBindings-->
+                    </Image>
+                </Canvas>
+                <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="490,10,0,0" MouseDown="OXWindow">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <Image x:Name="oxImg1" Height="200" Width="220" Canvas.Top="10" Canvas.Left="10" Source="Images/ox.png" Cursor="Hand"/>
+                </Canvas>
+                <Canvas x:Name="canvas3" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="730,10,0,0" MouseDown="NumberWindow">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <Image x:Name="numberImg1" Height="200" Width="220" Canvas.Top="10" Canvas.Left="10" Source="Images/number.png" Cursor="Hand"/>
+                </Canvas>
+                <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="42.667" VerticalAlignment="Top" Width="65" Margin="-66.5,26.333,0,0" Fill="#FF464670"/>
+                <ed:RegularPolygon Fill="White" HorizontalAlignment="Left" Height="31" InnerRadius="1" PointCount="3" Stretch="Fill" VerticalAlignment="Top" Width="23.5" RenderTransformOrigin="0.5,0.5" Margin="-44.417,32.583,0,0">
+                    <ed:RegularPolygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ed:RegularPolygon.RenderTransform>
+                </ed:RegularPolygon>
+            </Grid>
+            <Canvas HorizontalAlignment="Left" Height="25.108" VerticalAlignment="Top" Width="238.667" Background="#FF464670" Canvas.Left="105" Canvas.Top="101.949" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-8.647"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-18.099"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+                <Ellipse Height="284.852" Width="47.409" Canvas.Left="101.913" Canvas.Top="167.539" RenderTransformOrigin="0.503,0.923" Opacity="0.9">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5B4848" Offset="0.878"/>
+                            <GradientStop Color="White" Offset="0.11"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-5.542"/>
+                            <RotateTransform Angle="76.219"/>
+                            <TranslateTransform X="-116.625" Y="-89.585"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Rectangle Fill="#FF36364F" HorizontalAlignment="Left" Height="240.568" VerticalAlignment="Top" Width="7.86" Canvas.Left="104.956" Canvas.Top="-150.985" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-69.408"/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform X="0.381" Y="27.944"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Fill="#FF30304D" Height="351.736" Width="21.333" Canvas.Left="-21.165" Canvas.Top="16.034" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="20.761"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-18.955"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Fill="#FF464670" Height="349.252" Width="27" Canvas.Left="-0.667" Canvas.Top="3.596"/>
+                <Canvas Height="50.928" Width="134" Canvas.Left="104.751" Canvas.Top="25.346" Background="#FF9CA3A4">
+                    <ed:Arc x:Name="arc" ArcThickness="150" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFCC5054" Height="30.679" Stretch="None" StartAngle="0" Width="28.915" StrokeThickness="0" Canvas.Top="10.249" Canvas.Left="12" Opacity="0.25"/>
+                    <ed:Arc x:Name="arc1" ArcThickness="150" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFB5DC30" Height="30.679" Stretch="None" StartAngle="0" Width="28.915" StrokeThickness="0" Canvas.Top="10.249" Canvas.Left="53.916" Opacity="0.25"/>
+                    <ed:Arc x:Name="arc2" ArcThickness="150" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF48D314" Height="30.679" Stretch="None" StartAngle="0" Width="28.915" StrokeThickness="0" Canvas.Top="10" Canvas.Left="95.085" Opacity="0.25"/>
+                </Canvas>
+                <Rectangle Height="50.274" Width="28" Canvas.Left="77.004" Canvas.Top="29.098" RenderTransformOrigin="0.5,0.5" Fill="#FF848889">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="34.738"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-13.474"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Fill="#FF464670" Height="19.608" Width="100" Canvas.Left="54.694" Canvas.Top="5.5"/>
+            </Canvas>
+            <Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="74.243" Canvas.Top="321.985" Width="121.033" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="62.816"/>
+                        <RotateTransform Angle="-76.751"/>
+                        <TranslateTransform X="231.287" Y="88.033"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="188.243" Canvas.Top="349.985" Width="121.033" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="62.816"/>
+                        <RotateTransform Angle="-76.751"/>
+                        <TranslateTransform X="231.287" Y="88.033"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="300.743" Canvas.Top="379.985" Width="121.033" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="62.816"/>
+                        <RotateTransform Angle="-76.751"/>
+                        <TranslateTransform X="231.287" Y="88.033"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="#FFCFCFCF" Height="58.335" Canvas.Left="417.743" Canvas.Top="411.485" Width="121.033" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="62.816"/>
+                        <RotateTransform Angle="-76.751"/>
+                        <TranslateTransform X="231.287" Y="88.033"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <ed:Callout x:Name="callout" AnchorPoint="0,1.5" CalloutStyle="RoundedRectangle" Content="New" Fill="#FFFFD51E" FontSize="16" Height="55" Canvas.Left="366" Canvas.Top="18" Width="90" FontFamily="Viner Hand ITC" Visibility="Collapsed"/>
+            <Canvas x:Name="canvas4" Height="297" Width="285" Canvas.Left="366" Canvas.Top="159" Background="#FF123663" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="5" Opacity="0" Visibility="Collapsed">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+                <Canvas HorizontalAlignment="Left" Height="231.237" VerticalAlignment="Top" Width="264.292" Background="#FFE9E7F5" Canvas.Left="10" Canvas.Top="10">
+                    <Image x:Name="CurrentState" Height="211.237" Width="245.771" Canvas.Top="10" Canvas.Left="10"/>
+                </Canvas>
+                <TextBlock TextWrapping="Wrap" Text="현재 모니터 상태" Canvas.Left="10" Canvas.Top="260" Height="26.96" Width="264.292" FontFamily="NanumSquareOTF Bold" FontSize="16" TextAlignment="Center" Foreground="White"/>
+            </Canvas>
+        </Canvas>
+    </Grid>
 </Page>

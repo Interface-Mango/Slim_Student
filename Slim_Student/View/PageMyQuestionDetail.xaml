@@ -7,18 +7,18 @@
       Width="972"
       Height="629"
 	  Title="PageMyQuestionDetail">
-    <Grid Background="#ffe506">
-        <Border BorderThickness="1" Background="#fff9c8" Margin="61,25,25,47">
-            <Grid>
+    <Grid Background="White">
+        <Border BorderThickness="1" Background="White" Margin="61,25,25,47">
+            <Grid Background="#FFE9E7F5" Margin="-1,9,1,-9">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Background="#827202" Foreground="#fff9c8" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="16" Text="질문 내용"/>
-                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="16" Padding="10" Text="{Binding MyQuestionDetailContent}"/>
+                <TextBlock Grid.Row="0" Background="#FF325166" Foreground="White" TextAlignment="Center" Padding="7" TextWrapping="Wrap" FontSize="16" Text="질문 내용" FontFamily="NanumSquareOTF Bold"/>
+                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="16" Padding="10" Text="{Binding MyQuestionDetailContent}" Background="#FFE9E7F5" FontFamily="NanumSquareOTF" Width="880" Height="501"/>
             </Grid>
         </Border>
-        <Button Width="35" Height="557" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF827202" Command="{Binding BackCommand}"
-                			Content="◀" FontSize="15" FontWeight="Bold" Foreground="#ffffff" Margin="0,25,937,47"/>
+        <Button Width="35" Height="557" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FF9BA3A5" Command="{Binding BackCommand}"
+                			Content="◀" FontSize="15" FontWeight="Bold" Foreground="White" Margin="0,35,937,37" BorderBrush="{x:Null}"/>
     </Grid>
 </Page>

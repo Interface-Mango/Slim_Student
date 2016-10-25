@@ -103,7 +103,7 @@
         	<BeginStoryboard x:Name="BtnLeave_BeginStoryboard" Storyboard="{StaticResource BtnLeave}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid x:Name="logPanel" Background="#FF345065">
+    <Grid x:Name="logPanel" Background="#FF325067">
         <Canvas Height="40"
         	VerticalAlignment="Top"
         	Background="Black" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" >

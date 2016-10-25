@@ -48,10 +48,9 @@ namespace Slim_Student.View
             {
                 this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            }
-            
-            
+            } 
         }
+
         public void AutoClose(object sender, EventArgs e)
         {
             IsRegist = false;
