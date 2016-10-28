@@ -118,7 +118,7 @@ namespace Slim_Student.View
 
                 else if (inputWindow.isNumber == 3)
                 {
-                    var uriSource = new Uri(@"..\View\Images\xx.png", UriKind.Relative);
+                    var uriSource = new Uri(@"..\View\Images\3.png", UriKind.Relative);
                     CurrentState.Source = new BitmapImage(uriSource);
                     CurrentState.UpdateLayout();
                     story1.Begin(this);
@@ -175,14 +175,14 @@ namespace Slim_Student.View
         }
 
 
-        private void canvas1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           
-        }
 
 
         private void canvas1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var uriSource = new Uri(@"..\View\Images\check.png", UriKind.Relative);
+            CurrentState.Source = new BitmapImage(uriSource);
+            CurrentState.UpdateLayout();
+
             try
             {
                 SerialCommunication.CurrentSignal = "V";

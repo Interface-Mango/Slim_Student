@@ -172,7 +172,7 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Canvas.RenderTransform>
-                <Image x:Name="image" Height="213" Width="276" Source="Images/SlimLogo.jpg" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Top="2">
+                <Image x:Name="image" Height="213" Width="276" Source="Images/logo.png" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Top="2">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

@@ -244,7 +244,7 @@
                         </Image.InputBindings>
                     </Image>
                 </Canvas>
-                <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="250,10,0,0" MouseLeftButtonUp="canvas1_MouseLeftButtonUp" MouseLeftButtonDown="canvas1_MouseLeftButtonDown">
+                <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="240" Background="#FFE9E7F5" RenderTransformOrigin="0.5,0.5" Margin="250,10,0,0" MouseLeftButtonDown="canvas1_MouseLeftButtonDown">
                     <Canvas.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

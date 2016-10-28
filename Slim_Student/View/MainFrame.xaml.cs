@@ -29,8 +29,8 @@ namespace Slim_Student.View
 		public MainFrame(object[] _userInfo)
 		{
             InitializeComponent();
-            Frame = this;
             ResizeMode = ResizeMode.NoResize;
+            Frame = this;
             UserInfo = _userInfo;
             new SerialCommunication();
 
@@ -38,8 +38,8 @@ namespace Slim_Student.View
             dbAttendance = new DB_Attendance(new DBManager());
 
             // 창 중앙 위치!!
-            this.Left = (SystemParameters.WorkArea.Width - Width)/2.0 + SystemParameters.WorkArea.Left;
-            this.Height = (SystemParameters.WorkArea.Height - Height)/2.0 + SystemParameters.WorkArea.Top;
+            //this.Left = (SystemParameters.WorkArea.Width - Width)/2.0 + SystemParameters.WorkArea.Left;
+            //this.Height = (SystemParameters.WorkArea.Height - Height)/2.0 + SystemParameters.WorkArea.Top;
 
             
 		}

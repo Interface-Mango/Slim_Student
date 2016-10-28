@@ -125,14 +125,18 @@ namespace Slim_Student.View
         public void TimerClock_Tick(object sender, EventArgs e)
         {
             CurrentSign = SerialCommunication.CurrentSignal;
-
+            
             if (CurrentSign == "r")
             {
                currentLED.Text = "RED";
 
             }
             else if (CurrentSign == "g")
+            {
                 currentLED.Text = "Green";
+                //currentLED.Foreground = Colors.Green;
+                
+            }
         }
 
         #endregion
