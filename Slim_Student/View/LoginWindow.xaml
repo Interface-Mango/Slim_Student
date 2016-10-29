@@ -56,34 +56,34 @@
             </DoubleAnimationUsingKeyFrames-->
         </Storyboard>
         <Storyboard x:Key="BtnEnter">
-        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
-        		<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFE2E2"/>
-        	</ColorAnimationUsingKeyFrames>
-        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock3">
-        		<EasingColorKeyFrame KeyTime="0:0:0.1" Value="Black"/>
-        	</ColorAnimationUsingKeyFrames>
-        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock3">
-        		<DiscreteObjectKeyFrame KeyTime="0:0:0.1">
-        			<DiscreteObjectKeyFrame.Value>
-        				<FontWeight>Bold</FontWeight>
-        			</DiscreteObjectKeyFrame.Value>
-        		</DiscreteObjectKeyFrame>
-        	</ObjectAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFE2E2"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock3">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="Black"/>
+            </ColorAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontWeight>Bold</FontWeight>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="BtnLeave">
-        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
-        		<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE14250"/>
-        	</ColorAnimationUsingKeyFrames>
-        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock3">
-        		<DiscreteObjectKeyFrame KeyTime="0:0:0.1">
-        			<DiscreteObjectKeyFrame.Value>
-        				<FontWeight>Normal</FontWeight>
-        			</DiscreteObjectKeyFrame.Value>
-        		</DiscreteObjectKeyFrame>
-        	</ObjectAnimationUsingKeyFrames>
-        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock3">
-        		<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFFFFE"/>
-        	</ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE14250"/>
+            </ColorAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontWeight>Normal</FontWeight>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock3">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFFFFFFE"/>
+            </ColorAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
@@ -97,30 +97,30 @@
             <BeginStoryboard Storyboard="{StaticResource OpeningStoryBoard}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
-        	<BeginStoryboard x:Name="BtnEnter_BeginStoryboard" Storyboard="{StaticResource BtnEnter}"/>
+            <BeginStoryboard x:Name="BtnEnter_BeginStoryboard" Storyboard="{StaticResource BtnEnter}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
-        	<BeginStoryboard x:Name="BtnLeave_BeginStoryboard" Storyboard="{StaticResource BtnLeave}"/>
+            <BeginStoryboard x:Name="BtnLeave_BeginStoryboard" Storyboard="{StaticResource BtnLeave}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="logPanel" Background="#FF325067">
         <Canvas Height="40"
         	VerticalAlignment="Top"
         	Background="Black" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" >
-            <TextBlock Canvas.Left="569.205"
-        		Canvas.Top="2.555"
-        		Width="54.473"
-        		Height="37.445"
+            <TextBlock Canvas.Left="569"
+        		Canvas.Top="3"
+        		Width="68"
+        		Height="37"
         		FontSize="24"
         		Foreground="White"
         		Text="SLIM"
-        		TextWrapping="Wrap" HorizontalAlignment="Center" />
+        		TextWrapping="Wrap" HorizontalAlignment="Center" FontFamily="NanumSquareOTF Bold" />
             <Button Click="CloseBtn_Click"  x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#aa0000" Canvas.Left="1158" Canvas.Top="9">
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center"/>
             </Button>
         </Canvas>
         <Grid x:Name="grid" HorizontalAlignment="Center" Height="520" VerticalAlignment="Center" Width="424" Margin="384,101,384,71" Background="#FFFEFEFE">
-            <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Margin="34,358,316,0" Height="30" Width="74" FontSize="21.333" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" FontFamily="HYkanB">
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Margin="34,358,316,0" Height="30" Width="74" FontSize="21.333" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" FontFamily="NanumSquareOTF Bold">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -130,7 +130,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="textBlock2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="PW" VerticalAlignment="Top" Margin="34,409,316,0" Height="30" Width="74" FontSize="21.333" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" FontFamily="HYkanB">
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="PW" VerticalAlignment="Top" Margin="34,409,316,0" Height="30" Width="74" FontSize="21.333" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" FontFamily="NanumSquareOTF Bold">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -140,7 +140,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBox Text="{Binding IDTextBox}" x:Name="IDTextBox" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Margin="108,354,0,0" BorderBrush="{x:Null}" FontSize="18.667" Background="#FFCFCFCF" RenderTransformOrigin="0.5,0.5" Foreground="Black">
+            <TextBox Text="{Binding IDTextBox}" x:Name="IDTextBox" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Margin="108,354,0,0" BorderBrush="{x:Null}" FontSize="18.667" Background="#FFCFCFCF" RenderTransformOrigin="0.5,0.5" Foreground="Black" FontFamily="NanumSquareOTF">
                 <TextBox.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -150,7 +150,7 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <PasswordBox x:Name="PWBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="244" Margin="108,404,0,0" Height="35" BorderBrush="{x:Null}" FontSize="18.667" Background="#FFCFCFCF" RenderTransformOrigin="0.5,0.5" Foreground="Black">
+            <PasswordBox x:Name="PWBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="244" Margin="108,404,0,0" Height="35" BorderBrush="{x:Null}" FontSize="18.667" Background="#FFCFCFCF" RenderTransformOrigin="0.5,0.5" Foreground="Black" FontFamily="NanumSquareOTF">
                 <PasswordBox.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -182,7 +182,7 @@
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="SLIM" Canvas.Top="220" Width="276" Height="60" TextAlignment="Center" FontWeight="Bold" FontSize="42.667" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontFamily="Malgun Gothic">
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="SLIM" Canvas.Top="220" Width="276" Height="60" TextAlignment="Center" FontSize="42.667" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontFamily="NanumSquareOTF Bold">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -194,12 +194,12 @@
                 </TextBlock>
             </Canvas>
             <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="244" Margin="108,462,0,0" Background="#FFE14251">
-				<Canvas.InputBindings>
-                        <MouseBinding 
+                <Canvas.InputBindings>
+                    <MouseBinding 
                                     MouseAction="LeftClick"
                                     Command="{Binding LoginCommand}"/>
-                    </Canvas.InputBindings>
-                <TextBlock x:Name="textBlock3" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Canvas.Top="7" Width="244" TextAlignment="Center" FontSize="17.333" Foreground="White" LineHeight="10" FontFamily="HYkanB"/>
+                </Canvas.InputBindings>
+                <TextBlock x:Name="textBlock3" HorizontalAlignment="Center" TextWrapping="Wrap" Text="LOGIN" VerticalAlignment="Top" Canvas.Top="7" Width="244" TextAlignment="Center" FontSize="17.333" Foreground="White" LineHeight="10" FontFamily="NanumSquareOTF Bold"/>
             </Canvas>
         </Grid>
     </Grid>

@@ -21,6 +21,8 @@ namespace Slim_Student.ViewModel
     {
         public static ViewModelMainSubject MainSubjectObject;
 
+        public static int CountValue;
+
         private SubjectList _subjectlist;
 
         private DB_Attendance dbAttendance;
@@ -341,6 +343,15 @@ namespace Slim_Student.ViewModel
 
                     if (SerialCommunication.CurrentSignal == "n")
                         return;
+                    else if (SerialCommunication.CurrentSignal != "r" || SerialCommunication.CurrentSignal != "g")  // r과 g 외의 신호00 시간 늘리기
+                    {
+                        if (0 <= CountValue && CountValue < 5)
+                        {
+                            CountValue++;
+                            return;
+                        }
+                        CountValue = 0;
+                    }
                     List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)), ps.ProcessName);   //
                     if (oneTimeList != null)       // OnetimeDB에 YES (같은 이름의 프로세스가 존재하면)
                     {
