@@ -414,5 +414,257 @@
                 <TextBlock TextWrapping="Wrap" Text="현재 모니터 상태" Canvas.Left="10" Canvas.Top="260" Height="26.96" Width="264.292" FontFamily="NanumSquareOTF Bold" FontSize="16" TextAlignment="Center" Foreground="White"/>
             </Canvas>
         </Canvas>
+        <Canvas HorizontalAlignment="Left" Height="239.5" VerticalAlignment="Top" Width="290.5" Margin="555.5,186.5,0,0" Grid.Row="1">
+        	<Rectangle Fill="#FFBC1312" HorizontalAlignment="Left" Height="56.263" VerticalAlignment="Top" Width="190.808" RenderTransformOrigin="0.5,0.5" Canvas.Left="-33.5" Canvas.Top="111.946" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="18.76"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="31.413"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFD6322B" Height="57.771" Width="134.385" Canvas.Top="-5.41" Canvas.Left="143.052" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform ScaleY="0.676" ScaleX="1.48"/>
+        				<SkewTransform AngleX="-49.711"/>
+        				<RotateTransform Angle="18.796"/>
+        				<TranslateTransform Y="110.064" X="-120.945"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFBC1312" Height="57.879" Width="53.5" Canvas.Left="156" Canvas.Top="206.262" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.626"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-42.046"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFBC1312" Height="73.989" Width="187.333" Canvas.Left="22.165" Canvas.Top="31.069" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform ScaleY="0.867"/>
+        				<SkewTransform AngleY="18.797" AngleX="-24.297"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="22.253" X="14.477"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFBC1312" Height="152.501" Width="125.352" Canvas.Left="306.981" Canvas.Top="-118.881" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-50.627"/>
+        				<RotateTransform Angle="69.445"/>
+        				<TranslateTransform Y="75.104" X="-154.52"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFBC1312" Height="61.583" Width="149" Canvas.Left="208.166" Canvas.Top="140.883" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-20.597"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-18.79"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFBC1312" Height="90.919" Width="134.385" Canvas.Top="-105.099" Canvas.Left="346.523" RenderTransformOrigin="0.5,0.5">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform ScaleY="0.676" ScaleX="1.48"/>
+        				<SkewTransform AngleX="-49.711"/>
+        				<RotateTransform Angle="18.796"/>
+        				<TranslateTransform Y="110.064" X="-120.945"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<Rectangle Fill="#FFBC1312" Height="60.895" Width="76.25" Canvas.Left="355.333" Canvas.Top="121.912" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.626"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-42.046"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF403636" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="189.667" Canvas.Top="176.645">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF534C4C" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="200.333" Canvas.Top="178.977">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF403838" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="210.501" Canvas.Top="182.642" Panel.ZIndex="2">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF403636" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="340.667" Canvas.Top="114.479">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF534C4C" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="351.333" Canvas.Top="117.477">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF403838" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="361.501" Canvas.Top="121.142" Panel.ZIndex="2">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF403636" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="6.667" Canvas.Top="133.31">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF534C4C" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="17.333" Canvas.Top="136.645">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FF403636" HorizontalAlignment="Left" Height="81.714" Stretch="None" VerticalAlignment="Top" Width="82.833" RenderTransformOrigin="0.5,0.5" Canvas.Left="27.501" Canvas.Top="138.644">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-21.087"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-19.281"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<Rectangle Fill="#FFBC1312" Height="50.459" Width="141.5" Canvas.Left="237.833" Canvas.Top="82.043" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1">
+        		<Rectangle.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleY="-20.597"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-18.79"/>
+        			</TransformGroup>
+        		</Rectangle.RenderTransform>
+        	</Rectangle>
+        	<ed:RegularPolygon Fill="#FFBC1312" Height="44.798" InnerRadius="1" PointCount="3" Stretch="Fill" Width="32.892" Canvas.Left="187.062" Canvas.Top="106.793" RenderTransformOrigin="0.5,0.5" Stroke="#FFBC1312">
+        		<ed:RegularPolygon.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleX="-34.021"/>
+        				<RotateTransform Angle="-20.911"/>
+        				<TranslateTransform X="28.123" Y="-10.746"/>
+        			</TransformGroup>
+        		</ed:RegularPolygon.RenderTransform>
+        	</ed:RegularPolygon>
+        	<ed:Arc ArcThickness="8" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFF1E6E6" HorizontalAlignment="Left" Height="82.522" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="85.969" RenderTransformOrigin="0.5,0.5" StrokeThickness="3" Canvas.Left="205.436" Canvas.Top="154.987" Panel.ZIndex="2">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform ScaleX="0.997" ScaleY="1.037"/>
+        				<SkewTransform AngleX="-8.326" AngleY="-12.672"/>
+        				<RotateTransform Angle="-7.233"/>
+        				<TranslateTransform X="4.075" Y="7.007"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="8" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFF1E6E6" HorizontalAlignment="Left" Height="82.522" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="85.969" RenderTransformOrigin="0.5,0.5" StrokeThickness="3" Canvas.Left="355.436" Canvas.Top="93.487" Panel.ZIndex="2">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform ScaleX="0.997" ScaleY="1.037"/>
+        				<SkewTransform AngleX="-8.326" AngleY="-12.672"/>
+        				<RotateTransform Angle="-7.233"/>
+        				<TranslateTransform X="4.075" Y="7.007"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" HorizontalAlignment="Left" Height="83.967" Stretch="None" StrokeThickness="12" StartAngle="0" VerticalAlignment="Top" Width="85.646" Fill="White" Stroke="White" RenderTransformOrigin="0.5,0.5" Canvas.Left="210.704" Canvas.Top="148.015" Panel.ZIndex="3" EndAngle="180">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleX="17.038"/>
+        				<RotateTransform Angle="266.84"/>
+        				<TranslateTransform X="0.64" Y="11.599"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" HorizontalAlignment="Left" Height="83.967" Stretch="None" StrokeThickness="12" StartAngle="0" VerticalAlignment="Top" Width="85.646" Fill="White" Stroke="White" RenderTransformOrigin="0.5,0.5" Canvas.Left="360.704" Canvas.Top="88.015" Panel.ZIndex="3" EndAngle="180">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleX="17.038"/>
+        				<RotateTransform Angle="266.84"/>
+        				<TranslateTransform X="0.64" Y="11.599"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" HorizontalAlignment="Left" Height="200.237" Stretch="None" StrokeThickness="40" StartAngle="0" VerticalAlignment="Top" Width="200.237" Fill="White" Stroke="White" RenderTransformOrigin="0.5,0.5" Canvas.Left="-71.038" Canvas.Top="55.22" Panel.ZIndex="3">
+        		<ed:Arc.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform/>
+        				<SkewTransform AngleX="1.564"/>
+        				<RotateTransform Angle="260.568"/>
+        				<TranslateTransform X="-6.194" Y="-1.096"/>
+        			</TransformGroup>
+        		</ed:Arc.RenderTransform>
+        	</ed:Arc>
+        	<Border BorderThickness="1" Height="55.808" Width="165.926" Canvas.Left="37.831" Canvas.Top="80.938" Background="Black" Panel.ZIndex="1" CornerRadius="15" RenderTransformOrigin="0.5,0.5">
+        		<Border.RenderTransform>
+        			<TransformGroup>
+        				<ScaleTransform ScaleY="0.869" ScaleX="1.015"/>
+        				<SkewTransform AngleY="18.509" AngleX="-21.736"/>
+        				<RotateTransform/>
+        				<TranslateTransform Y="-18.593" X="10.264"/>
+        			</TransformGroup>
+        		</Border.RenderTransform>
+        	</Border>
+        </Canvas>
     </Grid>
 </Page>

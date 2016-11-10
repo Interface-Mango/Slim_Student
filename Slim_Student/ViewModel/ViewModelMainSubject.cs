@@ -59,6 +59,7 @@ namespace Slim_Student.ViewModel
             dbSubject = new DB_Subject(new DBManager());
             dbOneTime = new DB_OnetimeProgram(new DBManager());
             dbAllProgram = new DB_AllProgram(new DBManager());
+            CountValue = 0;
             makeRedGreenList();
 
             Clock();
@@ -290,7 +291,7 @@ namespace Slim_Student.ViewModel
         {
             System.Windows.Threading.DispatcherTimer TimerClock = new System.Windows.Threading.DispatcherTimer();
 
-            const int TIMER_VALUE = 2;
+            const int TIMER_VALUE = 1;
 
             TimerClock.Interval = new TimeSpan(0, 0, 0, TIMER_VALUE);
             TimerClock.IsEnabled = true;
