@@ -59,6 +59,7 @@ namespace Slim_Student.ViewModel
             dbSubject = new DB_Subject(new DBManager());
             dbOneTime = new DB_OnetimeProgram(new DBManager());
             dbAllProgram = new DB_AllProgram(new DBManager());
+            CountValue = 0;
             makeRedGreenList();
 
             Clock();
