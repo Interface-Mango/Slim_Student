@@ -291,10 +291,13 @@ namespace Slim_Student.ViewModel
             System.Windows.Threading.DispatcherTimer TimerClock = new System.Windows.Threading.DispatcherTimer();
 
             const int TIMER_VALUE = 2;
-
+            /*
             TimerClock.Interval = new TimeSpan(0, 0, 0, TIMER_VALUE);
             TimerClock.IsEnabled = true;
+            TimerClock.Tick += new EventHandler(TimerClock_Tick);*/
+            TimerClock.Interval = TimeSpan.FromSeconds(TIMER_VALUE);
             TimerClock.Tick += new EventHandler(TimerClock_Tick);
+            TimerClock.Start();
         }
 
         public void TimerClock_Tick(object sender, EventArgs e)
@@ -308,7 +311,7 @@ namespace Slim_Student.ViewModel
             _temp.Text = ps.ProcessName;
             try // 체크도중 프로세스가 꺼지는 경우의 예외처리
             {
-                if (cpu_Counter.NextValue() >= 3)   // 3%이상이면 ..(YES)
+                if (cpu_Counter.NextValue() >= 1)   // 3%이상이면 ..(YES)
                 {
                     #region 알고리즘 설명
                     // 1. OneTimeDB 불러오기
@@ -343,7 +346,7 @@ namespace Slim_Student.ViewModel
 
                     if (SerialCommunication.CurrentSignal == "n")
                         return;
-                    else if (SerialCommunication.CurrentSignal != "r" || SerialCommunication.CurrentSignal != "g")  // r과 g 외의 신호00 시간 늘리기
+                    else if (SerialCommunication.CurrentSignal != "r" && SerialCommunication.CurrentSignal != "g")  // r과 g 외의 신호00 시간 늘리기
                     {
                         if (0 <= CountValue && CountValue < 5)
                         {
