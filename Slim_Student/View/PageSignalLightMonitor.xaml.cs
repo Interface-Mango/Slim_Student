@@ -23,14 +23,14 @@ namespace Slim_Student.View
     /// </summary>
     public partial class PageSignalLightMonitor : Page
     {
-
-        private Storyboard story1;
+        private string CurrentSign;
 
         public PageSignalLightMonitor()
         {
             InitializeComponent();
             DataContext = new ViewModelPageSignalLightMonitor(this);
-            story1 = this.Resources["CreateNewByClick"] as Storyboard;
+            Clock();
+           
         }
 
       
@@ -40,10 +40,8 @@ namespace Slim_Student.View
         {
             WidgetQuestion Question = new WidgetQuestion(true);
             Question.ShowDialog();
-            if(Question.IsRegist){ //등록되었을 때
-                
-                story1.Begin(this);
 
+            if(Question.IsRegist){ //등록되었을 때
                 try
                 {
                     SerialCommunication.CurrentSignal = "?";
@@ -60,28 +58,8 @@ namespace Slim_Student.View
         private void OXWindow(object sender, MouseButtonEventArgs e)
         {
             WidgetOX widgetOX = new WidgetOX(true);
-            widgetOX.ShowDialog();
-
-            if (widgetOX.IsRegist)
-            { //등록되었을 때
-
-                if (widgetOX.IsOX)
-                {
-                    var uriSource = new Uri(@"..\View\Images\o.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else
-                {
-                    var uriSource = new Uri(@"..\View\Images\xx.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-                
-            }
+            widgetOX.ShowDialog();    
+            
         }
 
 
@@ -89,89 +67,7 @@ namespace Slim_Student.View
         {
             WidgetInputWindow inputWindow = new WidgetInputWindow(true);
             inputWindow.ShowDialog();
-
-            if (inputWindow.IsRegist)//등록되었을 때
-            {
-                if (inputWindow.isNumber == 0)
-                {
-                    var uriSource = new Uri(@"..\View\Images\0.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 1)
-                {
-                    var uriSource = new Uri(@"..\View\Images\1.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 2)
-                {
-                    var uriSource = new Uri(@"..\View\Images\2.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 3)
-                {
-                    var uriSource = new Uri(@"..\View\Images\3.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 4)
-                {
-                    var uriSource = new Uri(@"..\View\Images\4.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 5)
-                {
-                    var uriSource = new Uri(@"..\View\Images\5.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 6)
-                {
-                    var uriSource = new Uri(@"..\View\Images\6.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 7)
-                {
-                    var uriSource = new Uri(@"..\View\Images\7.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 8)
-                {
-                    var uriSource = new Uri(@"..\View\Images\8.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-
-                else if (inputWindow.isNumber == 9)
-                {
-                    var uriSource = new Uri(@"..\View\Images\9.png", UriKind.Relative);
-                    CurrentState.Source = new BitmapImage(uriSource);
-                    CurrentState.UpdateLayout();
-                    story1.Begin(this);
-                }
-            }
+            
         }
 
 
@@ -179,9 +75,6 @@ namespace Slim_Student.View
 
         private void canvas1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var uriSource = new Uri(@"..\View\Images\check.png", UriKind.Relative);
-            CurrentState.Source = new BitmapImage(uriSource);
-            CurrentState.UpdateLayout();
 
             try
             {
@@ -195,6 +88,137 @@ namespace Slim_Student.View
         }
 
 
+        #region Timer
+        public void Clock()
+        {
+            System.Windows.Threading.DispatcherTimer TimerClock = new System.Windows.Threading.DispatcherTimer();
+
+            const int TIMER_VALUE = 2;
+
+            TimerClock.Interval = new TimeSpan(0, 0, 0, TIMER_VALUE);
+            TimerClock.IsEnabled = true;
+            TimerClock.Tick += new EventHandler(TimerClock_Tick);
+        }
+
+        public void TimerClock_Tick(object sender, EventArgs e)
+        {
+            CurrentSign = SerialCommunication.CurrentSignal;
+
+            if (CurrentSign == "r")
+            {
+                var uriSource = new Uri(@"..\View\Images\mangoRed.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+            else if (CurrentSign == "g")
+            {
+                var uriSource = new Uri(@"..\View\Images\mangoGreen.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+            else if (CurrentSign == "0")
+            {
+                var uriSource = new Uri(@"..\View\Images\0.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "1")
+            {
+                var uriSource = new Uri(@"..\View\Images\1.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "2")
+            {
+                var uriSource = new Uri(@"..\View\Images\2.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "3")
+            {
+                var uriSource = new Uri(@"..\View\Images\3.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "4")
+            {
+                var uriSource = new Uri(@"..\View\Images\4.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "5")
+            {
+                var uriSource = new Uri(@"..\View\Images\5.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "6")
+            {
+                var uriSource = new Uri(@"..\View\Images\6.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "7")
+            {
+                var uriSource = new Uri(@"..\View\Images\7.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "8")
+            {
+                var uriSource = new Uri(@"..\View\Images\8.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+            }
+
+            else if (CurrentSign == "g")
+            {
+                var uriSource = new Uri(@"..\View\Images\9.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+
+            }
+
+            else if (CurrentSign == "V")
+            {
+                var uriSource = new Uri(@"..\View\Images\check.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+
+            }
+            else if (CurrentSign == "O")
+            {
+                var uriSource = new Uri(@"..\View\Images\o.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+
+            }
+            else if (CurrentSign == "X")
+            {
+                var uriSource = new Uri(@"..\View\Images\xx.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+
+            }
+            else if (CurrentSign == "?")
+            {
+                var uriSource = new Uri(@"..\View\Images\question.png", UriKind.Relative);
+                CurrentState.Source = new BitmapImage(uriSource);
+                CurrentState.UpdateLayout();
+
+            }
+
+        }
+
+        #endregion
 
 
 
