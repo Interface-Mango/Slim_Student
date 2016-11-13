@@ -718,38 +718,6 @@
                         </TransformGroup>
                     </Ellipse.RenderTransform>
                 </Ellipse>
-                <ed:RegularPolygon x:Name="regularPolygon1" InnerRadius="1" PointCount="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0" Width="168.57" Height="400.421" Canvas.Left="-271.446" Canvas.Top="15.115" Panel.ZIndex="5">
-                    <ed:RegularPolygon.Fill>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFEADF73" Offset="0"/>
-                            <GradientStop Color="White" Offset="0.787"/>
-                        </LinearGradientBrush>
-                    </ed:RegularPolygon.Fill>
-                    <ed:RegularPolygon.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="-10.989"/>
-                            <RotateTransform Angle="63.148"/>
-                            <TranslateTransform X="-4.386" Y="-8.662"/>
-                        </TransformGroup>
-                    </ed:RegularPolygon.RenderTransform>
-                </ed:RegularPolygon>
-                <ed:RegularPolygon x:Name="regularPolygon" InnerRadius="1" PointCount="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0" Height="413.859" Canvas.Left="-158.53" Canvas.Top="46.267" Width="168.57" Panel.ZIndex="5">
-                    <ed:RegularPolygon.Fill>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFEADF73" Offset="0"/>
-                            <GradientStop Color="White" Offset="0.787"/>
-                        </LinearGradientBrush>
-                    </ed:RegularPolygon.Fill>
-                    <ed:RegularPolygon.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="-10.989"/>
-                            <RotateTransform Angle="63.148"/>
-                            <TranslateTransform X="-4.386" Y="-8.662"/>
-                        </TransformGroup>
-                    </ed:RegularPolygon.RenderTransform>
-                </ed:RegularPolygon>
             </Canvas>
             <Grid x:Name="grid" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="972" Background="#FF123663" Panel.ZIndex="3" Opacity="0.7" Canvas.Left="974" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
@@ -941,6 +909,38 @@
                 </Canvas>
                 <TextBlock TextWrapping="Wrap" Text="현재 모니터 상태" Canvas.Left="10" Canvas.Top="216.091" Height="26.96" Width="219.948" FontFamily="NanumSquareOTF Bold" FontSize="16" TextAlignment="Center" Foreground="White"/>
             </Canvas>
+            <ed:RegularPolygon x:Name="regularPolygon1" InnerRadius="1" PointCount="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0" Width="169" Height="400" Canvas.Left="265" Canvas.Top="167" Panel.ZIndex="4">
+                <ed:RegularPolygon.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFEADF73" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.787"/>
+                    </LinearGradientBrush>
+                </ed:RegularPolygon.Fill>
+                <ed:RegularPolygon.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-10.989"/>
+                        <RotateTransform Angle="63.148"/>
+                        <TranslateTransform X="-4.386" Y="-8.662"/>
+                    </TransformGroup>
+                </ed:RegularPolygon.RenderTransform>
+            </ed:RegularPolygon>
+            <ed:RegularPolygon x:Name="regularPolygon" InnerRadius="1" PointCount="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0" Height="414" Canvas.Left="386" Canvas.Top="204" Width="169" Panel.ZIndex="4">
+                <ed:RegularPolygon.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFEADF73" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.787"/>
+                    </LinearGradientBrush>
+                </ed:RegularPolygon.Fill>
+                <ed:RegularPolygon.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-10.989"/>
+                        <RotateTransform Angle="63.148"/>
+                        <TranslateTransform X="-4.386" Y="-8.662"/>
+                    </TransformGroup>
+                </ed:RegularPolygon.RenderTransform>
+            </ed:RegularPolygon>
         </Canvas>
         <ed:RegularPolygon x:Name="regularPolygon2" InnerRadius="1" Margin="101.071,0,0,-82.638" PointCount="3" Grid.Row="1" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="249.904" Height="123.063" VerticalAlignment="Bottom" Opacity="0">
             <ed:RegularPolygon.Fill>
