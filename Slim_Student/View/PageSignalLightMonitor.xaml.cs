@@ -41,7 +41,6 @@ namespace Slim_Student.View
             WidgetQuestion Question = new WidgetQuestion(true);
             Question.ShowDialog();
 
-            if(Question.IsRegist){ //등록되었을 때
                 try
                 {
                     SerialCommunication.CurrentSignal = "?";
@@ -51,7 +50,7 @@ namespace Slim_Student.View
                 {
                     Console.WriteLine(ex);
                 }
-            }
+            
         }
 
 
