@@ -55,7 +55,7 @@ namespace Slim_Student.View
             if (state == false)
             {
                 this.Left = SystemParameters.WorkArea.Width - SystemParameters.WorkArea.Width;
-                this.Top = 35.0;
+                this.Top = 55.0;
             }
             else
             {

@@ -128,14 +128,100 @@ namespace Slim_Student.View
             
             if (CurrentSign == "r")
             {
-               currentLED.Text = "RED";
+                currentLED.Text = " ";
+                colorBoard.Background = Brushes.Red;
 
             }
             else if (CurrentSign == "g")
             {
-                currentLED.Text = "Green";
+                currentLED.Text = " ";
+                colorBoard.Background = Brushes.Green;
                 //currentLED.Foreground = Colors.Green;
-                
+            }
+            else if (CurrentSign == "0")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "0";
+            }
+
+            else if (CurrentSign == "1")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "1";
+            }
+
+            else if (CurrentSign == "2")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "2";
+            }
+
+            else if (CurrentSign == "3")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "3";
+            }
+
+            else if (CurrentSign == "4")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "4";
+            }
+
+            else if (CurrentSign == "5")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "5";
+            }
+
+            else if (CurrentSign == "6")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "6";
+            }
+
+            else if (CurrentSign == "7")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "7";
+            }
+
+            else if (CurrentSign == "8")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "8";
+            }
+
+            else if (CurrentSign == "9")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "9";
+
+            }
+
+            else if (CurrentSign == "V")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "V";
+
+            }
+            else if (CurrentSign == "O")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "O";
+
+            }
+            else if (CurrentSign == "X")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "X";
+
+            }
+            else if (CurrentSign == "?")
+            {
+                colorBoard.Background = Brushes.White;
+                currentLED.Text = "?";
+
             }
         }
 
@@ -164,16 +250,19 @@ namespace Slim_Student.View
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             WidgetQuestion Question = new WidgetQuestion(false);
-            Question.Show();
+            Question.ShowDialog();
 
-            try
+            if (Question.IsRegist) // 등록했을시
             {
-                SerialCommunication.CurrentSignal = "?";
-                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
+                try
+                {
+                    SerialCommunication.CurrentSignal = "?";
+                    SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
 
         }
@@ -186,5 +275,17 @@ namespace Slim_Student.View
         }
 
 
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SerialCommunication.CurrentSignal = "V";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
     }
 }
