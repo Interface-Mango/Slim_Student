@@ -22,8 +22,13 @@ namespace Slim_Student.View
     /// </summary>
     public partial class WidgetQuestion : Window
     {
+        public static int mId;
+        public static string mContent;
+        public static bool isInsertUpdate;
 
         private bool _isRegist = false;
+        private WidgetQuestion widgetQuestion;
+
         public bool IsRegist
         { 
             get { return _isRegist; }
@@ -31,6 +36,14 @@ namespace Slim_Student.View
             {
                 _isRegist = value;
             }
+        }
+
+        public WidgetQuestion()
+        {
+            InitializeComponent();
+            if (isInsertUpdate)  // 새로 삽입
+                DataContext = new WidgetQuestion(this);
+       
         }
 
         public WidgetQuestion(bool state)
@@ -49,6 +62,12 @@ namespace Slim_Student.View
                 this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             } 
+
+        }
+
+        public WidgetQuestion(WidgetQuestion widgetQuestion)
+        {
+            this.widgetQuestion = widgetQuestion;
         }
 
         public void AutoClose(object sender, EventArgs e)
@@ -59,7 +78,8 @@ namespace Slim_Student.View
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            //TODOHJ - DB로 올리기 
             IsRegist = true;
             this.Close();
         }
