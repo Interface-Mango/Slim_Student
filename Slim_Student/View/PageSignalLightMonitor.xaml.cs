@@ -179,7 +179,7 @@ namespace Slim_Student.View
                 CurrentState.UpdateLayout();
             }
 
-            else if (CurrentSign == "g")
+            else if (CurrentSign == "9")
             {
                 var uriSource = new Uri(@"..\View\Images\9.png", UriKind.Relative);
                 CurrentState.Source = new BitmapImage(uriSource);
