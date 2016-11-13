@@ -128,12 +128,13 @@ namespace Slim_Student.View
             
             if (CurrentSign == "r")
             {
+                currentLED.Text = " ";
                 colorBoard.Background = Brushes.Red;
 
             }
             else if (CurrentSign == "g")
             {
-                //currentLED.Text = "Green";
+                currentLED.Text = " ";
                 colorBoard.Background = Brushes.Green;
                 //currentLED.Foreground = Colors.Green;
             }
