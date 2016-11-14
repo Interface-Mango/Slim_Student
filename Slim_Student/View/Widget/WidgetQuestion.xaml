@@ -3,79 +3,77 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Name="window" x:Class="Slim_Student.View.WidgetQuestion"
         Title="WidgetQuestion" Height="294.283" Width="300" WindowStyle="None" ResizeMode="NoResize">
-	<Window.Resources>
-		<Storyboard x:Key="CloseEnter">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="blockArrow">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="Black"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="CloseLeave">
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="blockArrow">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
-				<EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF315169"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="Close" Completed="AutoClose">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="canvas">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-274"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="window">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="19.283"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="LoadWIndow">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="canvas">
-				<EasingDoubleKeyFrame KeyTime="0" Value="-275"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-274"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="window">
-				<EasingDoubleKeyFrame KeyTime="0" Value="17.283"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="18.033"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="295.283"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="window">
-				<EasingColorKeyFrame KeyTime="0" Value="White"/>
-				<EasingColorKeyFrame KeyTime="0:0:0.2" Value="White"/>
-			</ColorAnimationUsingKeyFrames>
-		</Storyboard>
-	</Window.Resources>
-	<Window.Triggers>
-		<EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
-			<BeginStoryboard Storyboard="{StaticResource CloseEnter}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
-			<BeginStoryboard Storyboard="{StaticResource CloseLeave}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas">
-			<BeginStoryboard Storyboard="{StaticResource Close}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard Storyboard="{StaticResource LoadWIndow}"/>
-		</EventTrigger>
-	</Window.Triggers>
-	<Grid Background="#FFCFCFCF">
-		<TextBox HorizontalAlignment="Left" Height="86" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,36,0,0" BorderBrush="{x:Null}" Background="#FF315169" Foreground="White"/>
-		<TextBox HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,145,0,0" BorderBrush="{x:Null}" Background="#FF315169" Foreground="White"/>
-		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="질문" VerticalAlignment="Top" Margin="21,19,0,0" Background="#FF315169" Foreground="White" Width="40" TextAlignment="Center" Height="21" FontFamily="Malgun Gothic"/>
-		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="답변" VerticalAlignment="Top" Margin="21,127,0,0" Background="#FF315169" Foreground="White" Width="40" TextAlignment="Center" Height="21" FontFamily="Malgun Gothic"/>
-		<Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="215,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FFDF4253" Content="등록" Click="Button_Click" FontFamily="NanumSquareOTF"/>
-		<Canvas x:Name="canvas" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="300" Margin="0,273.283,0,0" Background="#FF315169" RenderTransformOrigin="0.5,0.5">
-			<Canvas.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Canvas.RenderTransform>
-			<ed:BlockArrow x:Name="blockArrow" Fill="#FFF4F4F5" Height="13.952" Orientation="Up" Width="15.834" Canvas.Left="141.333" Canvas.Top="4.002"/>
-		</Canvas>
+    <Window.Resources>
+        <Storyboard x:Key="CloseEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="blockArrow">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="Black"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="blockArrow">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="canvas">
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF315169"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Close" Completed="AutoClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="canvas">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-274"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="window">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="19.283"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="LoadWIndow">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="canvas">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-275"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-274"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="window">
+                <EasingDoubleKeyFrame KeyTime="0" Value="17.283"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="18.033"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="295.283"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="window">
+                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="canvas">
+            <BeginStoryboard Storyboard="{StaticResource CloseEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="canvas">
+            <BeginStoryboard Storyboard="{StaticResource CloseLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="canvas">
+            <BeginStoryboard Storyboard="{StaticResource Close}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoadWIndow}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="#FFCFCFCF">
+        <TextBox Text="{Binding WAnswer}" HorizontalAlignment="Left" Height="191" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,36,0,0" BorderBrush="{x:Null}" Background="#FF315169" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="내용" VerticalAlignment="Top" Margin="21,17,0,0" Background="#FF315169" Foreground="White" Width="40" TextAlignment="Center" Height="22" FontFamily="Malgun Gothic"/>
+        <Button HorizontalAlignment="Left" Command="{Binding SaveQuestionCommand}" VerticalAlignment="Top" Width="75" Margin="215,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FFDF4253" Content="등록" Click="Button_Click" FontFamily="NanumSquareOTF"/>
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="300" Margin="0,273.283,0,0" Background="#FF315169" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <ed:BlockArrow x:Name="blockArrow" Fill="#FFF4F4F5" Height="13.952" Orientation="Up" Width="15.834" Canvas.Left="141.333" Canvas.Top="4.002"/>
+        </Canvas>
 
-	</Grid>
+    </Grid>
 </Window>
