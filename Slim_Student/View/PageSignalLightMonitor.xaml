@@ -220,7 +220,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Canvas x:Name="SignalTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068">
-            <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="108" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold"/>
+            <TextBlock TextWrapping="Wrap" Text="신호등 모니터" Canvas.Top="12" VerticalAlignment="Center" Canvas.Left="10" Height="20" Width="952" FontSize="14.667" Foreground="White" FontFamily="NanumSquareOTF Bold" TextAlignment="Center"/>
         </Canvas>
         <Canvas x:Name="SignalCanvas" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="972" Background="White" Grid.Row="1">
             <Canvas x:Name="car" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="291" RenderTransformOrigin="0.5,0.5" Canvas.Left="542" Canvas.Top="151">

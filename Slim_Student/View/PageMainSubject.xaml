@@ -380,6 +380,25 @@
         <Canvas Height="40"
         	VerticalAlignment="Top"
         	Background="Black" Grid.ColumnSpan="2">
+            <Button x:Name="MinimizeBtn"
+                    Canvas.Left="1130"
+                    Canvas.Top="9"
+                    Width="24"
+                    Height="24"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#555"
+                    Click="MinimizeBtn_Click">
+                <TextBlock Height="16"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           FontFamily="NanumSquareOTF BOLD"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Text="__"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+            </Button>
             <Button Command="{Binding ClosingWindowCommand}"  x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#aa0000" Canvas.Left="1158" Canvas.Top="9">
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center"/>
             </Button>

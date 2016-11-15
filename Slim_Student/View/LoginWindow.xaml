@@ -115,6 +115,25 @@
         		Foreground="White"
         		Text="SLIM"
         		TextWrapping="Wrap" HorizontalAlignment="Center" FontFamily="NanumSquareOTF Bold" />
+            <Button x:Name="MinimizeBtn"
+                    Canvas.Left="1130"
+                    Canvas.Top="9"
+                    Width="24"
+                    Height="24"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#555"
+                    Click="MinimizeBtn_Click">
+                <TextBlock Height="16"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           FontFamily="NanumSquareOTF BOLD"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Text="__"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+            </Button>
             <Button Click="CloseBtn_Click"  x:Name="CloseBtn" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Background="#aa0000" Canvas.Left="1158" Canvas.Top="9">
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="16" TextAlignment="Center"/>
             </Button>
@@ -163,7 +182,7 @@
                     <KeyBinding Key="Enter" Command="{Binding LoginCommand}"/>
                 </PasswordBox.InputBindings>
             </PasswordBox>
-            <Canvas x:Name="LogoCanvas" Margin="72,52,72,189" RenderTransformOrigin="0.5,0.5" Height="279" VerticalAlignment="Center" Width="279.711">
+            <Canvas x:Name="LogoCanvas" Margin="72,25,72,0" RenderTransformOrigin="0.5,0.5" Height="280" VerticalAlignment="Top" Width="280">
                 <Canvas.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -172,7 +191,7 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Canvas.RenderTransform>
-                <Image x:Name="image" Height="213" Width="276" Source="Images/logo.png" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Top="2">
+                <Image x:Name="image" Height="213" Width="276" Source="Images/logo.png" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -183,6 +202,16 @@
                     </Image.RenderTransform>
                 </Image>
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="SLIM" Canvas.Top="220" Width="276" Height="60" TextAlignment="Center" FontSize="42.667" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontFamily="NanumSquareOTF Bold">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="Student" Canvas.Top="260" Width="276" Height="15" TextAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontFamily="NanumSquareOTF Bold">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

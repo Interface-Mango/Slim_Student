@@ -17,7 +17,7 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Canvas x:Name="QuestionTitle" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068" Grid.Row="0" >
-            <TextBlock TextWrapping="Wrap" Text="나의질문" Canvas.Top="12" VerticalAlignment="Center" Canvas.Left="10" Height="20" Width="952" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold" TextAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" Text="나의 질문" Canvas.Top="12" VerticalAlignment="Center" Canvas.Left="10" Height="20" Width="952" FontSize="14.667" Foreground="White" FontFamily="NanumSquareOTF Bold" TextAlignment="Center"/>
         </Canvas>
         <Canvas x:Name="QuestionCanvas" HorizontalAlignment="Left" Width="972" Grid.Row="1" Background="#FFE0F5EB" VerticalAlignment="Top">
             <ListBox Name="QuestionListBox"

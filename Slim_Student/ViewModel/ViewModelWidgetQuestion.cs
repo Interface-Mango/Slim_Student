@@ -20,10 +20,7 @@ namespace Slim_Student.ViewModel
     {
 
         private DBManager dbManager;
-        private DB_MyQuestion dbMyQustion;
-        private WidgetQuestion parentWindow;
-
-     
+        private DB_MyQuestion dbMyQustion;     
 
         private WidgetQuestion widgetquestionWindow;
         public ViewModelWidgetQuestion(WidgetQuestion wWindow)

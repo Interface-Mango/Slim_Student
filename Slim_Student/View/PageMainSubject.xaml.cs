@@ -77,5 +77,10 @@ namespace Slim_Student.View
             } */
         }
 
+        private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Frame.WindowState = System.Windows.WindowState.Minimized;
+        }
+
     }
 }

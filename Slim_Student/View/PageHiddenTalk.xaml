@@ -21,7 +21,7 @@
             <TextBlock x:Name="IDText" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Canvas.Top="514.667" Height="25.333" Width="122" FontSize="18" TextAlignment="Center" Foreground="Black" FontFamily="Calibri" FontWeight="Bold" Background="White" Canvas.Left="29"><Run Text="ID"/></TextBlock>
         </Canvas>
         <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="972" Background="#FF325068">
-            <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="10" VerticalAlignment="Center" Canvas.Left="80" Height="20" Width="177" FontSize="14.667" FontWeight="Bold" Foreground="White" FontFamily="NanumSquareOTF Bold"/>
+            <TextBlock TextWrapping="Wrap" Text="익명 단체 대화방" Canvas.Top="12" VerticalAlignment="Center" Canvas.Left="10" Height="20" Width="952" FontSize="14.667" Foreground="White" FontFamily="NanumSquareOTF Bold" TextAlignment="Center"/>
         </Canvas>
     </Grid>
 </Page>
