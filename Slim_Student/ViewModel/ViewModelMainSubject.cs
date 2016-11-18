@@ -312,8 +312,9 @@ namespace Slim_Student.ViewModel
             _temp.Text = ps.ProcessName;
             try // 체크도중 프로세스가 꺼지는 경우의 예외처리
             {
-                if (cpu_Counter.NextValue() >= 1)   // 3%이상이면 ..(YES)
-                {
+                //float cpuUsage = cpu_Counter.NextValue();
+                //if (cpuUsage >= 1.0)   // 3%이상이면 ..(YES)
+                //{
                     #region 알고리즘 설명
                     // 1. OneTimeDB 불러오기
                     // List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(sub_id);
@@ -387,7 +388,7 @@ namespace Slim_Student.ViewModel
                     {
                         CheckAllProgramDB();
                     }
-                }
+                //}
                 // 3%를 넘지 않으면..(NO) 그냥 지나가면 됨
 
                 //현재 활성화 되어있는 process의 이름으로 cpu_Counter InstanceName에 대입
