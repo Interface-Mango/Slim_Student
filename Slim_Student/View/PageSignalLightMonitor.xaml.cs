@@ -39,8 +39,7 @@ namespace Slim_Student.View
         private void QuestionWindow(object sender, MouseButtonEventArgs e)
         {
             WidgetQuestion Question = new WidgetQuestion(true);
-            Question.ShowDialog();
-
+            
                 try
                 {
                     SerialCommunication.CurrentSignal = "?";
@@ -50,7 +49,8 @@ namespace Slim_Student.View
                 {
                     Console.WriteLine(ex);
                 }
-            
+            Question.ShowDialog();
+
         }
 
 

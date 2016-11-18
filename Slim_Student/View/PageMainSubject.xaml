@@ -388,7 +388,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="#555"
-                    Click="MinimizeBtn_Click">
+                    Click="MinimizeBtn_Click" Panel.ZIndex="1">
                 <TextBlock Height="16"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
@@ -406,7 +406,7 @@
         		FontSize="20"
         		Foreground="White"
         		Text="Subject Name"
-        		TextWrapping="Wrap" Height="30" Canvas.Top="6" Width="1158" TextAlignment="Center" FontFamily="HYkanB" />
+        		TextWrapping="Wrap" Height="30" Canvas.Top="6" Width="1158" TextAlignment="Center" FontFamily="HYkanB" Panel.ZIndex="-1" />
         </Canvas>
         <TextBox x:Name="temp1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="200" Margin="10,596,0,0" Grid.Row="1" Background="White" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FFDE4949" FontFamily="Malgun Gothic"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="실행 중인 프로세스 이름 " VerticalAlignment="Top" Margin="10,580,0,0" Grid.Row="1" Width="200" TextAlignment="Center" FontWeight="Bold" FontFamily="NanumSquareOTF Bold" Foreground="White"/>

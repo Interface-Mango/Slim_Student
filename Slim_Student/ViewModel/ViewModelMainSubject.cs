@@ -20,7 +20,6 @@ namespace Slim_Student.ViewModel
     class ViewModelMainSubject : ViewModelBase
     {
         public static ViewModelMainSubject MainSubjectObject;
-
         public static int CountValue;
 
         private SubjectList _subjectlist;
@@ -60,7 +59,7 @@ namespace Slim_Student.ViewModel
             dbOneTime = new DB_OnetimeProgram(new DBManager());
             dbAllProgram = new DB_AllProgram(new DBManager());
             CountValue = 0;
-            makeRedGreenList();
+           // makeRedGreenList();
 
             Clock();
 
@@ -303,8 +302,9 @@ namespace Slim_Student.ViewModel
 
         public void TimerClock_Tick(object sender, EventArgs e)
         {
-        //    if (SerialCommunication.CurrentSignal == "n")
-        //        return;
+            //    if (SerialCommunication.CurrentSignal == "n")
+            //        return;
+            makeRedGreenList();
             handle = GetForegroundWindow();        // 활성화 윈도우
             GetWindowThreadProcessId(handle, out pid); // 핸들로 프로세스아이디 얻어옴 
             ps = Process.GetProcessById((int)pid); // 프로세스아이디로 프로세스 검색

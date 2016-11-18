@@ -250,7 +250,7 @@ namespace Slim_Student.View
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             WidgetQuestion Question = new WidgetQuestion(false);
-            Question.ShowDialog();
+            
 
                 try
                 {
@@ -262,6 +262,7 @@ namespace Slim_Student.View
                     Console.WriteLine(ex);
                 
             }
+            Question.ShowDialog();
 
         }
 

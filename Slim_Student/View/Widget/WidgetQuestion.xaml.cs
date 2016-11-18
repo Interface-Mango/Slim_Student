@@ -29,15 +29,7 @@ namespace Slim_Student.View
         private bool _isRegist = false;
         private WidgetQuestion widgetQuestion;
 
-        public bool IsRegist
-        { 
-            get { return _isRegist; }
-            set
-            {
-                _isRegist = value;
-            }
-        }
-
+       
         public WidgetQuestion()
         {
             InitializeComponent();
@@ -72,17 +64,39 @@ namespace Slim_Student.View
 
         public void AutoClose(object sender, EventArgs e)
         {
-            IsRegist = false;
+         
             this.Close();
         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             //TODOHJ - DB로 올리기 
-            IsRegist = true;
+            try
+            {
+                SerialCommunication.CurrentSignal = "g";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+           
+
             this.Close();
         }
 
+        private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                SerialCommunication.CurrentSignal = "g";
+                SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
     }
 }

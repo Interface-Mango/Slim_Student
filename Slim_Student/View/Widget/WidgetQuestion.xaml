@@ -63,7 +63,7 @@
         <TextBox Text="{Binding WAnswer}" HorizontalAlignment="Left" Height="191" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Margin="10,36,0,0" BorderBrush="{x:Null}" Background="#FF315169" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="내용" VerticalAlignment="Top" Margin="21,17,0,0" Background="#FF315169" Foreground="White" Width="40" TextAlignment="Center" Height="22" FontFamily="Malgun Gothic"/>
         <Button HorizontalAlignment="Left" Command="{Binding SaveQuestionCommand}" VerticalAlignment="Top" Width="75" Margin="215,232,0,0" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FFDF4253" Content="등록" Click="Button_Click" FontFamily="NanumSquareOTF"/>
-        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="300" Margin="0,273.283,0,0" Background="#FF315169" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="300" Margin="0,273.283,0,0" Background="#FF315169" RenderTransformOrigin="0.5,0.5" MouseDown="canvas_MouseDown">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

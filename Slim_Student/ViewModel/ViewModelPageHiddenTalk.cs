@@ -171,7 +171,14 @@ namespace Slim_Student.ViewModel
                         IDText.Text = "ID";
                     }));
 
-                    m_socketMe.Close();
+                    try
+                    {
+                        m_socketMe.Close();
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                     break;
                     
             }
@@ -365,7 +372,14 @@ namespace Slim_Student.ViewModel
             //보낼 데이터 설정
             saeaServer.UserToken = mdSendMsg;
             //보내기
-            m_socketMe.SendAsync(saeaServer);   // TODO: 선생님 나갔을 때 채팅 접속을 누르면 접속이 되고, 채팅을 입력해서 보내기를 누르면 여기서 NullPointerException
+            try
+            {
+                m_socketMe.SendAsync(saeaServer);   // TODO: 선생님 나갔을 때 채팅 접속을 누르면 접속이 되고, 채팅을 입력해서 보내기를 누르면 여기서 NullPointerException
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
 
