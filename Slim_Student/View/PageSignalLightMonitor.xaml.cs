@@ -24,11 +24,13 @@ namespace Slim_Student.View
     public partial class PageSignalLightMonitor : Page
     {
         private string CurrentSign;
+        public static bool qustionmark;
 
         public PageSignalLightMonitor()
         {
             InitializeComponent();
             DataContext = new ViewModelPageSignalLightMonitor(this);
+            qustionmark = false;
             Clock();
            
         }
@@ -42,6 +44,7 @@ namespace Slim_Student.View
             
                 try
                 {
+                    qustionmark = true;
                     SerialCommunication.CurrentSignal = "?";
                     SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
                 }
@@ -56,6 +59,7 @@ namespace Slim_Student.View
 
         private void OXWindow(object sender, MouseButtonEventArgs e)
         {
+            qustionmark = false;
             WidgetOX widgetOX = new WidgetOX(true);
             widgetOX.ShowDialog();    
             
@@ -64,6 +68,7 @@ namespace Slim_Student.View
 
         private void NumberWindow(object sender, MouseButtonEventArgs e)
         {
+            qustionmark = false;
             WidgetInputWindow inputWindow = new WidgetInputWindow(true);
             inputWindow.ShowDialog();
             
@@ -77,6 +82,7 @@ namespace Slim_Student.View
 
             try
             {
+                qustionmark = false;
                 SerialCommunication.CurrentSignal = "V";
                 SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
             }

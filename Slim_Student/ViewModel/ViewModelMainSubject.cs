@@ -29,6 +29,8 @@ namespace Slim_Student.ViewModel
         private DB_OnetimeProgram dbOneTime;
         private DB_AllProgram dbAllProgram;
         private TextBox _temp;
+
+        
         
 
         #region Algorithm component
@@ -59,11 +61,17 @@ namespace Slim_Student.ViewModel
             dbOneTime = new DB_OnetimeProgram(new DBManager());
             dbAllProgram = new DB_AllProgram(new DBManager());
             CountValue = 0;
+            
            // makeRedGreenList();
 
             Clock();
 
             cpu_Counter = new PerformanceCounter("Process", "% User Time", Process.GetCurrentProcess().ProcessName);
+        }
+
+        public ViewModelMainSubject()
+        {
+
         }
 
         #region makeList
@@ -304,6 +312,7 @@ namespace Slim_Student.ViewModel
         {
             //    if (SerialCommunication.CurrentSignal == "n")
             //        return;
+            
             makeRedGreenList();
             handle = GetForegroundWindow();        // 활성화 윈도우
             GetWindowThreadProcessId(handle, out pid); // 핸들로 프로세스아이디 얻어옴 
@@ -315,48 +324,51 @@ namespace Slim_Student.ViewModel
                 //float cpuUsage = cpu_Counter.NextValue();
                 //if (cpuUsage >= 1.0)   // 3%이상이면 ..(YES)
                 //{
-                    #region 알고리즘 설명
-                    // 1. OneTimeDB 불러오기
-                    // List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(sub_id);
-                    // if(oneTimeList != null)    // OnetimeDB에 YES
-                    // {
-                    //     if(check필드가 1이면 )   
-                    //     { 
-                    //          GREEN라이트
-                    //          return;
-                    //     }
-                    //     else {
-                    //          AllProgramDB 불러오기
-                    //          if(Allprogram에 데이터 없으면) {
-                    //              red라이트;
-                    //              return;
-                    //          } else {
-                    //              red_green 필드 조사
-                    //              if(red_green == 1) red라이트
-                    //              else green라이트
-                    //          }
-                    //     }
-                    // }
-                    // else  // OnetimeDB에 NO - // OnetimeDB에 쌓이지 않은 프로세스일 경우
-                    // { 
-                    //     if (AllProgramDB){
-                    //          1-1. AllProgramDB 불러오기  
-                    //     }
-                    // }
-                    //  
-                    #endregion
+                #region 알고리즘 설명
+                // 1. OneTimeDB 불러오기
+                // List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(sub_id);
+                // if(oneTimeList != null)    // OnetimeDB에 YES
+                // {
+                //     if(check필드가 1이면 )   
+                //     { 
+                //          GREEN라이트
+                //          return;
+                //     }
+                //     else {
+                //          AllProgramDB 불러오기
+                //          if(Allprogram에 데이터 없으면) {
+                //              red라이트;
+                //              return;
+                //          } else {
+                //              red_green 필드 조사
+                //              if(red_green == 1) red라이트
+                //              else green라이트
+                //          }
+                //     }
+                // }
+                // else  // OnetimeDB에 NO - // OnetimeDB에 쌓이지 않은 프로세스일 경우
+                // { 
+                //     if (AllProgramDB){
+                //          1-1. AllProgramDB 불러오기  
+                //     }
+                // }
+                //  
+                #endregion
 
-                    if (SerialCommunication.CurrentSignal == "n")
-                        return;
-                    else if (SerialCommunication.CurrentSignal != "r" && SerialCommunication.CurrentSignal != "g")  // r과 g 외의 신호00 시간 늘리기
+                if (SerialCommunication.CurrentSignal == "n")
+                    return;
+                //else if (SerialCommunication.CurrentSignal == "?")
+                    //return;
+                else if (SerialCommunication.CurrentSignal != "r" && SerialCommunication.CurrentSignal != "g" && SerialCommunication.CurrentSignal != "?")  
+                    // r과 g ,?외의 신호00 시간 늘리기
+                {
+                    if (0 <= CountValue && CountValue < 5)
                     {
-                        if (0 <= CountValue && CountValue < 5)
-                        {
-                            CountValue++;
-                            return;
-                        }
-                        CountValue = 0;
+                        CountValue++;
+                        return;
                     }
+                    CountValue = 0;
+                }
                     List<object[]> oneTimeList = dbOneTime.SelectOneTimeList(Convert.ToInt32(PageMainSubject.SubjectInfo.ElementAt((int)DB_Subject.FIELD.sub_id)), ps.ProcessName);   //
                     if (oneTimeList != null)       // OnetimeDB에 YES (같은 이름의 프로세스가 존재하면)
                     {
@@ -367,11 +379,22 @@ namespace Slim_Student.ViewModel
                                 try
                                 {
 
-                                    if (SerialCommunication.CurrentSignal == "n")
-                                        return;
+                                if (SerialCommunication.CurrentSignal == "n")
+                                    return;
+                                else if (SerialCommunication.CurrentSignal != "?" && PageSignalLightMonitor.qustionmark == true)
+                                {
+                                    SerialCommunication.CurrentSignal = "?";
+                                    SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                                }
+                                else if (SerialCommunication.CurrentSignal != "?" && PageSignalLightMonitor.qustionmark == false)
+                                {
                                     SerialCommunication.CurrentSignal = "g";
                                     SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
                                 }
+                                
+                               
+
+                            }
                                 catch (Exception ex)
                                 {
                                     Console.WriteLine(ex);
@@ -429,8 +452,33 @@ namespace Slim_Student.ViewModel
                 {
                     try
                     {
-                        SerialCommunication.CurrentSignal = "g";
-                        SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                        
+                        if(SerialCommunication.CurrentSignal == "n")
+                          return;
+                        else if (SerialCommunication.CurrentSignal != "?" && PageSignalLightMonitor.qustionmark == true)
+                        {
+                            SerialCommunication.CurrentSignal = "?";
+                            SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                        }
+                        else if (SerialCommunication.CurrentSignal != "?" && PageSignalLightMonitor.qustionmark == false)
+                        {
+                            SerialCommunication.CurrentSignal = "g";
+                            SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                        }
+                        /*
+                        else if (SerialCommunication.CurrentSignal != "?")
+                        {
+                           
+                            SerialCommunication.CurrentSignal = "g";
+                            SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                        }
+                        else if (SerialCommunication.CurrentSignal == "r" && PageSignalLightMonitor.qustionmark)
+                        {
+                            SerialCommunication.CurrentSignal = "?";
+                            SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
+                        }*/
+
+
                     }
                     catch (Exception ex)
                     {

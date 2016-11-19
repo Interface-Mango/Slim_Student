@@ -74,6 +74,7 @@ namespace Slim_Student.View
             //TODOHJ - DB로 올리기 
             try
             {
+                PageSignalLightMonitor.qustionmark = false;
                 SerialCommunication.CurrentSignal = "g";
                 SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
             }
@@ -90,6 +91,7 @@ namespace Slim_Student.View
         {
             try
             {
+                PageSignalLightMonitor.qustionmark = false;
                 SerialCommunication.CurrentSignal = "g";
                 SerialCommunication.SerialPortValue.Write(SerialCommunication.CurrentSignal);
             }
